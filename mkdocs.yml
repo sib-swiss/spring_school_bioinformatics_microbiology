@@ -1,4 +1,4 @@
-site_name: My site
+site_name: Bioinformatics and computational approaches in Microbiology
 nav:
     - Home: index.md
     - Precourse preparations: precourse.md
@@ -7,12 +7,17 @@ nav:
 
 theme:
   name: material
-  logo: assets/images/SIB_logo.svg
-  favicon: assets/images/SIB_logo.svg
+  icon: 
+    logo: material/bacteria
+  favicon: assets/images/bacteria.png
+  palette:
+    primary: grey
+    accent: red
+
 
 # Repository
-repo_name: sib-swiss/course_website_template
-repo_url: https://github.com/sib-swiss/course_website_template
+repo_name: sib-swiss/spring_school_bioinformatics_microbiology
+repo_url: https://github.com/sib-swiss/spring_school_bioinformatics_microbiology
 
 markdown_extensions:
   - abbr
@@ -33,5 +38,5 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
-extra_css:
-  - stylesheets/extra.css
+# extra_css:
+#   - stylesheets/extra.css
