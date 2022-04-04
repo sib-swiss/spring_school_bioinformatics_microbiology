@@ -8,6 +8,8 @@ The goal of this joint School is to provide PhD students and postdocs with theor
 * Project 2: Computational image analysis: transforming images into insights.
 * Project 3: Profiling and modeling the colorectal cancer microbiome.
 * Project 4: Mathematical modeling of bacterial metabolism.
+
+
 # Audience
 This course is addressed to life scientists (mostly PhD students and Postdocs) dealing with microbiology topics such as microbiomes and resistance to antibiotics.
 # Learning outcomes
