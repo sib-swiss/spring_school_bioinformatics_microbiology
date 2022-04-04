@@ -7,6 +7,7 @@ ONGOING WORK
 * Arrival & check-in
 
 **Monday 9 May**
+
 | start 	| end   	| topic   	|
 |-------	|-------	|---------	|
 | 09:00 	| 09:30 	| Introduction by the 3 organizing partners about the event 	|
@@ -34,17 +35,19 @@ ONGOING WORK
 | 19:00   |   | Dinner|
 
 **Wednesday 11 May**
+
 | start 	| end   	| topic   	|
 |-------	|-------	|---------	|
 | 09:00 	| 10:30	| Mini-projects (work in groups)	|
 | 10:30   | 11:00   | Coffee Break  |
 | 11:00 	| 12:30	| Mini-projects (work in groups)	|
 | 12:30   | 14:00   | Lunch |
-| 14:00   | 17:00   | Recrational activity |
+| 14:00   | 17:00   | Recreational activity |
 | 19:00   |   | Dinner|
 
 
 **Thursday 12 May**
+
 | start 	| end   	| topic   	|
 |-------	|-------	|---------	|
 | 09:00 	| 10:30	| Mini-projects (work in groups)	|
@@ -55,6 +58,7 @@ ONGOING WORK
 | 19:00   |   | Dinner|
 
 **Friday 13 May**
+
 | start 	| end   	| topic   	|
 |-------	|-------	|---------	|
 | 09:00 	| 09:45	| Presentation of Mini-projects topic 1	|
