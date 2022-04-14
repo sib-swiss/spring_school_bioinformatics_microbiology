@@ -1,1 +1,13 @@
+**Project 2: Computational image analysis: transforming images into insights.**
 
+* Trainer: **Simon van Vliet**, Project Leader, [Biozentrum, University of Basel](https://www.biozentrum.unibas.ch/research/research-groups/project-leaders-a-z/overview/unit/research-group-simon-van-vliet) & [NCCR AntiResist](https://www.nccr-antiresist.ch/en/) member;
+* Trainer: **Alma Dal Co**, associate professor, [Departement of Computational Biology, University of Lausanne](https://www.unil.ch/dbc/home/menuinst/research-groups/alma-dal-co.html) and [NCCR Microbiomes](https://nccr-microbiomes.ch/) member.
+* Description: In natural environments, bacteria are often exposed to environments that change in time or space. Moreover, even in well-mixed clonal populations, bacteria can show dramatic variation in their growth, gene expression, and physiology. A main goal in current research is to study how these effects affect the growth and activity of microbial populations. To address these questions, many research groups are using in-vitro systems, such as agar pads and microfluidic devices, together with time-lapse microscopy to follow cell growth and gene expression in microbial populations at the single cell level. Although these experiments yield rich datasets, extracting biological insight from them can be challenging. 
+<br>In this course, participants will learn how to obtain biological insight from single-cell resolution, time-lapse microscopy data. We will cover all aspects of the image and data analysis workflow: from preprocessing, to segmenting and tracking cells, to feature extraction and statistical analysis. The participant will be introduced to a number of commonly used and state-of-the art tools, including imageJ, Ilastik, SciPy, and Deep Learning based workflows. 
+<br>The projects will focus on gaining hands-on experience: participants will work through a full image analysis workflow. In addition, we will give short lectures to introduce participants to alternative tools and other useful resources. At the end of the course, participants should be able to successfully analyze their own data using a variety of existing analysis tools. 
+
+<br>Specific knowledge requirements for this project (besides basic knowledge of UNIX and R):  
+- Basic programming knowledge in Python / Matlab / R or similar 
+- Basic knowledge of statistical methods 
+
+Some familiarity with Python is highly beneficial but not necessary. Participants without prior experience with Python are strongly recommended to follow a short online tutorial before the start of the course (instruction will be provided 3-4 weeks before start of course).
