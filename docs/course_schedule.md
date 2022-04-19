@@ -4,8 +4,8 @@ ONGOING WORK
 
 **Sunday 8 May (~18h00)**
 
-* ~18:00  | Arrival & check-in|
-* 19:00   | Dinner|
+| ~18:00  | Arrival & check-in|
+| 19:00   | Dinner|
 
 **Monday 9 May**
 
