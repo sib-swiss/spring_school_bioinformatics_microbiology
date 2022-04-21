@@ -1,4 +1,4 @@
-# Project 0: Semi-automated processing using Fiji, Ilastik, and Python
+# Project 2A: Semi-automated processing using Fiji, Ilastik, and Python
 
 General note: this guide has been written assuming you use a Mac or Linux Command Line.
 
@@ -15,21 +15,21 @@ cd ~
 mkdir I2ICourse
 ```
 
-- Next create a folder for Project 0 `~/I2ICourse/Project0/`:
+- Next create a folder for Project-2A `~/I2ICourse/Project2A/`:
 
 ```zsh
 cd ~/I2ICourse/
-mkdir Project0
+mkdir Project2A
 ```
 
 - And also make a folder for the processed data (output from all steps below):
 
 ```zsh
-cd Project0
+cd Project2A
 mkdir ProcessedData
 ```
 
-- This should have created the following folder: `~/I2ICourse/Project0/ProcessedData/`:
+- This should have created the following folder: `~/I2ICourse/Project2A/ProcessedData/`:
 
 - Note: two useful terminal commands are:
   - `ls`: show current folder content
@@ -48,25 +48,25 @@ Here we will download the data via the command line, you will need to do this if
 - Navigate to the data folder:
 
 ```zsh
-cd ~/I2ICourse/Project0/
+cd ~/I2ICourse/Project2A/
 ```
 
 - Download the data set and unzip it using:
   
 ```zsh
-wget -O RawData.zip https://drive.switch.ch/index.php/s/YF5Jt6DiMpzzZ3C/download
+wget -O RawData.zip https://drive.switch.ch/index.php/s/VsWWiuaIctITWQl/download
 unzip RawData.zip
 ```
 
-- You should now have a folder `~/I2ICourse/Project0/RawData` containing 3 tif files (hint: use `ls` to check!)
-- We can delete the zip-file using: `rm project0.zip`
+- You should now have a folder `~/I2ICourse/Project2A/RawData` containing 3 tif files (hint: use `ls` to check!)
+- We can delete the zip-file using: `rm Project2A.zip`
 
 ### Download via browser
 
-- Open this [link](https://drive.switch.ch/index.php/s/T5t9eczX7cb96FN)
+- Open this [link](https://drive.switch.ch/index.php/s/VsWWiuaIctITWQl)
 - Click Download
 - Unzip the compressed file inside your data folder.
-  - The data should now be located in `~/I2ICourse/Project0/RawData`
+  - The data should now be located in `~/I2ICourse/Project2A/RawData`
 
 ---
 
@@ -78,36 +78,36 @@ We will first prepare the data in Fiji
 
 Before pre-processing we need to merge the color channels.
 
-- Open the individual color images (proj0-pos0-[c].tif, where c={r,g,p})
+- Open the individual color images (pos0-[c].tif, where c={r,g,p})
 - `Image` -> `Color` -> `Merge Channels`
 - Make sure `Create composite` is selected
 - Under C1 (red) select the [r] image
 - Under C2 (green) select the [g] image
 - Under C4 (grey) select the [p] image
 
-- Save on disk as proj0-pos0-merged.tif
-  - use your processed data folder, e.g.: `~/I2ICourse/Project0/ProcessedData/`
+- Save on disk as pos0-merged.tif
+  - use your processed data folder, e.g.: `~/I2ICourse/Project2A/ProcessedData/`
 
 ### Crop Image
 
 - Make a rectangular selection around the area of interest
 - Make sure that you make the area big enough to accommodate any remaining jitter.
 - Go to `Image`->`Crop`
-- Save image as proj0-pos0-preproc-merged.tif
-  - use your processed data folder, e.g.: `~/I2ICourse/Project0/ProcessedData/`
+- Save image as pos0-preproc-merged.tif
+  - use your processed data folder, e.g.: `~/I2ICourse/Project2A/ProcessedData/`
 
 ### Export data for segmentation
 
 First we split the image into separate color channels
 
 - `Image` -> `Color` -> `Split Channels`
-- Save the separate image channels under the name proj0-pos0-preproc-[c].tif
+- Save the separate image channels under the name pos0-preproc-[c].tif
 
 In addition we need a combined image with the red and green channels.
 
 - Use `Merge Channels` to combine the red and green channels (do not include phase!).
-- Save on disk as proj0-pos0-preproc-rg.tif
-  - use your processed data folder, e.g.: `~/I2ICourse/Project0/ProcessedData/`
+- Save on disk as pos0-preproc-rg.tif
+  - use your processed data folder, e.g.: `~/I2ICourse/Project2A/ProcessedData/`
 
 ---
 
@@ -132,7 +132,7 @@ Most important steps:
 
 - Open Ilastik
 - Select `Pixel Classification` workflow
-- Save it in processed data folder as 'proj0-ilastik'
+- Save it in processed data folder as 'proj2A-ilastik'
 - Go to `Input Data`
   - First load the data of the red-green channel.
   - If you have extra time, try repeat on the phase contrast channel instead  
@@ -154,7 +154,7 @@ Most important steps:
   - In `Export Settings` select `Probabilities` in the `source` field.
   - Open `Choose Export Image Setting` and select `hdf5` format.
   - Then click `Export All`
-  - Select as output folder `~/I2ICourse/Project0/ProcessedData/`
+  - Select as output folder `~/I2ICourse/Project2A/ProcessedData/`
 
 The output should be stored under the name `[input_file_name]_Probabilities.h5`, i.e. `proj0_pos0_preproc-rg_Probabilities.h5`.
 
@@ -181,6 +181,6 @@ conda activate i2i_env
 jupyter lab
 ```
 
-- In Jupyter Labs, navigate to `Image2Insight/Project0_Ilastik/`
+- In Jupyter Labs, navigate to `Image2Insight/Project2A_Ilastik/`
 - Then open the `post_process_segementation.ipynb`
 - Now run the notebook (see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html))

@@ -6,10 +6,11 @@ nav:
     - Project 1: project1.md
     - Project 2: 
       - Description: project2.md
-      - Preparation: project2/Prepare-before-start-of-the-course.md
-      - Project 0: project2/Project-0.md
-      - Project 1: project2/Project-1.md
-      - Project 2: project2/project-2.md
+      - Preparation: project2/Project2_Preparation.md
+      - Overview: project2/Project2_Overview.md
+      - Project 2A: project2/Project-2A.md
+      - Project 2B: project2/Project-2B.md
+      - Project 2C: project2/project-2C.md
     - Project 3: project3.md
     - Project 4: project4.md
 
