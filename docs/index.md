@@ -27,7 +27,7 @@ At the end of the course, the participants are expected to:
 Guido A. Zäch Strasse 2</br>
 6207 Nottwil LU</br>
 T +41 41 939 23 23</br>
-infohotelsempachersee.ch</br>
+info -at- hotelsempachersee.ch</br>
 
 [How to get there](https://www.hotelsempachersee.ch/en/explore/location-contact)
 
