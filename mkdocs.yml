@@ -4,7 +4,12 @@ nav:
     - Precourse preparations: precourse.md
     - Course schedule: course_schedule.md
     - Project 1: project1.md
-    - Project 2: project2.md
+    - Project 2: 
+      - Description: project2.md
+      - Preparation: project2/Prepare-before-start-of-the-course.md
+      - Project0: project2/Project-0.md
+      - Project1: project2/Project-1.md
+      - Project2: project2/project-2.md
     - Project 3: project3.md
     - Project 4: project4.md
 
