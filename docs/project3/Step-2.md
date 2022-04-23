@@ -2,6 +2,12 @@
 
 General note: this guide has been written assuming you use a R.
 
+In R studio load the necessary libraries:
+```R
+library("tidyverse") # for general data wrangling and plotting
+library("SIAMCAT")   # for statistical and machine learning analyses
+```
+
 ---
 
 ## Download the taxonomic profiles and metadata
