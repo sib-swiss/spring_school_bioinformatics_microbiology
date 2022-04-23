@@ -22,3 +22,5 @@ Which will produce an html file. You can find more information on the different 
 
 You can filter out low quality reads using trimmomatic. You can find more information [here](http://www.usadellab.org/cms/?page=trimmomatic).
 Note that if you installed trimmomatic with conda, you can run with `trimmomatic PE [...]` (do not need to specify `java -jar trimmomatic-0.39.jar PE [...]`).
+
+How many reads have been filtered out? After filtering the reads, check if the overall quality improve. 
