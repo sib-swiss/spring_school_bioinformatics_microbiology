@@ -3,7 +3,7 @@
 ## a vector of packages to install (edit in this section) ----------------------
 ### packages could be either on CRAN or bioconductor
 
-pkgs <- c()
+pkgs <- c("SIAMCAT","tidyverse")
 
 ### if packages need to be installed from github:
 ### devtools::install_github("namespace/repo")
