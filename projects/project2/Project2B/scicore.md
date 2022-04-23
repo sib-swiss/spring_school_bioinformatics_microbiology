@@ -7,16 +7,14 @@
   - Use the transfer nodes: `username@login-transfer.scicore.unibas.ch`
   - e.g. `scp file_in_active_path username@login-transfer.scicore.unibas.ch:home/folder_in_home_dir`
 
-## Setup Mamba mini forge
+## Install miniconda
 
-Mamba is a newer and faster alternative to conda, but both work fine. You can also install miniconda or conda-forge if you prefer.
+Download and install miniconda:
 
-To install Mamba forge:
+- `wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
+- `bash Miniconda3-latest-Linux-x86_64.sh`
 
-- `wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh`
-- `bash Mambaforge-Linux-x86_64.sh -p $HOME/mambaforge -b`
-
-If you prefer anaconda, see [here](https://wiki.biozentrum.unibas.ch/pages/viewpage.action?pageId=100829566) for detailed instructions.
+Run  `conda init [shell_name]` where `shell_name` is the type of shell used by the cluster (e.g. `bash`, see instructions at end of installation step).
 
 ## Install delta environment
 
@@ -39,7 +37,7 @@ Please see [here](https://wiki.biozentrum.unibas.ch/pages/viewpage.action?pageId
 In short:
 
 - make sure the conda environment is setup and that the data has been copied
-- prepare a bash script for the job (see e.g  `GPUNotebook.sh`)
+- prepare a bash script for the job (see the included  `GPUNotebook.sh`)
   - Adapt partition if needed, see [here](https://wiki.biozentrum.unibas.ch/display/scicore/4.+Queues+and+partitions)
   - Make sure to add the following lines:
 
@@ -57,11 +55,11 @@ jupyter lab [name_of_notebook]
 - check if it has launched using `squeue -u [username]` (see [here](https://wiki.biozentrum.unibas.ch/display/scicore/10.+Monitoring) for details)
 - When launched open the output file called `JupLab-[job-id].oe` e.g. using vim: `vim JupLab-[job-id].oe`
 - Copy the ssh command to your **local** terminal
-- Open your browser and open the website `https://localhost:[port_nr]/lab?token=[token_nr]` 
+- Open your browser and open the website `https://localhost:[port_nr]/lab?token=[token_nr]`
   - See the output file for the port and token numbers
 - You should now be connected to the Jupyter session on the cluster
 - You can close vim using `esc` followed by `:q!`
 - **Important:** kill your job when your are done using it: `scancel [jobid]` or `scancel -u [username]`
   - **warning:** `scancel -u [username]` kills all your jobs!
 
-In case of problems: maybe you reconnected earlier on the same port. If so you can clear old sessions using `lsof -ti:[port_nr] | xargs kill -9`
+In case of problems: maybe you reconnected earlier on the same port. If so you can clear old sessions using `lsof -ti:[port_nr] | xargs kill -9` (run this on your local machine!)

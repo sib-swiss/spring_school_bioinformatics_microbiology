@@ -97,7 +97,7 @@ cd ~/I2ICourse/
 git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
 ```
 
-- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/project2` which contains all the Jupyter notebooks as well as the other course files
+- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
 
 ---
 
@@ -130,11 +130,11 @@ conda install python=3.9
 
 Note: alternatively you can install MiniConda, this is a minimal conda install that takes up much less space than Anaconda, but provides identical functionality. Follow instructions [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
 
-### Install Mamba
+### Optional: Install Mamba
 
-The conda package manager can be rather slow at times. Specifically it does not work well at all with one of the packages we will use.
-
-Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html). mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`. One exception: activating and deactivating environments has to be done with `conda`.
+The conda package manager can be rather slow at times. Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html).  
+mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`.  
+One exception: activating and deactivating environments still has to be done with the `conda` command.
 
 - Install mamba using
 
@@ -158,13 +158,13 @@ conda create --name [environment_name] [list of packages to install]
 conda env create -f environment.yml
 ```
 
-- As mentioned above, conda can be slow to use, so if you installed `mamba` as described above you use this to create a new environment, by simply using `mamba env create ...`.
-
 - We now create the environment for the course, using:
 
 ```zsh
-mamba env create -f i2i_env.yml
+conda env create -f i2i_env.yml
 ```
+
+Note: you can also use mamba for this step in case you installed it before.
 
 ---
 
@@ -192,7 +192,7 @@ conda activate i2i_env
 jupyter lab
 ```
 
-- In Jupyter labs, navigate to `/I2ICourse/spring_school_bioinformatics_microbiology/project2/`
+- In Jupyter labs, navigate to `/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/`
 - Then open the `test_notebook.ipynb`
 - Now run the notebook (see here for [instructions](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html))
 
