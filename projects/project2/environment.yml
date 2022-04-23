@@ -10,7 +10,7 @@ dependencies:
   - seaborn
   - napari
   - jupyterlab
-  - delta2
+  - delta2=2.0.5
   - pandas
   - qt
   - scikit-image
