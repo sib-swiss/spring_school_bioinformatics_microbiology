@@ -25,3 +25,12 @@ tax.profiles <- read.table(feat.motus, sep = '\t', quote = '',
                            row.names = 1, header = TRUE)
 tax.profiles <- as.matrix(tax.profiles)
 ```
+
+Load the metadata with:
+```R
+meta.file  <- paste0(url_base, 'Wirbel.metadata')
+meta <- read.table(meta.file,
+                   sep = '\t', quote = '',
+                   stringsAsFactors = FALSE, check.names = FALSE, 
+                   row.names = 1, header = TRUE)
+```
