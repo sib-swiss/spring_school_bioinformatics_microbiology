@@ -1,7 +1,24 @@
+name: i2i_env
 channels:
   - conda-forge
-  - bioconda
 dependencies:
-  - python=3.8
+  - h5py
+  - ipykernel
+  - scipy
+  - matplotlib
+  - numpy
+  - seaborn
+  - napari
+  - jupyterlab
+  - delta2
+  - pandas
+  - qt
+  - scikit-image
+  - scikit-learn
+  - dask-image
+  - python=3.9
+  - pathlib
   - pip
   - pip:
+    - PyBacmman
+    - elasticdeform

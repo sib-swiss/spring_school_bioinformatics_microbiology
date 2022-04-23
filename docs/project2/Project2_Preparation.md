@@ -1,14 +1,16 @@
-# Install software and packages
+# Preparation before start of course
 
-To get started quickly during the course, we ask you to prepare a few things before the start of the course.
+During the course we will use a number of software packages. To get started quickly during the course, we ask you to install a few of these before the start of the course.
+
+In case you run into any problems please do not hesitate to contact Simon van Vliet (preferentially via Slack).
 
 We will use the following software:
 
-- Ilastik
-- BACMMAN
-- Conda (Python) -> We will use cloud-based computers to run our Python code, you do not have to install this on your private machines
+- Ilastik -> Please install before start of course following instructions below
+- BACMMAN (Fiji-ImageJ) -> Please install before start of course following instructions below
+- Python (Anaconda) -> No need to install, we will use cloud-based computers to run our Python code
 
-Please install these following the instructions below.  
+For completeness we also include instructions on how to install Python/Anaconda on your own computers below, however you can ignore these for now.
 
 ---
 
@@ -29,7 +31,7 @@ BACMMAN (BACteria in Mother Machine Analyzer) is a ImageJ plugin that offers a f
 
 ### Install Fiji
 
-- Download [here](https://fiji.sc) 
+- Download [here](https://fiji.sc)
 - On Mac/Linux: copy Fiji app to application folder (or other folder of choice)
   - Note: OSX will give a security warning, please go into settings to give permission to launch Fiji
 - On Windows: copy Fiji app to a folder in your user space e.g. `C:\Users\[your name]\ImageJ.app`
@@ -42,7 +44,7 @@ You can have multiple copies of Fiji on your computer, simply rename the new cop
 ### Update Fiji
 
 - Start Fiji
-- Update Fiji with default update sites (ImageJ / Fiji / Java 8)
+- Update Fiji with default update sites (ImageJ / Fiji / Java 8):
   - Go to `Help` -> `Update`
   - In ImageJ Updater window click on `Apply Changes`
 - Restart Fiji
@@ -92,10 +94,10 @@ mkdir I2ICourse
 
 ```zsh
 cd ~/I2ICourse/
-git clone https://github.com/simonvanvliet/Image2Insight.git
+git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
 ```
 
-- This will create the folder `~/I2ICourse/Image2Insight/` which contains all the Jupyter notebooks as well as the other course files
+- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
 
 ---
 
@@ -128,11 +130,11 @@ conda install python=3.9
 
 Note: alternatively you can install MiniConda, this is a minimal conda install that takes up much less space than Anaconda, but provides identical functionality. Follow instructions [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
 
-### Install Mamba
+### Optional: Install Mamba
 
-The conda package manager can be rather slow at times. Specifically it does not work well at all with one of the packages we will use.
-
-Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html). mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`. One exception: activating and deactivating environments has to be done with `conda`.
+The conda package manager can be rather slow at times. Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html).  
+mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`.  
+One exception: activating and deactivating environments still has to be done with the `conda` command.
 
 - Install mamba using
 
@@ -156,13 +158,13 @@ conda create --name [environment_name] [list of packages to install]
 conda env create -f environment.yml
 ```
 
-- As mentioned above, conda can be slow to use, so if you installed `mamba` as described above you use this to create a new environment, by simply using `mamba env create ...`.
-
 - We now create the environment for the course, using:
 
 ```zsh
-mamba env create -f i2i_env.yml
+conda env create -f i2i_env.yml
 ```
+
+Note: you can also use mamba for this step in case you installed it before.
 
 ---
 
@@ -190,7 +192,7 @@ conda activate i2i_env
 jupyter lab
 ```
 
-- In Jupyter labs, navigate to `Image2Insight/Setup/`
+- In Jupyter labs, navigate to `/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/`
 - Then open the `test_notebook.ipynb`
 - Now run the notebook (see here for [instructions](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html))
 
@@ -205,18 +207,16 @@ jupyter lab
 
 ### Alternatives
 
-- You can use Jupyter Notebook instead of Jupyter Lab
-  - Both have same functionality, but Jupyter Lab has a bit nicer interface
-  - To install: replace `jupyterlab` with `notebook`
-  - To open: replace `jupyter-lab` with `jupyter notebook`
+You can use Jupyter Notebook instead of Jupyter Lab. Both have same functionality, but Jupyter Lab has a bit nicer interface.
 
-- [Visual Studio Code (VS Code)](https://code.visualstudio.com) is a cross-platform app that you can use to run Jupyter Notebooks. It has some added advantage compared to Jupyter Notebook / Jupyter Lab:
-  - VS Code has a nice and fully customizable interface
-  - VS Code has a great build-in debugger
-  - VS Code offers several useful extensions such as:
-    - Jupyter (required to Jupyter notebooks)
-    - Markdown All in One (Markdown support)
-    - Python
-    - Gitlens (full Git integration)
-    - Code Spell Checker (intelligent spell checking)
-    - and many others
+- To install: replace `jupyterlab` with `notebook`
+- To open: replace `jupyter-lab` with `jupyter notebook`
+
+[Visual Studio Code (VS Code)](https://code.visualstudio.com) is a cross-platform app that you can use to run Jupyter Notebooks. It has some added advantage compared to Jupyter Notebook / Jupyter Lab: it has a nice and fully customizable interface, a great build-in debugger, and offers several useful extensions such as:
+
+- Jupyter (required to Jupyter notebooks)
+- Markdown All in One (Markdown support)
+- Python
+- Gitlens (full Git integration)
+- Code Spell Checker (intelligent spell checking)
+- and many others
