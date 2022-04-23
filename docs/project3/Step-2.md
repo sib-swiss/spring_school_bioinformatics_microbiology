@@ -42,3 +42,14 @@ Look first at the taxonomic profiles and check how many zeros there are, what do
 
 The values in the taxonomic profiles represent read counts, if you compare the different samples (columns), do you observe a similar total read count? Can it be a problem when comparing species counts across different samples?
 
+Look at the metadata, how many control (`CTR`) and cases (`CRC` for colorectal cancer) are there?
+
+
+
+## Identify which species show an association to colorectal cancer patients
+
+How would you identify which species are associated to cancer? Which kind of test can you use?
+
+Explore how SIAMCAT identify associations between clades and phenotypes: https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html
+
+
