@@ -47,7 +47,40 @@ Note that mOTUs require around 7Gb of space and it will download 3.5 Gb when ins
 
 
 
+### Problems installing with conda
 
+If you have problem installing the conda environment, it might be due to the size required for mOTUs. We suggest to remove motus and install it with `pip`.  First create a new yaml file (names `NCCR_p3_test2.yaml`):
+```bash
+name: NCCR_p3_test2
+channels:
+  - conda-forge
+  - defaults
+  - bioconda
+dependencies:
+  - python=3.8
+  - fastqc=0.11.9
+  - bwa
+  - samtools
+  - pip
+  - trimmomatic=0.39
+  - mapseq=1.2.6
+```
+
+Create and activate the environment:
+```bash
+conda env create -f NCCR_p3_test2.yaml
+source activate NCCR_p3_test2
+```
+
+Install mOTUs with pip:
+```bash
+pip install motu-profiler
+```
+
+And download the database manually:
+```bash
+motus downloadDB
+```
 
 
 ## Installing R packages
