@@ -11,7 +11,12 @@ nav:
       - Project 2A: project2/Project-2A.md
       - Project 2B: project2/Project-2B.md
       - Project 2C: project2/Project-2C.md
-    - Project 3: project3.md
+    - Project 3:
+      - Description: project3.md
+      - Preparation: project3/Prepare-before-start-of-the-course.md
+      - Overview: project3/Overview.md
+      - Step 1: project3/Step-1.md
+      - Step 2: project3/Step-2.md
     - Project 4: project4.md
 
 theme:
