@@ -8,7 +8,7 @@ General note: this guide has been written assuming you use a R.
 
 From the previous step you learned how to create taxonomic profiles. Here we provide 120 taxonomic profiles in the form of a table where columns are samples and rows are species (or clade in general). Within R you can download and load the files with the following command:
 
-```
+``` R
 url_base = "https://www.embl.de/download/zeller/TEMP/NCCR_course/"
 
 # mOTUs species table
