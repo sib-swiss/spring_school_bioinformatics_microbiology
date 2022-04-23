@@ -68,7 +68,7 @@ Here you can load the mOTUs profiles at genus level (instead of species level):
 ``` R
 feat.motus  <- paste0(url_base, 'Wirbel_genus.motus')
 tax.profiles.genus <- read.table(feat.motus, sep = '\t', quote = '',
-                           comment.char = '',
+                           comment.char = '', skip = 2,
                            stringsAsFactors = FALSE, check.names = FALSE,
                            row.names = 1, header = TRUE)
 tax.profiles.genus <- as.matrix(tax.profiles.genus)
