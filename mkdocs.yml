@@ -14,8 +14,8 @@ nav:
       - Description: project3.md
       - Preparation: project3/Prepare-before-start-of-the-course.md
       - Overview: project3/Overview.md
-      - Step 1: project3/Step-1.md
-      - Step 2: project3/Step-2.md
+      - Step1: project3/Step-1.md
+      - Step2: project3/Step-2.md
     - Project 4: project4.md
 
 theme:
