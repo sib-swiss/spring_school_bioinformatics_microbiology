@@ -50,7 +50,7 @@ Look at the metadata, how many control (`CTR`) and cases (`CRC` for colorectal c
 
 How would you identify which species are associated to cancer? Which kind of test can you use?
 
-Explore how SIAMCAT identify associations between clades and phenotypes: https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html
+Explore how SIAMCAT identify associations between clades and phenotypes: [link](https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html)
 
 
 
