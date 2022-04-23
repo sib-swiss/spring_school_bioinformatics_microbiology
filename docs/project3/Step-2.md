@@ -53,3 +53,24 @@ How would you identify which species are associated to cancer? Which kind of tes
 Explore how SIAMCAT identify associations between clades and phenotypes: https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html
 
 
+
+## Build machine learning models to predict colorectal cancer patients from a metagenomic sample
+
+Explore the SIAMCAT basic vignette to understand how you can train machine learning models to predict colerectal cancer from metagenomic samples.
+
+
+
+## Explore other profiling methods
+
+We profiled the same samples with different methods.
+
+Here you can load the mOTUs profiles at genus level (instead of species level):
+``` R
+feat.motus  <- paste0(url_base, 'Wirbel_genus.motus')
+tax.profiles.genus <- read.table(feat.motus, sep = '\t', quote = '',
+                           comment.char = '',
+                           stringsAsFactors = FALSE, check.names = FALSE,
+                           row.names = 1, header = TRUE)
+tax.profiles.genus <- as.matrix(tax.profiles.genus)
+```
+
