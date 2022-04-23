@@ -14,6 +14,28 @@ Please install these following the instructions below.
 
 ---
 
-## Trimmomatic
+## Install four tools using Miniconda
 
-With conda
+Conda is a package management system and environment management system that allow to quickly install, run and update packages and their dependencies. The first four tools can be easily installed using conda, we suggest to use [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+
+After installing miniconda, create a file named `NCCR_p3.yaml` with:
+```bash
+name: NCCR_p3
+channels:
+  - conda-forge
+  - defaults
+  - bioconda
+dependencies:
+  - python=3.8
+  - fastqc=0.11.9
+  - motus=3.0.1
+  - trimmomatic=0.39
+  - mapseq=1.2.6
+```
+
+In the terminal you can then type:
+```bash
+conda env create -f NCCR_p3.yaml
+source activate NCCR_p3
+```
+
