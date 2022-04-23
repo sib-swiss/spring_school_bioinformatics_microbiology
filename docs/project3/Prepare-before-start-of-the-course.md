@@ -4,11 +4,11 @@ To get started quickly during the course, we ask you to prepare a few things bef
 
 We will use the following software:
 
-- [Trimmomatic] (http://www.usadellab.org/cms/?page=trimmomatic)
-- [fastQC] (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-- [mOTUs] (https://github.com/motu-tool/mOTUs)
-- [MAPseq] (https://github.com/jfmrod/MAPseq)
-- [SIAMCAT] (https://siamcat.embl.de/)
+- [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
+- [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- [mOTUs](https://github.com/motu-tool/mOTUs)
+- [MAPseq](https://github.com/jfmrod/MAPseq)
+- [SIAMCAT](https://siamcat.embl.de/)
 
 Please install these following the instructions below.  
 
