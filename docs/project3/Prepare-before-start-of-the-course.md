@@ -45,3 +45,23 @@ source activate NCCR_p3
 
 Note that mOTUs require around 7Gb of space and it will download 3.5 Gb when installing. Hence the installation can take a few minutes.
 
+
+
+
+
+
+## Installing R packages
+
+Within R (we suggest to use R studio), type:
+
+```
+##R Version 4.0.2 or above
+
+#tidyverse packages for plotting and data wrangling
+install.packages("tidyverse")
+
+#SIAMCAT
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("SIAMCAT")
+```
