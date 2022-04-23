@@ -38,7 +38,7 @@ In the terminal you can then type:
 conda env create -f NCCR_p3.yaml
 ```
 
-To create an environment with the four tools that we will run on the terminal. You need to activate the environment before using it:
+To create an environment with the four tools that we will run in the terminal. You need to activate the environment before using it:
 ```bash
 source activate NCCR_p3
 ```
