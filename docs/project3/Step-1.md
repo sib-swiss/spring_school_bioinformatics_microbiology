@@ -8,7 +8,8 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 
 Sequencing data produced by a short read sequencer like Illumina result in two fastq files: forwards and reverse. You can download three example fastq files at the following links (within a terminal):
 ```bash
-wget XY
+wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sample1_forward.fastq
+wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sample1_reverse.fastq
 ```
 
 ## Check the quality of the sequencing data and filter out low quality reads
