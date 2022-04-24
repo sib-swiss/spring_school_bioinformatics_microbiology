@@ -2,6 +2,21 @@
 
 [Delta 2.0](https://gitlab.com/dunloplab/delta) is a Deep Learning based workflow that can segment and track 1D (mother machine) and 2D (family machine and agar pads) data. It uses two consecutive U-Net networks to first segment and then track cells. The pipeline is described in [this publication](https://doi.org/10.1371/journal.pcbi.1009797). Detailed instruction can be found [here](https://delta.readthedocs.io/en/latest/index.html)
 
+## Get started
+
+We will **work on the cloud computers** for the full project
+
+- On the cloud computer navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
+
+```bash
+cd ~/I2ICourse/
+conda activate i2i_env
+jupyter lab
+```
+
+- In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2B/`
+- Then follow the steps below.
+
 ## Download test data
 
 Run the `0_download_model_delta` notebook to download the pre-trained network and data (note this may take some time, best to run this over a break!)

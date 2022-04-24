@@ -213,6 +213,6 @@ conda activate i2i_env
 jupyter lab
 ```
 
-- In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/`
+- In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2A/`
 - Then open the `post_process_segementation.ipynb` notebook
 - Now run the notebook, see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)
