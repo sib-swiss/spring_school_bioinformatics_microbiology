@@ -22,7 +22,7 @@ Work trough the `2_post_processing_delta` notebook.
 
 ## Analyze the data
 
-Once you have the data analyzed, try to extract biological insight from it. Discuss with your tutor what question you could address. For this step on we encourage people to team-up in pairs/small-groups and work together. You can use the `3_expore_data_delta` notebook as a starting point.
+Once you have the data analyzed, try to extract biological insight from it. Discuss with your tutor what question you could address. For this step on we encourage people to team-up in pairs/small-groups and work together. You can use the `3_explore_data_delta` notebook as a starting point.
 
 ## Note on data
 

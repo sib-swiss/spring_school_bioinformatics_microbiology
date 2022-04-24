@@ -159,7 +159,9 @@ The output should be stored under the name `[input_file_name]_Probabilities.h5`,
 
 ## Post-process with Python
 
-We will switch to the cloud computers for the next steps.
+We will now **switch to the cloud computers** for the next steps.
+
+### Create project folders on cloud computer
 
 - On the cloud computer, we have to recreate the project folder:
 
@@ -168,7 +170,40 @@ cd ~
 mkdir I2ICourse
 ```
 
-- Then we have to transfer the data from your local computer to the cloud computer (ask tutors how to do this).
+We also make some extra folders for Project2A:
+
+```bash
+cd ~/I2ICourse/
+mkdir Project2A
+cd Project2A
+mkdir ProcessedData
+```
+
+### Download project code
+
+- Navigate to the project folder and use the `git clone` command to download the course code:
+
+```zsh
+cd ~/I2ICourse/
+git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
+```
+
+- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
+
+### Transfer the data
+
+- Then we have to transfer the data from your local computer to the cloud computer
+- First compress the `~/I2ICourse/Project2A/ProcessedData` folder on your local computer into a zip-file
+- Upload this zip file to a cloud drive
+- Create a public share link and copy the address
+
+```bash
+cd ~/I2ICourse/Project2A/ProcessedData
+wget -O data.zip public_link_to_your_zip_file
+unzip -j data.zip
+```
+
+### Launch Jupyter Labs
 
 - Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
 
@@ -179,5 +214,5 @@ jupyter lab
 ```
 
 - In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/`
-- Then open the `post_process_segementation.ipynb`
-- Now run the notebook (see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html))
+- Then open the `post_process_segementation.ipynb` notebook
+- Now run the notebook, see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)

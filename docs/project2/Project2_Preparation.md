@@ -1,18 +1,32 @@
 # Preparation before start of course
 
-During the course we will use a number of software packages. To get started quickly during the course, we ask you to install a few of these before the start of the course.
+To get started quickly during the course, we ask you to prepare a few things.
 
-In case you run into any problems please do not hesitate to contact Simon van Vliet (preferentially via Slack).
+## Optional: Python Tutorial
 
+For those with little or no Python experience: we recommend you have a look at the following two notebooks that very briefly introduced the most important concepts and syntax:
+
+- [General python introduction](https://colab.research.google.com/github/Pseudomoaner/Homeworks_Incomplete/blob/main/ODE_Modelling/Introduction%20to%20Python.ipynb) (made available by [Oliver Meacock](https://github.com/Pseudomoaner), University of Lausanne)
+- [Short intro to Pandas dataframes](https://colab.research.google.com/github/google/eng-edu/blob/main/ml/cc/exercises/pandas_dataframe_ultraquick_tutorial.ipynb) (made available by Google)
+
+## Setup Cloud Drive
+
+We will need to transfer data between our local computers and cloud workstations, for this you need access to a cloud drive (e.g. Dropbox, Google Drive, Switch Drive, etc.) with at least 3GB of free space. For those based at a Swiss institution: you can setup a free account at [SwitchDrive](https://www.switch.ch/drive/) which gives you 100GB of space.
+
+## Install Software
+
+During the course we will use a number of software packages, we ask you to install a few of these before the start of the course. In case you run into any problems please do not hesitate to contact Simon van Vliet (preferentially via Slack).
 We will use the following software:
 
-- Ilastik -> Please install before start of course following instructions below
-- BACMMAN (Fiji-ImageJ) -> Please install before start of course following instructions below
+- Ilastik -> Please install before start of course following instructions [below](#ilastik)
+- BACMMAN (Fiji-ImageJ) -> Please install before start of course following instructions [below](#bacmman)
 - Python (Anaconda) -> No need to install, we will use cloud-based computers to run our Python code
 
 For completeness we also include instructions on how to install Python/Anaconda on your own computers below, however you can ignore these for now.
 
 ---
+
+## Installation Instructions
 
 ## Ilastik
 
@@ -21,7 +35,7 @@ We will use it for supervised pixel segmentation.
 
 - We will use Ilastik beta version 1.4.0b21 (or newer) in the course
 - Download it [here](https://www.ilastik.org/download.html#beta)
-- Expend the archive and move the Ilastik application to your application folder
+- Expand the archive and move the Ilastik application to your application folder
 
 ---
 
@@ -64,7 +78,7 @@ You can have multiple copies of Fiji on your computer, simply rename the new cop
   
 ---
 
-### Max OSX Only: Install terminal packages
+## Optional: Install Mac OSX terminal packages
 
 Although Mac OSX has a number of Terminal packages included by default (e.g. git), other need to be installed manually. [Homebrew](https://docs.brew.sh/Installation#4) is a convenient package manager that allows you to obtain these packages. To install, follow these instructions:
 
