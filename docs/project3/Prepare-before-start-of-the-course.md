@@ -19,6 +19,7 @@ Please install these following the instructions below.
 Conda is a package management system and environment management system that allow to quickly install, run and update packages and their dependencies. The first four tools can be easily installed using conda, we suggest to use [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
 After installing miniconda, create a file named `NCCR_p3.yaml` with:
+
 ```bash
 name: NCCR_p3
 channels:
@@ -34,11 +35,13 @@ dependencies:
 ```
 
 In the terminal you can then type:
+
 ```bash
 conda env create -f NCCR_p3.yaml
 ```
 
 To create an environment with the four tools that we will run in the terminal. You need to activate the environment before using it:
+
 ```bash
 source activate NCCR_p3
 ```
@@ -50,6 +53,7 @@ Note that mOTUs require around 7Gb of space and it will download 3.5 Gb when ins
 ### Problems installing with conda
 
 If you have problem installing the conda environment, it might be due to the size required for mOTUs. We suggest to remove motus and install it with `pip`.  First create a new yaml file (names `NCCR_p3_test2.yaml`):
+
 ```bash
 name: NCCR_p3_test2
 channels:
@@ -67,17 +71,20 @@ dependencies:
 ```
 
 Create and activate the environment:
+
 ```bash
 conda env create -f NCCR_p3_test2.yaml
 source activate NCCR_p3_test2
 ```
 
 Install mOTUs with pip:
+
 ```bash
 pip install motu-profiler
 ```
 
 And download the database manually:
+
 ```bash
 motus downloadDB
 ```
