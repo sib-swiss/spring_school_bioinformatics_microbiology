@@ -1,63 +1,156 @@
 # Segmentation and Tracking Mother Machine Data with Bacmman & DistNet
 
+Bacmman is a ImageJ plugin for analyzing mother machine data. All interactions with the software are via a GUI making it relatively user-friendly (though with a bit of a steep learning curve). At the backend Bacmman uses a state-of-the-art deep learning network to track and segment cells.
+
+## Download Data
+
+**Important: the dataset is 5GB big, so start download at latest on Tuesday morning!**
+
+```bash
+cd I2ICourse
+mkdir Project2C
+cd Project2C
+wget -O RawData.zip /download
+unzip RawData.zip
+```
+
+Check the folder content (it should contain 2 tiff files).  
+The remove the zip file with `rm RawData.zip`
+
 ## Getting started
 
-This tutorial has been adapted from [this Wiki](https://github.com/jeanollion/bacmman/wiki/DistNet) page of Jean Ollion by Simon van Vliet.
+Note: parts of this tutorial have been adapted from [this Wiki](https://github.com/jeanollion/bacmman/wiki/DistNet) page of Jean Ollion.
 
-Bacmman is described extensively in this [Nature Protocols article](https://doi.org/10.1038/s41596-019-0216-9), however note that some parts are outdated. 
+Bacmman is described extensively in this [Nature Protocols article](https://doi.org/10.1038/s41596-019-0216-9), however note that some parts are outdated. Specifically, the protocol uses the older, classical algorithm to track and segment cells. The parts that describe the GUI are still very useful though.  
+More up-to-date info can be found on [this wiki](https://github.com/jeanollion/bacmman/wiki).
 
 The Distnet Deep Learning network is described in [this publication](https://arxiv.org/abs/2003.07790).
 
+## Open Bacmman
+
+- Open Fiji
+- Go to Plugins -> Bacmman -> Bacteria in Mother Machine Analyzer
+
 ## Create a Dataset
 
-Important: If using bacmman for the first time: choose a working directory through right-click on the panel below `Working Directory`.
+### Set working directory
 
-We will start by creating a dataset using the default template of BACMMAN:
-Choose menu command: `Dataset > New Dataset from Online Library`.
+When using Bacmman for the first time choose a working directory.
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/1_new_ds.png)
+- Right-click on the panel below `Working Directory` and select `Choose Local Folder`
+- make a new folder in `~/I2ICourse/Project2C/Bacmman/` and select this one
 
-Set `jeanollion` as `username` in the `Github Credentials` panel (if not already entered), and select the configuration `ExampleDatasets > dataset1_distnet`
+### Create new data set
 
-**Important: select the data set with "_distnet" at the end (the image is incorrect)!**
+- Click on `Dataset` menu and select `New Dataset from Online Library`
+- Select `dataset1_distnet`
+- When asked name it Project2C
+  
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_NewDataSet.png)
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/2_select_ds.png)
+### Adapt configuration file  
 
-Click `OK`: this will create a new dataset and open it.
-In BACMMAN a dataset is a configuration associated to multi-position/multi-channel/muti-frame input images.
-The configuration can be checked in the `Configuration` tab.
+- Go to `Configuration tab`
+- Right click on `Import Method` and select `One file per Channel & Position`
 
-## Download Example Dataset and Import Images
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_FileFormat.png)
 
-A subset of 50 of the example dataset 1 can be downloaded directly from BACMMAN. To do so, choose menu command: `Import > Sample Datasets > Mother Machine > Phase Contrast`, and select the directory where it will be downloaded.
+- The expand the `Pre-Processing Template`
+- Go to `Time Step` and set to 7.5 (right click on value to change it). This is the time-interval, in minutes, between frames.
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/3_dl_sample_data.png)
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_TimeStep.png)
 
-Import the downloaded images into the open dataset, by choosing the menu command `Run > Import/re-link Images`:
+- Click on `Dataset` menu and select `Save configuration changes`
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/4_import_image.png)
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_SaveConfig.png)
 
-An element will appear in the `Position panel`.
-To visualize the images right click-on the position and choose `Open Input Images`
+## Add Image Data
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/4_open_ii.png)
+- Go to `Home` tab
+- Right click in Positions fields and select `Import/re-link images`
+- Select the folder containing the Tiff Files: `~/I2ICourse/Project2C/RawData`
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/4_inputimage.png)
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_LinkImages.png)
 
-## Run Pre-Processing
+You should now see a list iof tiff images. You can inspect the data by right clicking on an image and select `Open Input images`.
 
-In this case pre-processing consist of an automatic rotation of the images to have microchannels vertically aligned with the open end towards the lower part of the image.
-The images are also cropped to remove the bright line and useless area of the image.  
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_OpenImages.png)
+
+## Test Pre-processing Configuration
+
+Bacmman needs to do some pre-processing before the Distnet algorithm can segment cells. Specifically:
+
+- Images should be cropped to only contain channels
+- Images should be rotated if needed such that channels are vertically aligned
+- Images should be flipped if needed such that channels points down
+
+Bacmman provides automated algorithms to do this, these can be adapted to fit your images.
+Unfortunately this does not always work. In fact, for our data we have been unable to find settings that work.  
+However, we will still show you how to change the automated steps before skipping to manual pre-processing.
+
+- Go to Configuration Test Tab
+- In `Step` select `Pre-Processing`
+- For speed lets only test a few frames: right click on `Frame Range` and set range from 0 to 5 (you can reduce this further if needed)
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_SetFrames.png)
+
+Let's try the AutoFlipY step that flips the microchannels.
+
+- Right click on this step and select `Test Transformation`
+  
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_TestFlip.png)
+
+You can see the result looks bad: our channels were flipped even though they should not have (they should point down).
+
+- Now try to find settings that work. **Important** spend max 5min on this!**
+- Hint: you can right click on almost anything in Bacmmann to see and change settings.
+- Hint: adapt the micro-channel height to the actual height
+- Hint: if that does not work try changing the method
+- Hint: we have not yet succeeded in making this work, maybe you have better luck, but if not don't worry!
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_FlipSettings.png)
+
+It can be hard to find good settings, and some pre-processing might need to be done by hand. To remove an automated step, right click on it and select `remove`.
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_RemoveFlip.png)
+
+You can add new modules. In the top right list are all Available Modules. To add one, right click on `Pre-Processing Pipeline`, this adds a new Transformation. Select this one, and then click on the desired module in the `Available Modules` list.
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_AddStep.png)
+
+Now change the config to the one shown in this screenshot:
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_FinalConfig.png)
+
+- Then click on `Copy to all position` and `copy to template`
+- Save the configuration via the `Dataset` menu
+
+- We chose a simple crop option, which we need to set manually for all position. One by one go through the positions to set the crop box.
+- Important: for channels that point up, first add a `Flip` step. This should be done before the crop (see screenshot below)
+- Hint: test the SimpleCrop first with the default settings, this opens the image without cropping. Now you can draw a bounding box around the channels. Make sure to exclude the exits of the channels where there is a strong phase artifact, at the top keep a bit of space (10-20 pixels) to accommodate stage jitter (see screenshot). Write down the crop-box size and location and enter the numbers in the settings. Repeat this for all positions.
+- Hint: make things faster by setting frame range to 0-0
+- Hint: keep the full width of the image (do not change x-settings) and only change the y-values (see screenshot)
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_ManualFlip.png)
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_CropBox.png)
+
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_CropSettings.png)
+
+- When done save the configuration via the `Dataset` menu
+- You can check the configuration and the `Configuration` step. Fields in blue have changed compared to template. In our case this should only be the crop and flip settings.
+
+## Run pre-processing
 
 To run pre-processing
 
-* Select the position (when no position is selected, all positions are processed)
+* Select all positions
 * Select the task: `Pre-Processing` 
 * Choose the menu command `Run > Run Selected Tasks`
 
-**Important: only select `Pre-Processing` at this stage (the image is incorrect)!**
+This step will take a while.
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/5_run_pp_mc.png)
+![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_Preprocess.png)
 
 To visualize the pre-processed images right-click on the position and choose `Open Pre-Processed Images`
 
@@ -71,7 +164,7 @@ As DiSTNet is a deep-learning based method, it requires trained weights of the m
 To download them:
 
 1. Go to the `Configuration Test` tab
-2. In the `Step` pannel select `Processing`
+2. In the `Step` panel select `Processing`
 3. Select the `Bacteria` object class : it's configuration will be displayed below
 4. Unfold the parameters `Tracker` > `Model > Tensorflow Model`. The sub-parameter `Model File` appears in red if the model weights are not there. However it is possible to download them directly from BACMMAN.
 5. Right-click on `Tensorflow Model` and choose `Download Model`. The model weights will be downloaded at the path selected in the `Model File` parameter, that should not appear in red anymore after the download.
