@@ -10,8 +10,8 @@ Bacmman is a ImageJ plugin for analyzing mother machine data. All interactions w
 cd I2ICourse
 mkdir Project2C
 cd Project2C
-wget -O RawData.zip /download
-unzip RawData.zip
+wget -O RawData.zip https://drive.switch.ch/index.php/s/nwwP9spbricnFTW/download
+unzip -j RawData.zip
 ```
 
 Check the folder content (it should contain 2 tiff files).  
@@ -75,7 +75,9 @@ You should now see a list iof tiff images. You can inspect the data by right cli
 
 ![](project2/2C_OpenImages.png)
 
-## Test Pre-processing Configuration
+## Define Pre-processing Configuration
+
+### Preprocessing steps
 
 Bacmman needs to do some pre-processing before the Distnet algorithm can segment cells. Specifically:
 
@@ -86,6 +88,8 @@ Bacmman needs to do some pre-processing before the Distnet algorithm can segment
 Bacmman provides automated algorithms to do this, these can be adapted to fit your images.
 Unfortunately this does not always work. In fact, for our data we have been unable to find settings that work.  
 However, we will still show you how to change the automated steps before skipping to manual pre-processing.
+
+### Test automated pre-processing pipeline
 
 - Go to Configuration Test Tab
 - In `Step` select `Pre-Processing`
@@ -103,9 +107,8 @@ You can see the result looks bad: our channels were flipped even though they sho
 
 - Now try to find settings that work. **Important** spend max 5min on this!**
 - Hint: you can right click on almost anything in Bacmmann to see and change settings.
-- Hint: adapt the micro-channel height to the actual height
+- Hint: adapt the micro-channel height (doesn't have to be real length)
 - Hint: if that does not work try changing the method
-- Hint: we have not yet succeeded in making this work, maybe you have better luck, but if not don't worry!
 
 ![](project2/2C_FlipSettings.png)
 
@@ -121,31 +124,34 @@ You can add new modules. In the top right list are all Available Modules. To add
 
 ![](project2/2C_FinalConfig.png)
 
+- During testing this worked for us, please check!
 - Then click on `Copy to all position` and `copy to template`
 - Save the configuration via the `Dataset` menu
 
-- We chose a simple crop option, which we need to set manually for all position. One by one go through the positions to set the crop box.
-- **Important: for channels that point up, first add a `Flip` step. This should be done before the crop (see screenshot below)**
-- Hint: test the SimpleCrop first with the default settings, this opens the image without cropping. Now you can draw a bounding box around the channels. Make sure to exclude the exits of the channels where there is a strong phase artifact, at the top keep a bit of space (10-20 pixels) to accommodate stage jitter (see screenshot). Write down the crop-box size and location and enter the numbers in the settings. Repeat this for all positions.
-- Hint: make things faster by setting frame range to 0-0
-- Hint: keep the full width of the image (do not change x-settings) and only change the y-values (see screenshot)
+### Aside: Setup manual pre-processing pipeline
+
+**Do not do this now, we use automated pipeline setup above!**
+
+Sometimes finding automatic settings might be too hard, in that case you can then use manual cropping and flipping as shown in this screen shot:
 
 ![](project2/2C_ManualFlip.png)
+
+- With the simple crop option, you need to set the crop box manually for each position.
+- Important: for channels that point up, first add a `Flip` step. This should be done before the crop (see screenshot above).
+- Test the SimpleCrop first with the default settings, this opens the image without cropping. Now you can draw a bounding box around the channels. Make sure to exclude the exits of the channels where there is a strong phase artifact, at the top keep a bit of space (10-20 pixels) to accommodate stage jitter (see screenshot). Write down the crop-box size and location and enter the numbers in the settings. Repeat this for all positions.
+- Keep the full width of the image (do not change x-settings) and only change the y-values (see screenshot)
 
 ![](project2/2C_CropBox.png)
 
 ![](project2/2C_CropSettings.png)
 
-- When done save the configuration via the `Dataset` menu
-- You can check the configuration and the `Configuration` step. Fields in blue have changed compared to template. In our case this should only be the crop and flip settings.
-
-## Run pre-processing
+## Run pre-processing pipeline
 
 To run pre-processing
 
-* Select all positions
-* Select the task: `Pre-Processing` 
-* Choose the menu command `Run > Run Selected Tasks`
+- Select all positions
+- Select the task: `Pre-Processing` 
+- Choose the menu command `Run > Run Selected Tasks`
 
 This step will take a while.
 
@@ -155,38 +161,48 @@ To visualize the pre-processed images right-click on the position and choose `Op
 
 ![](project2/2C_OpenPreproc.png)
 
+## Configure processing pipeline
+
+The main processing pipeline does not need much configuration: the deep learning network takes care of almost everything.
+There are a couple things that we need to do though.
+
 ### Download Model Weights
 
 As DiSTNet is a deep-learning based method, it requires trained weights of the model.
-To download them:
+To download them (only needed first time you run Bacmman)
 
-1. Go to the `Configuration Test` tab
-2. In the `Step` panel select `Processing`
-3. Select the `Bacteria` object class : it's configuration will be displayed below
-4. Unfold the parameters `Tracker` > `Model > Tensorflow Model`. The sub-parameter `Model File` appears in red if the model weights are not there. However it is possible to download them directly from BACMMAN.
-5. Right-click on `Tensorflow Model` and choose `Download Model`. The model weights will be downloaded at the path selected in the `Model File` parameter, that should not appear in red anymore after the download.
+- Go to the `Configuration Test` tab
+- In the `Step` panel select `Processing`
+- In `Object Class` select `Bacteria`
+- Unfold the parameters `Tracker` > `Model > Tensorflow Model`. The sub-parameter `Model File` appears in red if the model weights are not there. However it is possible to download them directly from BACMMAN.
+- Right-click on `Tensorflow Model` and choose `Download Model`. The model weights will be downloaded at the path selected in the `Model File` parameter, that should not appear in red anymore after the download.
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/7_model_weights_not_there.png)
+![](project2/2C_GetTFModel.png)
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/7_dl_model.png)
+### Adapt channel width
+
+- Go to the `Configuration Test` tab
+- In the `Step` panel select `Processing`
+- In `Object Class` select `microchannels`
+- Set the channel width (in pixels) to the range seen in the data
+
+![](project2/2C_SetChannelWidth.png)
 
 ## Run tracking and segmentation
 
-* Go back to the `Home` tab
-* Select the objects Microchannels and Bacteria at the same time
-* Select the task: `Segmentation & Tracking`
-* Choose the menu command `Run > Run Selected Tasks`
+- Go back to the `Home` tab
+- Select the objects `Microchannels` and `Bacteria` at the same time
+- Select the task: `Segmentation & Tracking`
+- Choose the menu command `Run > Run Selected Tasks`
 
-**Important: only select `Segmentation & Tracking` at this stage (the image below is incorrect)!**
-
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/5_run_pp_mc.png)
+![](project2/2C_RunProcess.png)
 
 ## Check micro-channel segmentation and tracking
 
 To visualize the result of microchannel segmentation and tracking:
 
-* Go to the `Data Browsing` tab
-* Right-click on the position and choose `Open Hyperstack > Microchannels`
+- Go to the `Data Browsing` tab
+- Right-click on the position and choose `Open Hyperstack > Microchannels`
 
 ![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/6_open_mc_hyperstack.png)
 
@@ -194,46 +210,77 @@ To visualize the result of microchannel segmentation and tracking:
 
 The pre-processed images will open as a interactive hyperstack (multi-channel & multi-frames image stack), on which microchannels can be selected.
 
-* To display all segmented microchannels object use the shortcut `crtl + A`
-* To display all microchannels tracks use the shortcut `crtl + Q`. Tracks will be displayed as colored contours, each colour corresponding to one track.
-* Note that the shortcut are available from the menu `Help > Display Shortcut table` and that a shortcut preset adapted for QWERTY keyboards can be chosen from the menu `Help > Shortcut Presets`
+- To display all segmented microchannels object use the shortcut `crtl + A`
+- To display all microchannels tracks use the shortcut `crtl + Q`. Tracks will be displayed as colored contours, each color corresponding to one track.
+- Note that the shortcut are available from the menu `Help > Display Shortcut table` and that a shortcut preset adapted for QWERTY keyboards can be chosen from the menu `Help > Shortcut Presets`
 
 ## Check bacterial segmentation and tracking
 
 To visualize the result of bacterial segmentation and tracking:
 
-* Go to the `Data Browsing` tab
-* Right-click on the position and choose `Open Hyperstack > Bacteria`
+- Go to the `Data Browsing` tab
+- Right-click on the position and choose `Open Hyperstack > Bacteria`
 
 The pre-processed images will open as a interactive hyperstack (multi-channel & multi-frames image stack), on which bacteria can be selected.
 
-* To display all segmented bacteria object use the shortcut `crtl + A`
-* To display all bacteria tracks use the shortcut `crtl + Q`. Tracks will be displayed as colored contours, each colour corresponding to one track.
-* Note that the shortcut are available from the menu `Help > Display Shortcut table` and that a shortcut preset adapted for QWERTY keyboards can be chosen from the menu `Help > Shortcut Presets`
+- To display all segmented bacteria object use the shortcut `crtl + A`
+- To display all bacteria tracks use the shortcut `crtl + Q`. Tracks will be displayed as colored contours, each color corresponding to one track.
+- Note that the shortcut are available from the menu `Help > Display Shortcut table` and that a shortcut preset adapted for QWERTY keyboards can be chosen from the menu `Help > Shortcut Presets`
 
 Another good way to visualize tracking is to use the Kymograph view:
 
-* In the `Segmentation & Tracking Results` area, click on the arrow next to `Position #0`  to expand the list of micro channels. 
-* Right-click on a micro-channel and choose `Open Kymograph > Bacteria`
-* The resulting image shows a concatenation of the same micro-channel for all time points  
-* To display all segmented bacteria object use the shortcut `crtl + A`
-* To display all bacteria tracks use the shortcut `crtl + Q`. Tracks will be displayed as colored lines connecting neighboring time points.
+- In the `Segmentation & Tracking Results` area, click on the arrow next to `Position #0`  to expand the list of micro channels.
+- Right-click on a micro-channel and choose `Open Kymograph > Bacteria`
+- The resulting image shows a concatenation of the same micro-channel for all time points  
+- To display all segmented bacteria object use the shortcut `crtl + A`
+- To display all bacteria tracks use the shortcut `crtl + Q`. Tracks will be displayed as colored lines connecting neighboring time points.
 
 ![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/8_seg_track_results.png)
 
 ## Export the data
 
-* Go to the `Home tab`
-* Select the object `Bacteria` and the task `Extract Measurements`
-* Choose the menu command `Run > Run Selected Tasks`
+- Go to the `Home tab`
+- Select the object `Bacteria` and the task `Extract Measurements`
+- Choose the menu command `Run > Run Selected Tasks`
 
-## Post-processing in Python
+## Post-process with Python
 
-Setup a new conda environment:
+We will now **switch to the cloud computers** for the next steps.
 
-- `conda create --name i2i_p2_env -c conda-forge python=3.9 ipykernel numpy scipy matplotlib scikit-image pandas napari seaborn`
-- `conda activate i2i_p2_env`
-- `pip install PyBacmman`
+### Create project folders on cloud computer
 
-Now open notebook `0_making_selection` in the project 2 folder of the repository
+- On the cloud computer, we have to make the project folders:
 
+```bash
+cd ~/I2ICourse/
+mkdir Project2C
+cd Project2C
+mkdir ProcessedData
+```
+
+### Transfer the data
+
+- Then we have to transfer the data from your local computer to the cloud computer
+- Upload the output file of Bacmann to a cloud drive, this file is located in: 
+- Create a public share link and copy the address
+
+```bash
+cd ~/I2ICourse/Project2C/ProcessedData
+wget -O data.zip public_link_to_your_zip_file
+unzip -j data.zip
+```
+
+### Launch Jupyter Labs
+
+- Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
+
+```zsh
+cd ~/I2ICourse/
+conda activate i2i_env
+jupyter lab
+```
+
+- In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2C/`
+- Then open the `explore_data_bacmman.ipynb` notebook
+
+## Note on data
