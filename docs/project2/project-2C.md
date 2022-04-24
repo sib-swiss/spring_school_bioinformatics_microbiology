@@ -45,24 +45,23 @@ When using Bacmman for the first time choose a working directory.
 - Click on `Dataset` menu and select `New Dataset from Online Library`
 - Select `dataset1_distnet`
 - When asked name it Project2C
+- Note: after re-opening Bacmann you can re-open the dataset by double clicking on its name in the Dataset field
   
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_NewDataSet.png)
+![](2C_NewDataSet.png)
 
 ### Adapt configuration file  
 
 - Go to `Configuration tab`
 - Right click on `Import Method` and select `One file per Channel & Position`
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_FileFormat.png)
+![](2C_FileFormat.png)
 
 - The expand the `Pre-Processing Template`
 - Go to `Time Step` and set to 7.5 (right click on value to change it). This is the time-interval, in minutes, between frames.
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_TimeStep.png)
+![](2C_TimeStep.png)
 
 - Click on `Dataset` menu and select `Save configuration changes`
-
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_SaveConfig.png)
 
 ## Add Image Data
 
@@ -70,11 +69,11 @@ When using Bacmman for the first time choose a working directory.
 - Right click in Positions fields and select `Import/re-link images`
 - Select the folder containing the Tiff Files: `~/I2ICourse/Project2C/RawData`
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_LinkImages.png)
+![](2C_LinkImages.png)
 
 You should now see a list iof tiff images. You can inspect the data by right clicking on an image and select `Open Input images`.
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_OpenImages.png)
+![](2C_OpenImages.png)
 
 ## Test Pre-processing Configuration
 
@@ -92,13 +91,13 @@ However, we will still show you how to change the automated steps before skippin
 - In `Step` select `Pre-Processing`
 - For speed lets only test a few frames: right click on `Frame Range` and set range from 0 to 5 (you can reduce this further if needed)
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_SetFrames.png)
+![](2C_SetFrames.png)
 
 Let's try the AutoFlipY step that flips the microchannels.
 
 - Right click on this step and select `Test Transformation`
   
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_TestFlip.png)
+![](2C_TestFlip.png)
 
 You can see the result looks bad: our channels were flipped even though they should not have (they should point down).
 
@@ -108,34 +107,34 @@ You can see the result looks bad: our channels were flipped even though they sho
 - Hint: if that does not work try changing the method
 - Hint: we have not yet succeeded in making this work, maybe you have better luck, but if not don't worry!
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_FlipSettings.png)
+![](2C_FlipSettings.png)
 
 It can be hard to find good settings, and some pre-processing might need to be done by hand. To remove an automated step, right click on it and select `remove`.
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_RemoveFlip.png)
+![](2C_RemoveFlip.png)
 
 You can add new modules. In the top right list are all Available Modules. To add one, right click on `Pre-Processing Pipeline`, this adds a new Transformation. Select this one, and then click on the desired module in the `Available Modules` list.
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_AddStep.png)
+![](2C_AddStep.png)
 
-Now change the config to the one shown in this screenshot:
+**Now change the config to the one shown in this screenshot:**
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_FinalConfig.png)
+![](2C_FinalConfig.png)
 
 - Then click on `Copy to all position` and `copy to template`
 - Save the configuration via the `Dataset` menu
 
 - We chose a simple crop option, which we need to set manually for all position. One by one go through the positions to set the crop box.
-- Important: for channels that point up, first add a `Flip` step. This should be done before the crop (see screenshot below)
+- **Important: for channels that point up, first add a `Flip` step. This should be done before the crop (see screenshot below)**
 - Hint: test the SimpleCrop first with the default settings, this opens the image without cropping. Now you can draw a bounding box around the channels. Make sure to exclude the exits of the channels where there is a strong phase artifact, at the top keep a bit of space (10-20 pixels) to accommodate stage jitter (see screenshot). Write down the crop-box size and location and enter the numbers in the settings. Repeat this for all positions.
 - Hint: make things faster by setting frame range to 0-0
 - Hint: keep the full width of the image (do not change x-settings) and only change the y-values (see screenshot)
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_ManualFlip.png)
+![](2C_ManualFlip.png)
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_CropBox.png)
+![](2C_CropBox.png)
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_CropSettings.png)
+![](2C_CropSettings.png)
 
 - When done save the configuration via the `Dataset` menu
 - You can check the configuration and the `Configuration` step. Fields in blue have changed compared to template. In our case this should only be the crop and flip settings.
@@ -150,13 +149,11 @@ To run pre-processing
 
 This step will take a while.
 
-![](https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/tree/master/docs/project2/2C_Preprocess.png)
+![](2C_Preprocess.png)
 
 To visualize the pre-processed images right-click on the position and choose `Open Pre-Processed Images`
 
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/5_open_pi.png)
-
-![](https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/5_pp_image.png)
+![](2C_OpenPreproc.png)
 
 ### Download Model Weights
 
