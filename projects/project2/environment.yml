@@ -9,7 +9,6 @@ dependencies:
   - numpy
   - seaborn
   - napari
-  - jupyterlab
   - delta2=2.0.5
   - pandas
   - qt
