@@ -28,7 +28,7 @@ For completeness we also include instructions on how to install Python/Anaconda 
 
 ## Installation Instructions
 
-## Ilastik
+### Ilastik
 
 Ilastik is a flexible GUI based application that offers several machine learning based workflow for image analysis.
 We will use it for supervised pixel segmentation.
@@ -39,23 +39,23 @@ We will use it for supervised pixel segmentation.
 
 ---
 
-## Bacmman
+### Bacmman
 
 BACMMAN (BACteria in Mother Machine Analyzer) is a ImageJ plugin that offers a fully automated workflow to analyze mother machine data.
 
-### Install Fiji
+#### Install Fiji
 
 - Download [here](https://fiji.sc)
 - On Mac/Linux: copy Fiji app to application folder (or other folder of choice)
   - Note: OSX will give a security warning, please go into settings to give permission to launch Fiji
 - On Windows: copy Fiji app to a folder in your user space e.g. `C:\Users\[your name]\ImageJ.app`
   
-### Already have Fiji installed?
+#### Already have Fiji installed?
 
 Please install a fresh copy of Fiji nonetheless!  
 You can have multiple copies of Fiji on your computer, simply rename the new copy of Fiji to e.g. Fiji_Bacmman.
 
-### Update Fiji
+#### Update Fiji
 
 - Start Fiji
 - Update Fiji with default update sites (ImageJ / Fiji / Java 8):
@@ -64,7 +64,7 @@ You can have multiple copies of Fiji on your computer, simply rename the new cop
 - Restart Fiji
 - Repeat until message 'Your ImageJ is up to date!' message appears
 
-### Install Bacmman
+#### Install Bacmman
 
 - Go to `Help` -> `Update`
 - In ImageJ Updater window  click on `Manage update sites`
@@ -78,7 +78,7 @@ You can have multiple copies of Fiji on your computer, simply rename the new cop
   
 ---
 
-## Optional: Install Mac OSX terminal packages
+### Optional: Install Mac OSX terminal packages
 
 Although Mac OSX has a number of Terminal packages included by default (e.g. git), other need to be installed manually. [Homebrew](https://docs.brew.sh/Installation#4) is a convenient package manager that allows you to obtain these packages. To install, follow these instructions:
 
@@ -89,7 +89,7 @@ Although Mac OSX has a number of Terminal packages included by default (e.g. git
 
 ---
 
-## Optional: Download jupyter notebooks for course
+### Optional: Download jupyter notebooks for course
 
 **Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**
 
@@ -115,7 +115,7 @@ git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology
 
 ---
 
-## Optional: Install Conda (Python)
+### Optional: Install Conda (Python)
 
 **Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**
 
@@ -123,7 +123,7 @@ These instructions are provided for the sake of completeness in case you want to
 
 Note: all our code has been tested with Conda version 4.11 and python version 3.9
 
-### Install Anaconda
+#### Install Anaconda
 
 - Important: if you have an older version of Anaconda installed (Anaconda2 or below) please first remove it and re-install the latest Anaconda3 version!
 
@@ -144,7 +144,7 @@ conda install python=3.9
 
 Note: alternatively you can install MiniConda, this is a minimal conda install that takes up much less space than Anaconda, but provides identical functionality. Follow instructions [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
 
-### Optional: Install Mamba
+#### Optional: Install Mamba
 
 The conda package manager can be rather slow at times. Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html).  
 mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`.  
@@ -156,7 +156,7 @@ One exception: activating and deactivating environments still has to be done wit
 conda install mamba -n base -c conda-forge
 ```
 
-### Create new Conda Environment
+#### Create new Conda Environment
 
 - It is best practice to use a separate conda environment for each project, this way you avoid conflicts in package requirements.
 
@@ -182,7 +182,7 @@ Note: you can also use mamba for this step in case you installed it before.
 
 ---
 
-## Optional: Test Conda environment
+### Optional: Test Conda environment
 
 **Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**
 
@@ -212,14 +212,14 @@ jupyter lab
 
 ---
 
-## Notes
+### Notes
 
-### Trouble-shooting
+#### Trouble-shooting
 
 - In case of persistent problems, try deleting your existing Conda installation and install the latest version from link above.
   - Note: make sure to backup essential conda environments before doing this!
 
-### Alternatives
+#### Alternatives
 
 You can use Jupyter Notebook instead of Jupyter Lab. Both have same functionality, but Jupyter Lab has a bit nicer interface.
 
