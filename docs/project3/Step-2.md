@@ -74,3 +74,14 @@ tax.profiles.genus <- read.table(feat.motus, sep = '\t', quote = '',
 tax.profiles.genus <- as.matrix(tax.profiles.genus)
 ```
 
+And here you can find the MAPseq profiles using 97% OTUs:
+```R
+feat.mapseq_97 = "https://sunagawalab.ethz.ch/share/NCCR_spring_schools_2022/97_otutable_mapseq.csv"
+mapseq.profiles97 <- read.table(feat.mapseq_97, sep = ',', quote = '',
+                           comment.char = '',
+                           stringsAsFactors = FALSE, check.names = FALSE,
+                           row.names = 1, header = TRUE)
+mapseq.profiles97 <- as.matrix(mapseq.profiles97)
+```
+
+If you replace "97" with "99", you can download the profiles with 99% OTUs.
