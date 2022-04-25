@@ -1,0 +1,15 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.8
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scipy
+  - lmfit
+  - ipympl
+  - ipykernel
+  - pip
+  - pip:
