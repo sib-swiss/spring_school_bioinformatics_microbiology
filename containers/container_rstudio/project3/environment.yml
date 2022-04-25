@@ -3,13 +3,10 @@ channels:
   - bioconda
 dependencies:
   - python=3.8
-  - pandas
-  - numpy
-  - matplotlib
-  - seaborn
-  - scipy
-  - lmfit
-  - ipympl
+  - fastqc=0.11.9
+  - trimmomatic=0.39
+  - mapseq=1.2.6
   - ipykernel
   - pip
   - pip:
+    - motu-profiler
