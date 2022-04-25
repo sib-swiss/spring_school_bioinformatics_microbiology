@@ -7,3 +7,4 @@ dependencies:
   - motus=3.0.1
   - trimmomatic=0.39
   - mapseq=1.2.6
+  - ipykernel
