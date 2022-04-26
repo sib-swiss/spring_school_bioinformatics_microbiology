@@ -2,7 +2,13 @@
 
 Bacmman is a ImageJ plugin for analyzing mother machine data. All interactions with the software are via a GUI making it relatively user-friendly (though with a bit of a steep learning curve). At the backend Bacmman uses a state-of-the-art deep learning network to track and segment cells.
 
-## Download Data
+## Note to start
+
+Analyzing imaging data is computationally intensive and can take a long time depending on the available computer power.
+Normally you would run Baccman on a powerful workstation, ideally one with a CUDA enabled GPU.  
+Unfortunately we do not have access to such a workstation during the course, therefore we will demonstrate how the pipeline works using a small sample of our dataset. The rest of the dataset we analyzed before the start of the course, and we will provide you with the results.
+
+## Download Image Data
 
 **Important: the dataset is 5GB big, so start download at latest on Tuesday morning!**
 
@@ -246,47 +252,61 @@ Another good way to visualize tracking is to use the Kymograph view:
 
 ![](../assets/images/project2/2C_ExtractMeasurement.png)
 
-
 ## Post-process with Python
 
 We will now **switch to the cloud computers** for the next steps.
 
-### Create project folders on cloud computer
+**Important: on the cloud computer we need to store all data in the `~/workdir/` folder or sub-folders of this, to make sure that files remain available after restarting the instance.**
 
-- On the cloud computer, we have to make the project folders:
+- On the cloud computer, navigate to the `workdir` folder and create a `Project2C` subfolder:
 
 ```bash
-cd ~/I2ICourse/
+cd ~/workdir/
 mkdir Project2C
-cd Project2C
-mkdir ProcessedData
 ```
 
-### Transfer the data
+### Transfer the analyzed data of a single position
 
-- Then we have to transfer the data from your local computer to the cloud computer
-- Upload the output file of Bacmann to a cloud drive, this file is located in: 
+In the first notebook we will look at the data you just analyzed for the single position. We thus have to transfer the Bacmman output from your local computer to the cloud computer.
+
+- On your local computer locate the `.csv` file created by Bacmman, you can find it in: `~/I2Icourse/Project2C/Bacmman/Project2C/Project2C_1.csv`
+- Upload this file to a cloud drive
 - Create a public share link and copy the address
+- Go back to the cloud computer and enter the following commands to download the data
 
 ```bash
-cd ~/I2ICourse/Project2C/ProcessedData
-wget -O data.zip public_link_to_your_zip_file
-unzip -j data.zip
+cd ~/workdir/Project2C/
+wget public_link_to_your_zip_file
 ```
+
+### Download the full dataset
+
+In the second notebook, we will analyze the full dataset (X positions) that we prepared before the start of the code.  
+Here we download this dataset
+
+- On the cloud computer navigate to the project folder and download the data using `wget`:
+
+```bash
+cd ~/workdir/Project2C
+wget url
+ls 
+```
+
+You now should have the `cell_data_all.pkl` file in your project folder.
 
 ### Launch Jupyter Labs
 
-- Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
+- On the cloud computer navigate to the `~/workdir/` folder, activate the conda environment, and launch Jupyter Labs:
 
-```zsh
-cd ~/I2ICourse/
+```bash
+cd ~/workdir/
 conda activate i2i_env
 jupyter lab
 ```
 
 - In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2C/`
-- Then open the `explore_data_bacmman.ipynb` notebook
+
+- Then open the `0_postprocess_bacmman.ipynb` notebook
 
 ## Note on data
-
 
