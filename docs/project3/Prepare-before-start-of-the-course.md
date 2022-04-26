@@ -16,7 +16,7 @@ Please install these following the instructions below.
 
 ## Install four tools using Miniconda
 
-Conda is a package management system and environment management system that allow to quickly install, run and update packages and their dependencies. The first four tools can be easily installed using conda, we suggest to use [Miniconda](https://docs.conda.io/en/latest/miniconda.html). To install miniconda, follow the instructions under https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html for MacOS, https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html for Windows and https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html for Linux.
+Conda is a package management system and environment management system that allow to quickly install, run and update packages and their dependencies. The first four tools can be easily installed using conda, we suggest to use [Miniconda](https://docs.conda.io/en/latest/miniconda.html). To install miniconda, follow the instructions  for [MacOS](https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html), [Windows](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html) or [Linux](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html).
 
 After installing miniconda, create a file named `NCCR_p3.yaml` with:
 
