@@ -6,10 +6,19 @@
 
 We will **work on the cloud computers** for the full project
 
-- On the cloud computer navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
+**Important: on the cloud computer we need to store all data in the `~/workdir/` folder or sub-folders of this, to make sure that files remain available after restarting the instance.**
+
+- On the cloud computer, navigate to the `workdir` folder and create a `Project2B` subfolder:
 
 ```bash
-cd ~/I2ICourse/
+cd ~/workdir/
+mkdir Project2B
+```
+
+- Then activate the conda environment, and launch Jupyter Labs:
+
+```bash
+cd ~/workdir/
 conda activate i2i_env
 jupyter lab
 ```

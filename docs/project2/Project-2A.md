@@ -161,44 +161,45 @@ The output should be stored under the name `[input_file_name]_Probabilities.h5`,
 
 We will now **switch to the cloud computers** for the next steps.
 
+**Important: on the cloud computer we need to store all data in the `~/workdir/` folder or sub-folders of this, to make sure that files remain available after restarting the instance.**
+
 ### Create project folders on cloud computer
 
-- On the cloud computer, we have to recreate the project folder:
-
-```zsh
-cd ~
-mkdir I2ICourse
-```
-
-We also make some extra folders for Project2A:
+- On the cloud computer, navigate to the `workdir` folder and create a `Project2A` subfolder:
 
 ```bash
-cd ~/I2ICourse/
+cd ~/workdir/
 mkdir Project2A
+```
+
+Now add a `ProcessedData` subfolder to the `Project2A` folder:
+
+```bash
 cd Project2A
 mkdir ProcessedData
 ```
 
 ### Download project code
 
-- Navigate to the project folder and use the `git clone` command to download the course code:
+- Navigate to the `workdir` folder and use the `git clone` command to download the course code:
 
 ```zsh
-cd ~/I2ICourse/
+cd ~/workdir/
 git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
 ```
 
-- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
+- This will create the folder `~/workdir/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
 
 ### Transfer the data
 
 - Then we have to transfer the data from your local computer to the cloud computer
-- First compress the `~/I2ICourse/Project2A/ProcessedData` folder on your local computer into a zip-file
+- On your local computer, compress the `~/I2ICourse/Project2A/ProcessedData` folder into a zip-file
 - Upload this zip file to a cloud drive
 - Create a public share link and copy the address
+- Go back to the cloud computer and enter the following commands to download the data
 
 ```bash
-cd ~/I2ICourse/Project2A/ProcessedData
+cd ~/workdir/Project2A/ProcessedData
 wget -O data.zip public_link_to_your_zip_file
 unzip -j data.zip
 ```
@@ -208,7 +209,7 @@ unzip -j data.zip
 - Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
 
 ```zsh
-cd ~/I2ICourse/
+cd ~/workdir/
 conda activate i2i_env
 jupyter lab
 ```
