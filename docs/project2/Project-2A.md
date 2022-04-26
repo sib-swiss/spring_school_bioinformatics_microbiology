@@ -9,7 +9,7 @@ We will use a set of tools that are very frequently used in image analysis:
 - [python](https://neptune.ai/blog/image-processing-python), a generalist programming language which has become the language of choice for the image analysis community
 
 General note: this guide has been written assuming you use a Mac or Linux Command Line.
-For windows Powershell see [here](https://devblogs.microsoft.com/scripting/table-of-basic-powershell-commands/), for command prompt see [https://www.makeuseof.com/tag/essential-windows-cmd-commands/].
+For windows Powershell see [here](https://devblogs.microsoft.com/scripting/table-of-basic-powershell-commands/), for command prompt see [here](https://www.makeuseof.com/tag/essential-windows-cmd-commands/).
 
 ---
 

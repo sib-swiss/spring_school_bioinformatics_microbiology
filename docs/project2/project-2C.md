@@ -36,7 +36,7 @@ cd I2ICourse
 mkdir Project2C
 ```
 
-The download the image data and pre-trained DL network using:
+Then download the image data and pre-trained DL network using:
 
 ```bash
 cd Project2C
@@ -163,7 +163,7 @@ Let's try the `CropMicroChannelsPhase2D` step that crops the microchannels.
 
 You can see there is a lot of space at the top. We can reduce this a bit, keeping a margin of ~50 pixel.
 
-- Now try to find settings that do this. **Important** spend max 5min on this!**
+- Now try to find settings that do this. **Important spend max 5min on this!**
 - Hint: click the arrows to expand the `CropMicroChannelsPhase2D` step to see all settings, right click on any number or text to change it.
 - Hint: see what effect changing `Upper end Y-margin` has
 
