@@ -24,7 +24,7 @@ Environment described by concentrations of biomass (B, gdW/L), glucose (G, g/L) 
 
 ![](../../assets/images/project4/4C_environment.png)
 
-Where mu is the growth rate (h⁻¹), D is the dilution rate (h⁻¹), r\_over is the overflow rate (g/gDW/h) and r\_up (g/gDW/h) is the uptake rate. 
+Where $\mu$ is the growth rate (h⁻¹), D is the dilution rate (h⁻¹), $r_{over}$ is the acetate overflow rate (g/gDW/h) and $r_{up}$ (g/gDW/h) is the uptake rate. 
 
 ##Available data
 
