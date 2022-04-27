@@ -144,18 +144,6 @@ conda install python=3.9
 
 Note: alternatively you can install MiniConda, this is a minimal conda install that takes up much less space than Anaconda, but provides identical functionality. Follow instructions [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
 
-#### Optional: Install Mamba
-
-The conda package manager can be rather slow at times. Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html).  
-mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`.  
-One exception: activating and deactivating environments still has to be done with the `conda` command.
-
-- Install mamba using
-
-```zsh
-conda install mamba -n base -c conda-forge
-```
-
 #### Create new Conda Environment
 
 - It is best practice to use a separate conda environment for each project, this way you avoid conflicts in package requirements.
@@ -175,7 +163,8 @@ conda env create -f environment.yml
 - We now create the environment for the course, using:
 
 ```zsh
-conda env create -f i2i_env.yml
+cd ~/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/
+conda env create -f environment.yml
 ```
 
 Note: you can also use mamba for this step in case you installed it before.
@@ -234,3 +223,13 @@ You can use Jupyter Notebook instead of Jupyter Lab. Both have same functionalit
 - Gitlens (full Git integration)
 - Code Spell Checker (intelligent spell checking)
 - and many others
+
+The conda package manager can be rather slow at times. Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html).  
+mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`.  
+One exception: activating and deactivating environments still has to be done with the `conda` command.
+
+- Install mamba using
+
+```zsh
+conda install mamba -n base -c conda-forge
+```
