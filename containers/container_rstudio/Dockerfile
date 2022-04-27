@@ -38,3 +38,9 @@ RUN $CONDA/conda env create \
 USER root
 
 RUN rm /home/rstudio/R_requirements.R && rm /home/rstudio/environment.yml
+
+# generate a database dir for mOTU
+RUN mkdir -p /data/db_mOTU/
+RUN ln -s /data/db_mOTU/ /home/rstudio/.local/share/r-miniconda/envs/project3/lib/python3.8/site-packages/motus/
+# https://sunagawalab.ethz.ch/share/NCCR_spring_schools_2022/db_mOTU.tar.gz should be unpacked 
+# in /data/db_mOTU/ (check permissions afterwards)
