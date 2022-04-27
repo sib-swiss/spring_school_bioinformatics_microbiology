@@ -89,109 +89,97 @@ Although Mac OSX has a number of Terminal packages included by default (e.g. git
 
 ---
 
-### Optional: Download jupyter notebooks for course
-
-**Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**
-
-These instructions are provided for the sake of completeness in case you want to continue working on the project after the course.
-
-- We need to obtain the code we need for the course by cloning the Git repository
-
-- Open the command line and navigate to your home folder, then create a new folder called `I2ICourse` for the course:
-
-```zsh
-cd ~
-mkdir I2ICourse
-```
-
-- Next navigate to this new folder and use the `git clone` command to download the course code:
-
-```zsh
-cd ~/I2ICourse/
-git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
-```
-
-- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
-
----
-
 ### Optional: Install Conda (Python)
 
-**Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**
-
+**Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**  
 These instructions are provided for the sake of completeness in case you want to continue working on the project after the course.
 
 Note: all our code has been tested with Conda version 4.11 and python version 3.9
 
-#### Install Anaconda
-
-- Important: if you have an older version of Anaconda installed (Anaconda2 or below) please first remove it and re-install the latest Anaconda3 version!
-
 - Install [Anaconda](https://docs.anaconda.com/anaconda/install/index.html) following the provided instruction.
-
+- **Important**: if you have an older version of Anaconda installed (Anaconda2 or below) please first remove it and re-install the latest Anaconda3 version!
 - If you already have an Anaconda3 (or Mini Conda) installation, please update to latest version using:
 
-```zsh
+```bash
 conda update conda
 conda update --all
 ```
 
 - Optionally: you can update to latest python version (3.9), but this is not needed (we will install python 3.9 in a virtual environment below). To update use:
 
-```zsh
+```bash
 conda install python=3.9
 ```
 
 Note: alternatively you can install MiniConda, this is a minimal conda install that takes up much less space than Anaconda, but provides identical functionality. Follow instructions [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
 
-#### Create new Conda Environment
+---
+
+### Optional: get project code and setup conda environment
+
+**Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**  
+These instructions are provided for the sake of completeness in case you want to continue working on the project after the course.
+
+Note: all our code has been tested with Conda version 4.11 and python version 3.9
+
+#### Download code from github
+
+- We need to obtain the code we need for the course by cloning the Git repository
+- Open the command line and navigate to your home folder, then create a new folder called `I2ICourse` for the course:
+
+```bash
+cd ~
+mkdir I2ICourse
+```
+
+- Next navigate to this new folder and use the `git clone` command to download the course code:
+
+```bash
+cd ~/I2ICourse/
+git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
+```
+
+- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
+
+#### Create Conda environment for project
 
 - It is best practice to use a separate conda environment for each project, this way you avoid conflicts in package requirements.
-
 - You can create a new conda environment with the following command:
 
-```zsh
+```bash
 conda create --name [environment_name] [list of packages to install]
 ```
 
 - Alternatively you can create a new environment from a `.yml` environment file that specifies all packages:
 
-```zsh
+```bash
 conda env create -f environment.yml
 ```
 
-- We now create the environment for the course, using:
+- We now create the environment for the course, using the provided environment file, which you can find in `~/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/environment.yml`
 
-```zsh
+```bash
 cd ~/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/
 conda env create -f environment.yml
 ```
 
-Note: you can also use mamba for this step in case you installed it before.
-
----
-
-### Optional: Test Conda environment
-
-**Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**
-
-These instructions are provided for the sake of completeness in case you want to continue working on the project after the course.
+#### Test Conda environment
 
 - First navigate to your project folder
 
-```zsh
+```bash
 cd ~/I2ICourse/
 ```
 
 - Then activate the conda environment:
-
-```zsh
+  
+```bash
 conda activate i2i_env
 ```
 
 - Next open jupyter-labs:
   
-```zsh
+```bash
 jupyter lab
 ```
 
@@ -210,12 +198,12 @@ jupyter lab
 
 #### Alternatives
 
-You can use Jupyter Notebook instead of Jupyter Lab. Both have same functionality, but Jupyter Lab has a bit nicer interface.
+You can use **Jupyter Notebook** instead of Jupyter Lab. Both have same functionality, but Jupyter Lab has a bit nicer interface.
 
 - To install: replace `jupyterlab` with `notebook`
 - To open: replace `jupyter-lab` with `jupyter notebook`
 
-[Visual Studio Code (VS Code)](https://code.visualstudio.com) is a cross-platform app that you can use to run Jupyter Notebooks. It has some added advantage compared to Jupyter Notebook / Jupyter Lab: it has a nice and fully customizable interface, a great build-in debugger, and offers several useful extensions such as:
+Alternatively, [**Visual Studio Code (VS Code)**](https://code.visualstudio.com) is a cross-platform app that you can use to run Jupyter Notebooks. It has some added advantage compared to Jupyter Notebook / Jupyter Lab: it has a nice and fully customizable interface, a great build-in debugger, and offers several useful extensions such as:
 
 - Jupyter (required to Jupyter notebooks)
 - Markdown All in One (Markdown support)
@@ -224,12 +212,11 @@ You can use Jupyter Notebook instead of Jupyter Lab. Both have same functionalit
 - Code Spell Checker (intelligent spell checking)
 - and many others
 
-The conda package manager can be rather slow at times. Luckily there is a newer alternative to conda, called [mamba](https://mamba.readthedocs.io/en/latest/index.html).  
-mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`.  
+The conda package manager can be rather slow at times. Luckily there is a newer alternative to conda, called [**mamba**](https://mamba.readthedocs.io/en/latest/index.html). mamba and conda work interchangeably, and use same syntax: just replace `conda` with `mamba`.  
 One exception: activating and deactivating environments still has to be done with the `conda` command.
 
 - Install mamba using
 
-```zsh
+```bash
 conda install mamba -n base -c conda-forge
 ```
