@@ -6,6 +6,7 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 
 ## Download example fastq files
 
+During sequencing, the nucleotide bases in a DNA sample (library) are determined by the sequencer. For each fragment in the library, a sequence is generated, also called a read, which is simply a succession of nucleotides.
 Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forwards and reverse. You can download three example fastq files at the following links (within a terminal):
 
 ```bash
