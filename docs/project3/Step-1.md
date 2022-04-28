@@ -84,7 +84,15 @@ Explore the files, in particular you can check:
 
 
 
-## Check the quality of the sequencing data and filter out low quality reads
+
+
+
+
+## Check the quality of the sequencing data
+
+Modern sequencing technologies can generate a massive number of sequence reads in a single experiment. However, no sequencing technology is perfect, and each instrument will generate different types and amount of errors, such as incorrect nucleotides being called. These wrongly called bases are due to the technical limitations of each sequencing platform.
+
+Therefore, it is necessary to understand, identify and exclude error-types that may impact the interpretation of downstream analysis. Sequence quality control is therefore an essential first step in your analysis. Catching errors early saves time later on.
 
 You can evaluate the quality of fastq files with fastQC. For example run:
 
@@ -94,7 +102,24 @@ fastqc raw_reads_forward.fastq
 
 Which will produce an html file. You can find more information on the different panels here: [link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/)
 
-You can filter out low quality reads using trimmomatic. You can find more information [here](http://www.usadellab.org/cms/?page=trimmomatic).
+
+
+
+## Filter and trim reads
+
+The quality drops in the end of the sequences we analysed. This could cause bias in downstream analyses with these potentially incorrectly called nucleotides. Sequences must be treated to reduce bias in downstream analysis. Trimming can help to increase the number of reads the aligner or assembler are able to succesfully use, reducing the number of reads that are unmapped or unassembled. In general, quality treatments include:
+
+1. Trimming/cutting: 
+   - from low quality score regions
+   - beginning/end of sequence
+   - removing adapters
+2. Filtering of sequences
+   - with low mean quality score
+   - too short
+   - with too many ambiguous (N) bases
+
+To accomplish this task we will use [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), a tool that enhances sequence quality by automating adapter trimming as well as quality control. Check [their website](http://www.usadellab.org/cms/?page=trimmomatic) to get more information on how to run the tool.
+
 Note that if you installed trimmomatic with conda, you can run with `trimmomatic PE [...]` (do not need to specify `java -jar trimmomatic-0.39.jar PE [...]`).
 
 How many reads have been filtered out? After filtering the reads, check if the overall quality improve. 
