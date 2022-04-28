@@ -1,6 +1,21 @@
 # Project 2A: Semi-automated processing using Fiji, Ilastik, and Python
 
+Here we will use a semi-automated pipeline to segment time-lapse data and quantify cell properties over time. We will not track cells.
+
+We will use a set of tools that are very frequently used in image analysis:
+
+- [Fiji, aka: ImageJ on steroids](https://imagej.net/software/fiji/), which is a generalist user-friendly, GUI based, image analysis program offering many tools and plugins for manual and semi-automated analysis.
+- [Ilastik](https://www.ilastik.org), which is a user-friendly, GUI based tool, offering several supervised machine learning pipelines.
+- [python](https://neptune.ai/blog/image-processing-python), a generalist programming language which has become the language of choice for the image analysis community
+
 General note: this guide has been written assuming you use a Mac or Linux Command Line.
+For windows Powershell see [here](https://devblogs.microsoft.com/scripting/table-of-basic-powershell-commands/), for command prompt see [here](https://www.makeuseof.com/tag/essential-windows-cmd-commands/).
+
+---
+
+## Note on data
+
+The dataset we will work with here consists of a time-lapse data of a synthetic microbial cross-feeding community consisting of two auxotrophic strains of *E. coli* that can only grow by exchanging Amino-Acids with each other. The two cell-types are fluorescently labeled with two different colors and grow together in a mono-layer within a 2D microfluidic growth chamber (a so-called family-machine).
 
 ---
 
@@ -159,60 +174,67 @@ The output should be stored under the name `[input_file_name]_Probabilities.h5`,
 
 ## Post-process with Python
 
-We will now **switch to the cloud computers** for the next steps.
+### Export Data on local computer
 
-### Create project folders on cloud computer
+For the next steps we will switch to the cloud computers, but before that we need to transfer the data-file we just created:
 
-- On the cloud computer, we have to recreate the project folder:
+- On your local computer, compress the `~/I2ICourse/Project2A/ProcessedData` folder into a zip-file
+- Upload this zip file to a cloud drive
+- Create a public share link and copy the address
 
-```zsh
-cd ~
-mkdir I2ICourse
-```
+### Setup project folders on cloud computer
 
-We also make some extra folders for Project2A:
+- Login to the **cloud computer** (your tutor will provide info in how to do this)
+- Launch the command window and create a `Project2A` folder within the `~\workdir\` folder:
 
 ```bash
-cd ~/I2ICourse/
-mkdir Project2A
+cd ~/workdir/
+mkdir Project2C
+```
+
+**Important Note: on the cloud computer we need to store all data in the `~/workdir/` folder or sub-folders of this, to make sure that files remain available after restarting the instance.**
+
+Also add a `ProcessedData` subfolder to the `Project2A` folder:
+
+```bash
 cd Project2A
 mkdir ProcessedData
 ```
 
-### Download project code
+### Download data on cloud computer
 
-- Navigate to the project folder and use the `git clone` command to download the course code:
-
-```zsh
-cd ~/I2ICourse/
-git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
-```
-
-- This will create the folder `~/I2ICourse/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
-
-### Transfer the data
-
-- Then we have to transfer the data from your local computer to the cloud computer
-- First compress the `~/I2ICourse/Project2A/ProcessedData` folder on your local computer into a zip-file
-- Upload this zip file to a cloud drive
-- Create a public share link and copy the address
+Now we download the data file we just uploaded to the cloud:
 
 ```bash
-cd ~/I2ICourse/Project2A/ProcessedData
+cd ~/workdir/Project2A/ProcessedData
 wget -O data.zip public_link_to_your_zip_file
 unzip -j data.zip
 ```
+
+- Check that the data transferred successfully (use `ls`)
+- If so, then you can remove the zip file use `rm data.zip`
+
+### Download project code on cloud computer
+
+- Navigate to the `workdir` folder and use the `git clone` command to download the course code:
+
+```zsh
+cd ~/workdir/
+git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
+```
+
+- This will create the folder `~/workdir/spring_school_bioinformatics_microbiology/` which contains all the Jupyter notebooks as well as the other course files
 
 ### Launch Jupyter Labs
 
 - Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
 
 ```zsh
-cd ~/I2ICourse/
+cd ~/workdir/
 conda activate i2i_env
 jupyter lab
 ```
 
 - In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2A/`
 - Then open the `post_process_segementation.ipynb` notebook
-- Now run the notebook, see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html)
+- Now run the notebook, see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) and follow the instructions in the notebook.

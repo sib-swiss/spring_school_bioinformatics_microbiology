@@ -24,8 +24,6 @@ nav:
       - Software: project4/software.md
       - Project timeline: project4/timeline.md
 
-
-
 theme:
   name: material
   icon: 
