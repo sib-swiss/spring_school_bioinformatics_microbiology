@@ -201,6 +201,7 @@ load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_
 ```
 
 Explore the taxonomic profiles (`tax_profile`), here are some hints of what you can check:
+
 - Which genera is the most and least prevalent?
 - How many reads there are per sample?
 - If you want to compare different samples, is it a problem that there are different read counts? Try to divide each value within a sample by the sum of the reads in that sample to normalise the data (also called relative abundance).
