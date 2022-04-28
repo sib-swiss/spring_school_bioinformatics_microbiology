@@ -127,6 +127,6 @@ To accomplish this task we will use [trimmomatic](http://www.usadellab.org/cms/?
 Note that if you installed trimmomatic with conda, you can run with `trimmomatic PE [...]` (do not need to specify `java -jar trimmomatic-0.39.jar PE [...]`).
 
 - Try to run trimmomatic (you can use different parameters).
-- How many files did trimmomatic generated? What they contain?
+- How many files did trimmomatic generated? What do they contain?
 - How many reads have been filtered out?
 - Check the quality of the filtered reads, did the quality improved?
