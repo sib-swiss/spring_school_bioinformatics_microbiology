@@ -20,11 +20,6 @@ wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_1.fastq
 wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_2.fastq
 ```
 
-Look at the fastq files, how are they structured?
-
-<details><summary>Information about FastQ files</summary>
-<p>
-
 
 When we work with metagenomic data we usually have two fastq files produced by
 the Illumina sequencer:
@@ -70,8 +65,7 @@ And, for each quality score there is an associated probability for correctly cal
 | 40 | 1 in 10,000 | 99.99% |
 
 
-</p> 
-</details>
+
 
 Explore the files, in particular you can check:
 - How many reads there are per sample?
