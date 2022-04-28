@@ -131,3 +131,36 @@ Note that if you installed trimmomatic with conda, you can run with `trimmomatic
 - How many files did trimmomatic generated? What do they contain?
 - How many reads have been filtered out?
 - Check the quality of the filtered reads, did the quality improved?
+
+
+
+
+
+
+
+
+## Taxonomic profiling with mOTUs
+
+The majority of microbiome studies rely on an accurate identification of the microbes and quantification their abundance in the sample under study, a process called taxonomic profiling.
+
+We would like to save the profile in a file like:
+```
+Bacteroides_vulgatus    0.34
+Prevotella_copri        0.16
+Eubacterium_rectale     0.10
+...
+```
+
+And, if we pull together many samples, in a table like:
+```
+                        sample_1  sample_2
+Bacteroides_vulgatus        0.34      0.01
+Prevotella_copri            0.16      0.42
+Eubacterium_rectale         0.10      0.00
+...                          ...       ...
+```
+
+
+We will use [mOTUs](https://github.com/motu-tool/mOTUs) to create taxonomic profiles of metagenomic samples.
+More information can be found also in [this protocol paper](https://currentprotocols.onlinelibrary.wiley.com/doi/full/10.1002/cpz1.218).
+
