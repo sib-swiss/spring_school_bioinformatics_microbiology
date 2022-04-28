@@ -1,4 +1,4 @@
-# Step 2: Comparative Metagenome Analysis with SIAMCAT
+# Step 3: Comparative Metagenome Analysis with SIAMCAT
 
 General note: this guide has been written assuming you use a R.
 
