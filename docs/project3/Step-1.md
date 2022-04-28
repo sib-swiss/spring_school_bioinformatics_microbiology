@@ -38,14 +38,12 @@ HYG3LBGXC_261_1_19s00-sample119s004346_1_sequence.fq.gz
 HYG3LBGXC_261_1_19s00-sample119s004346_2_sequence.fq.gz
 ```
 
-  A fastq file contains 4 lines for each read, with the following information:
-
-| Line | Description |
-| ------ | ------ |
-| 1 | A line starting with `@` and the read id |
-| 2 | The DNA sequence | 
-| 3 | A line starting with `+` and sometimes the same information as in line 1 | 
-| 4 | A string of characters that represents the quality score (same number of characters as in line 2) | 
+A fastq file contains 4 lines for each read, with the following information:
+  
+ 1. A line starting with `@` and the read id
+ 2. The DNA sequence
+ 3. A line starting with `+` and sometimes the same information as in line 1
+ 4. A string of characters that represents the quality score (same number of characters as in line 2)
 
 We can have a look at the first read (4 lines) with `head -n 4 raw_reads_1.fastq`:
 ```
