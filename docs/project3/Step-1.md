@@ -183,3 +183,13 @@ There are other taxonomic profiling tools that you can use, one that is already 
 - Try to profile the three samples with MAPseq. (Note that MAPseq need fasta file as input, instead of fastq files)
 - Can you compare mOTUs and MAPseq profiles?
 
+
+
+
+
+
+
+
+## Explore taxonomic profiles
+
+Metagenomics enables the study of species abundances in complex mixtures of microorganisms and has become a standard methodology for the analysis of the human microbiome. However, species abundance data is inherently noisy and contains high levels of biological and technical variability as well as an excess of zeros due to non-detected species. This makes the statistical analysis challenging. Before moving to the next step, you will examine the properties of microbiome datasets.
