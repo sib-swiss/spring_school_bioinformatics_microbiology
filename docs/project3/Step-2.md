@@ -36,12 +36,6 @@ meta <- read.table(meta.file,
 ```
 
 
-## Examine the profiles and the metadata
-
-Look first at the taxonomic profiles and check how many zeros there are, what do they mean when you compare columns and rows zeros?
-
-The values in the taxonomic profiles represent read counts, if you compare the different samples (columns), do you observe a similar total read count? Can it be a problem when comparing species counts across different samples?
-
 Look at the metadata, how many control (`CTR`) and cases (`CRC` for colorectal cancer) are there?
 
 
