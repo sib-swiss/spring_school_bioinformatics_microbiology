@@ -102,6 +102,10 @@ fastqc raw_reads_forward.fastq
 
 Which will produce an html file. You can find more information on the different panels here: [link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/)
 
+- Which part of the reads is of lower quality?
+- Is there any difference between forward or reverse?
+
+
 
 
 
@@ -122,4 +126,7 @@ To accomplish this task we will use [trimmomatic](http://www.usadellab.org/cms/?
 
 Note that if you installed trimmomatic with conda, you can run with `trimmomatic PE [...]` (do not need to specify `java -jar trimmomatic-0.39.jar PE [...]`).
 
-How many reads have been filtered out? After filtering the reads, check if the overall quality improve. 
+- Try to run trimmomatic (you can use different parameters).
+- How many files did trimmomatic generated? What they contain?
+- How many reads have been filtered out?
+- Check the quality of the filtered reads, did the quality improved?
