@@ -48,10 +48,10 @@ HYG3LBGXC_261_1_19s00-sample119s004346_2_sequence.fq.gz
 
 We can have a look at the first read (4 lines) with `head -n 4 raw_reads_1.fastq`:
 ```
-@read1
-CTCTAGCAGATACTCTCCCTATATGAACTCATGGGGGCGGGGATGCCCGTCCTGTGTAACAATAAAAAATAACCTTGATGAGGGCGGATAGATCCTACCT
+@read98
+CATCGACGACCTGGACGACCTGGACTTCATCGAGCGGGTGAAGATCCAGCAGAAGAACTGGATCGGCCGCTCCACCGGTGCCGAGGTCACCTTCAAGGCC
 +
-BBBFFFF<FBFFFFFFIIIIBFBFFBFIIIIFFFIIIIIFFBFFFFFB77BBFFBBBBBBBBBBFFFB7<0BBBB<BBBBFBBBFFF<<7BBBFFFBBBB
+BBBFFFFFFFFFFBBFFFFIIFFFIIIIIIIIFBFIIFFFFFFFBBBFFFFBBFFFFFBBFFFBBBFBBBBFBBFBFFBBFFF0<B7BBFBB<BBFBBBF
 ```
 
 Each character in the fourth line can be converted to a quality score ([Phred-33](https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm)) from 1 to 40:
@@ -73,6 +73,9 @@ And, for each quality score there is an associated probability for correctly cal
 
 </p> 
 </details>
+
+
+
 
 
 
