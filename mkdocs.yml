@@ -19,7 +19,10 @@ nav:
       - Step 2: project3/Step-2.md
     - Project 4: 
       - Description: project4.md
+      - Project 4A: project4/project4a.md
       - Project 4B: project4/project4b.md
+      - Software: project4/software.md
+      - Project timeline: project4/timeline.md
 
 
 
