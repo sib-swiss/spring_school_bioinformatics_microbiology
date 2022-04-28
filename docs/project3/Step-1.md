@@ -151,6 +151,8 @@ Eubacterium_rectale     0.10
 ...
 ```
 
+Where the first column contain the name of the species and the second column contain the relative abundance.
+
 And, if we pull together many samples, in a table like:
 ```
                         sample_1  sample_2
@@ -163,4 +165,21 @@ Eubacterium_rectale         0.10      0.00
 
 We will use [mOTUs](https://github.com/motu-tool/mOTUs) to create taxonomic profiles of metagenomic samples.
 More information can be found also in [this protocol paper](https://currentprotocols.onlinelibrary.wiley.com/doi/full/10.1002/cpz1.218).
+
+- Use `motus` (manual: [link](https://github.com/motu-tool/mOTUs_v2#simple-examples)) to create a profile from the files created by trimmomatic.
+- How many species are detected? How many are reference species and how many are unknown species?
+- Can you change some parameters in `motus` to profile more or less species? (Hint, look [here](https://github.com/motu-tool/mOTUs/wiki/Increase-precision-or-recall))
+- How can you merge different motus profiles into one file? Try to profile and then merge three profiles (Sample A, B and C).
+
+
+
+
+
+
+## Taxonomic profiling with MAPseq
+
+There are other taxonomic profiling tools that you can use, one that is already avaialble in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
+
+- Try to profile the three samples with MAPseq. (Note that MAPseq need fasta file as input, instead of fastq files)
+- Can you compare mOTUs and MAPseq profiles?
 
