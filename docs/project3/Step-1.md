@@ -21,7 +21,7 @@ wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_2.fastq
 
 Look at the fastq files, how are they structured?
 
-<details><summary>SOLUTION</summary>
+<details><summary>Information about FastQ files</summary>
 <p>
 
 
@@ -74,8 +74,10 @@ And, for each quality score there is an associated probability for correctly cal
 </p> 
 </details>
 
-
-
+Explore the files, in particular you can check:
+- How many reads there are per sample?
+- What is the average length of the reads? Is there a difference between forward and reverse?
+- Do you have the same read IDs in the forward and reverse file? 
 
 
 
