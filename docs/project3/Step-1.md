@@ -193,3 +193,17 @@ There are other taxonomic profiling tools that you can use, one that is already 
 ## Explore taxonomic profiles
 
 Metagenomics enables the study of species abundances in complex mixtures of microorganisms and has become a standard methodology for the analysis of the human microbiome. However, species abundance data is inherently noisy and contains high levels of biological and technical variability as well as an excess of zeros due to non-detected species. This makes the statistical analysis challenging. Before moving to the next step, you will examine the properties of microbiome datasets.
+
+
+We will switch now to R examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
+```R
+load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_dataset.Rdata"))
+```
+
+Explore the taxonomic profiles (`tax_profile`), here are some hints of what you can check:
+- Which genera is the most and least prevalent?
+- How many reads there are per sample?
+- If you want to compare different samples, is it a problem that there are different read counts? Try to divide each value within a sample by the sum of the reads in that sample to normalise the data (also called relative abundance).
+- Is the relative abundance of the different genera normally distributed?
+- How many zeros there are per sample and per genus?
+- How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
