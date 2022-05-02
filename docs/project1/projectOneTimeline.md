@@ -18,9 +18,9 @@ we will build a mechanistic model of growth inhibition by ribosome-targeting dru
 #### Wednesday: 
 * mechanistic models of growth response for ribosome-targeting drugs II
 
-we will fit the mechanistic model of growth inhibition by ribosome-targeting drugs to the dosage-response curves of E. coli mutants    selected under streptomycin challenge and study correlations in the data
+we will fit the mechanistic model of growth inhibition by ribosome-targeting drugs to the dosage-response curves of E. coli mutants selected under streptomycin challenge and study correlations in the data
 
-we will build fitness models for different resistance mechanisms and we will predict the dosage-response curve of families of mutants with common mechanisms
+we will build fitness models for different resistance mechanisms and we will predict the dosage-response curves of families of mutants with common mechanisms
 
 #### Thursday:  
 * phase diagram for resistance mechanisms 
