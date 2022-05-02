@@ -4,9 +4,9 @@ nav:
     - Precourse preparations: precourse.md
     - Course schedule: course_schedule.md
     - Project 1: 
-     - Description: project1.md
-     - Overview: project1/timeline.md
-     - Software: project1/software.md
+      - Description: project1.md
+      - Overview: project1/timeline.md
+      - Software: project1/software.md
     - Project 2: 
       - Description: project2.md
       - Preparation: project2/Project2_Preparation.md
