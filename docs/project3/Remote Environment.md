@@ -7,9 +7,9 @@ Each student will get their own container for the duration of the course, where 
 This environment can be accessed with any internet browser, by going to your assigned port, which should look similar like http://1.23.45.678:10034.
 In the container, you can find the following shared directories:
 
-    /data: read only, and shared between all running containers. This directory is used to have a single place to store data
-    /group_work: read and write enabled for all participants, and shared between all containers. This can be used to share data/scripts between students.
-    ~/workdir: read and write enabled, and only shared between containers assigned to the same participant.
+/data: read only, and shared between all running containers. This directory is used to have a single place to store data
+/group_work: read and write enabled for all participants, and shared between all containers. This can be used to share data/scripts between students.
+~/workdir: read and write enabled, and only shared between containers assigned to the same participant.
     
 All directories other than the shared directories only exist within the container.
 
