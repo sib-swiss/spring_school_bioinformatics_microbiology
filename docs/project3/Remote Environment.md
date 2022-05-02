@@ -46,7 +46,7 @@ If you need a quick refresher for the most common bash commands, for example to 
 
 The console will be used mostly in Part2 of the course. Here, you have a set up R environment with all packages you will need preinstalled. 
 You can create an R Script to better store and modify your code by selecting "R Script" in the icon below File.
-+[](../assets/images/Project3/Fig2.png)
+![](../assets/images/Project3/Fig2.png)
 
 
 
