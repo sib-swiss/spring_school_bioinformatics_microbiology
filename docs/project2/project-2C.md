@@ -313,6 +313,7 @@ You now should have the `cell_data_all.csv` file in your project folder.
 ### Launch Jupyter Labs
 
 - On the cloud computer navigate to the `~/workdir/` folder, activate the conda environment, and launch Jupyter Labs:
+**Important: on the cloud computer use `conda activate project2` instead!**
 
 ```bash
 cd ~/workdir/

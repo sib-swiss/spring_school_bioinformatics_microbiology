@@ -1,0 +1,25 @@
+name: project2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - cudnn=8 
+  - cudatoolkit=11
+  - delta2=2.0.5
+  - h5py
+  - ipykernel
+  - scipy
+  - matplotlib
+  - numpy
+  - seaborn
+  - napari
+  - pandas
+  - qt
+  - scikit-image
+  - scikit-learn
+  - dask-image
+  - pathlib
+  - pip
+  - pip:
+    - PyBacmman
+    - elasticdeform
