@@ -38,6 +38,7 @@ Afterwards, you should see (project3) on the left side, indicating that you are 
 ```bash
 fastqc -h 
 ```
+![](../assets/images/Project3/Fig3.png)
 If you need a quick refresher for the most common bash commands, for example to create directories, search for a specific word inside a file and similar tasks, check for example the following [guide.](https://www.educative.io/blog/bash-shell-command-cheat-sheet)
 
 
