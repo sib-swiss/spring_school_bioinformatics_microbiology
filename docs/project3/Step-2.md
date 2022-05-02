@@ -12,7 +12,7 @@ library("SIAMCAT")   # for statistical and machine learning analyses
 
 ## Download the taxonomic profiles and metadata
 
-From the previous step you learned how to create taxonomic profiles. Here we provide 120 taxonomic profiles in the form of a table where columns are samples and rows are species (or clade in general). Within R you can download and load the files with the following command:
+From the previous step you learned how to create taxonomic profiles. Here we provide 120 human gut taxonomic profiles in the form of a table where columns are samples and rows are species (or clade in general). Within R you can download and load the files with the following command:
 
 ``` R
 url_base = "https://www.embl.de/download/zeller/TEMP/NCCR_course/"
@@ -36,27 +36,30 @@ meta <- read.table(meta.file,
 ```
 
 
-## Examine the profiles and the metadata
-
-Look first at the taxonomic profiles and check how many zeros there are, what do they mean when you compare columns and rows zeros?
-
-The values in the taxonomic profiles represent read counts, if you compare the different samples (columns), do you observe a similar total read count? Can it be a problem when comparing species counts across different samples?
-
-Look at the metadata, how many control (`CTR`) and cases (`CRC` for colorectal cancer) are there?
+Look at the metadata, how many controls (`CTR`) and cases (`CRC` for colorectal cancer) are there?
 
 
 
 ## Identify which species show an association to colorectal cancer patients
 
-How would you identify which species are associated to cancer? Which kind of test can you use?
+Colorectal carcinoma (CRC) is among the three most common cancers with more than 1.2 million new cases and about 600,000 deaths per year worldwide. If CRC is diagnosed early, when it is still localized, the 5-year survival rate is > 80%, but decreases to < 10% for late diagnosis of metastasized cancer. With the data that we just dowloaded, we can check if there is any association between specific bacterial species and CRC patients.
 
-Explore how SIAMCAT identify associations between clades and phenotypes: [link](https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html)
+- How would you study and estimate these associations? How would you identify which species are associated to cancer? Which kind of test can you use?
+- Explore how SIAMCAT identify associations between clades and phenotypes: [link](https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html)
+- What kind of normalization SIAMCAT allow to use?
+- Try to run SIAMCAT to do association testing.
+
+
 
 
 
 ## Build machine learning models to predict colorectal cancer patients from a metagenomic sample
 
-Explore the SIAMCAT basic vignette to understand how you can train machine learning models to predict colerectal cancer from metagenomic samples.
+Population-wide screening and prevention programs for colorectal cancer are recommended in many countries. Fecal occult blood testing (Hemoccult FOBT) is currently the standard noninvasive screening test. However, because FOBT has limited sensitivity and specificity for CRC and does not reliably detect precancerous lesions, there is an urgent demand for more accurate screening tests to identify patients who should undergo colonoscopy, which is considered the most effective diagnostic method. Here, we we can investigate the potential of fecal microbiota for noninvasive detection of colorectal cancer in several patients.
+
+We can model the problem using machine learning.
+
+- Explore the SIAMCAT basic vignette to understand how you can train machine learning models to predict colerectal cancer from metagenomic samples.
 
 
 
@@ -85,3 +88,5 @@ mapseq.profiles97 <- as.matrix(mapseq.profiles97)
 ```
 
 If you replace "97" with "99", you can download the profiles with 99% OTUs.
+
+- Do you see a similar signal using different taxonomic profiling tools or different taxonomic levels? 
