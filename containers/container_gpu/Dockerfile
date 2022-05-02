@@ -36,3 +36,5 @@ RUN conda install -y nb_conda_kernels
 
 
 RUN rm environment.yml
+
+CMD ["bash", "-c","source /etc/bash.bashrc && jupyter notebook --notebook-dir=/home/jupyter --ip 0.0.0.0 --no-browser --allow-root"]
