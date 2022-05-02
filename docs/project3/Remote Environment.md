@@ -15,7 +15,7 @@ All directories other than the shared directories only exist within the containe
 
 When visiting your assigned port, you should see the following window:
 
-IMG
+![](../assets/images/Project3/Fig1.png)
 
 For our course, we will work mostly in the Terminal (Bash) for Part 1, and in the console (R) for Part2.
 
