@@ -174,6 +174,11 @@ More information can be found also in [this protocol paper](https://currentproto
 There are other taxonomic profiling tools that you can use, one that is already avaialble in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
 
 - Try to profile the three samples with MAPseq. (Note that MAPseq need fasta file as input, instead of fastq files)
+- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use sed to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use
+```bash
+sed -n '1~4s/^@/>/p;2~4p' sample.fastq > sample.fasta
+```
+- Similar as with mOTUs, first create a profile for each sample and then merge them into an otu-count table.
 - Can you compare mOTUs and MAPseq profiles?
 
 
