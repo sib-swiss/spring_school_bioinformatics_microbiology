@@ -186,7 +186,7 @@ mapseq -otucounts sample.mseq
 - While running mapseq, you may encounter the following error: !! Mon May  2 14:24:17 2022 [] mapseq.cpp:3614 void load_taxa(const estr&, eseqdb&): loading taxonomy, 14922 sequences not found in sequence database 
 This is due to some chimeras that were filtered out recently, you can ignore the message.
 
-- Similar as with mOTUs, first create a profile for each sample and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq)).
+- Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq)).
 - Can you compare mOTUs and MAPseq profiles?
 
 
