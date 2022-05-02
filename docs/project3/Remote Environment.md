@@ -17,7 +17,7 @@ When visiting your assigned port, you should see the following window:
 
 ![](../assets/images/Project3/Fig1.png)
 
-The features and parts you will mainly use are numbered. While going to the tabs 1 or 2 you can switch between our two interfaces: 
+The features and parts you will mainly use are numbered. While going to the tabs (1) or (2) you can switch between our two interfaces: 
 For our course, we will work mostly in the Terminal (Bash) for Part 1, and in the console (R) for Part2.
 
 On the top right (3) is a panel in which you will be see which variables, dataframes etc. exist in your current session.
@@ -34,8 +34,11 @@ To do this, go to the terminal tab and type
 ```bash
 conda activate project3
 ```
-Afterwards, you should see (project3) on the left side, indicating that you are currently working within that environment. 
-If you need a quick refresher for the most common bash commands, for example to create directories, search for a specific word inside a file and similar tasks, check for example the following [guide](https://www.educative.io/blog/bash-shell-command-cheat-sheet)
+Afterwards, you should see (project3) on the left side, indicating that you are currently working within that environment. Now, you should be able to use the programms as described in their respective guides. For example, typing the following command should now print out the help section of fastqc.
+```bash
+fastqc -h 
+```
+If you need a quick refresher for the most common bash commands, for example to create directories, search for a specific word inside a file and similar tasks, check for example the following [guide.](https://www.educative.io/blog/bash-shell-command-cheat-sheet)
 
 
 
