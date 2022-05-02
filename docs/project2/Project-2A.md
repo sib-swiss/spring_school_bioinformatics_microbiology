@@ -189,7 +189,7 @@ For the next steps we will switch to the cloud computers, but before that we nee
 
 ```bash
 cd ~/workdir/
-mkdir Project2C
+mkdir Project2A
 ```
 
 **Important Note: on the cloud computer we need to store all data in the `~/workdir/` folder or sub-folders of this, to make sure that files remain available after restarting the instance.**
@@ -228,6 +228,7 @@ git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology
 ### Launch Jupyter Labs
 
 - Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
+**Important: on the cloud computer use `conda activate project2` instead!**
 
 ```zsh
 cd ~/workdir/

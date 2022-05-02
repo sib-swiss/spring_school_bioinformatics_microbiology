@@ -175,8 +175,28 @@ More information can be found also in [this protocol paper](https://currentproto
 
 There are other taxonomic profiling tools that you can use, one that is already avaialble in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
 
-- Try to profile the three samples with MAPseq. (Note that MAPseq need fasta file as input, instead of fastq files)
   
+- Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files.)
+- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use sed to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
+```bash
+sed -n '1~4s/^@/>/p;2~4p' sample.fastq > sample.fasta
+```
+-By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag.
+```bash
+mapseq sample.fasta > sample.mseq
+mapseq -otucounts sample.mseq
+```
+- While running mapseq, you may encounter the following error: !! Mon May  2 14:24:17 2022 [] mapseq.cpp:3614 void load_taxa(const estr&, eseqdb&): loading taxonomy, 14922 sequences not found in sequence database 
+This is due to some chimeras that were filtered out recently, you can ignore the message.
+
+- Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq) for the command).
+- You have two main different parameters when creating the otutables: 
+- - -ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.
+- - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard for species level in 16S), use the parameters 
+```bash
+-ti 1 -tl 3
+```
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. 
 - Can you compare mOTUs and MAPseq profiles?
 
 

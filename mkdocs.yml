@@ -3,7 +3,10 @@ nav:
     - Home: index.md
     - Precourse preparations: precourse.md
     - Course schedule: course_schedule.md
-    - Project 1: project1.md
+    - Project 1: 
+      - Description: project1.md
+      - Overview: project1/timeline.md
+      - Software: project1/software.md
     - Project 2: 
       - Description: project2.md
       - Preparation: project2/Project2_Preparation.md
@@ -11,6 +14,7 @@ nav:
       - Project 2A: project2/Project-2A.md
       - Project 2B: project2/Project-2B.md
       - Project 2C: project2/project-2C.md
+      - Resources: project2/Project2_Resources
     - Project 3:
       - Description: project3.md
       - Preparation: project3/Prepare-before-start-of-the-course.md
