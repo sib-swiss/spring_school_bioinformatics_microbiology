@@ -25,7 +25,8 @@ cd ~/workdir/
 mkdir Project2B
 ```
 
-- Then activate the conda environment, and launch Jupyter Labs:
+- Then activate the conda environment, and launch Jupyter Labs:  
+**Important: on the cloud computer use `conda activate project2` instead!**
 
 ```bash
 cd ~/workdir/
