@@ -186,7 +186,14 @@ mapseq -otucounts sample.mseq
 - While running mapseq, you may encounter the following error: !! Mon May  2 14:24:17 2022 [] mapseq.cpp:3614 void load_taxa(const estr&, eseqdb&): loading taxonomy, 14922 sequences not found in sequence database 
 This is due to some chimeras that were filtered out recently, you can ignore the message.
 
-- Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq)).
+- Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq) for the command).
+- You have two main different parameters when creating the otutables: 
+- - -ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.
+- - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard for species level in 16S), use the parameters 
+```bash
+-ti 1 -tl 3
+```
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. 
 - Can you compare mOTUs and MAPseq profiles?
 
 
