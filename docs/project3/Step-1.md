@@ -123,7 +123,7 @@ Note that if you installed trimmomatic with conda, you can run with `trimmomatic
 - Try to run trimmomatic (you can use different parameters).
 - How many files did trimmomatic generated? What do they contain?
 - How many reads have been filtered out?
-- Check the quality of the filtered reads, did the quality improved?
+- Check the quality of the filtered reads, did the quality improve?
 
 
 
