@@ -7,7 +7,7 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 ## Download example sequencing data
 
 During sequencing, the nucleotide bases in a DNA sample (library) are determined by the sequencer. For each fragment in the library, a sequence is generated, also called a read, which is simply a succession of nucleotides.
-Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forwards and reverse. You can download three example fastq files at the following links (within a terminal):
+Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forward and reverse. You can download three example fastq files at the following links (within a terminal):
 
 ```bash
 wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleA_1.fastq
@@ -40,7 +40,9 @@ A fastq file contains 4 lines for each read, with the following information:
  3. A line starting with `+` and sometimes the same information as in line 1
  4. A string of characters that represents the quality score (same number of characters as in line 2)
 
-We can have a look at the first read (4 lines) with `head -n 4 raw_reads_1.fastq`:
+We can have a look at the first read (4 lines) with:
+
+ `head -n 4 sampleA_1.fastq`
 ```
 @read98
 CATCGACGACCTGGACGACCTGGACTTCATCGAGCGGGTGAAGATCCAGCAGAAGAACTGGATCGGCCGCTCCACCGGTGCCGAGGTCACCTTCAAGGCC
@@ -70,7 +72,7 @@ And, for each quality score there is an associated probability for correctly cal
 Explore the files, in particular you can check:
 
 - How many reads there are per sample?
-- What is the average length of the reads? Is there a difference between forward and reverse?
+- What is the average length of the reads? Is there a difference between the read lengths in the forward and reverse files?
 - Do you have the same read IDs in the forward and reverse file? 
 
 
@@ -91,7 +93,7 @@ Therefore, it is necessary to understand, identify and exclude error-types that 
 You can evaluate the quality of fastq files with fastQC. For example run:
 
 ```bash
-fastqc raw_reads_forward.fastq
+fastqc sampleA_1.fastq
 ```
 
 Which will produce an html file. You can find more information on the different panels here: [link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/)
@@ -105,7 +107,7 @@ Which will produce an html file. You can find more information on the different 
 
 ## Filter and trim reads
 
-The quality drops in the end of the sequences we analysed. This could cause bias in downstream analyses with these potentially incorrectly called nucleotides. Sequences must be treated to reduce bias in downstream analysis. Trimming can help to increase the number of reads the aligner or assembler are able to succesfully use, reducing the number of reads that are unmapped or unassembled. In general, quality treatments include:
+The quality drops in the ends of the sequences we analysed. This could cause bias in downstream analyses with these potentially incorrectly called nucleotides. Sequences must be treated to reduce bias in downstream analysis. Trimming can help to increase the number of reads the aligner or assembler are able to succesfully use, reducing the number of reads that are unmapped or unassembled. In general, quality treatments include:
 
 1. Trimming/cutting: 
    - from low quality score regions
@@ -121,7 +123,7 @@ To accomplish this task we will use [trimmomatic](http://www.usadellab.org/cms/?
 Note that if you installed trimmomatic with conda, you can run with `trimmomatic PE [...]` (do not need to specify `java -jar trimmomatic-0.39.jar PE [...]`).
 
 - Try to run trimmomatic (you can use different parameters).
-- How many files did trimmomatic generated? What do they contain?
+- How many files did trimmomatic generate? What do they contain?
 - How many reads have been filtered out?
 - Check the quality of the filtered reads, did the quality improve?
 
@@ -173,6 +175,7 @@ More information can be found also in [this protocol paper](https://currentproto
 
 There are other taxonomic profiling tools that you can use, one that is already avaialble in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
 
+  
 - Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files.)
 - Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use sed to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
 ```bash
@@ -215,9 +218,9 @@ load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_
 
 Explore the taxonomic profiles (`tax_profile`), here are some hints of what you can check:
 
-- Which genera is the most and least prevalent?
 - How many reads there are per sample?
 - If you want to compare different samples, is it a problem that there are different read counts? Try to divide each value within a sample by the sum of the reads in that sample to normalise the data (also called relative abundance).
+- Which genera is the most and least prevalent?
 - Is the relative abundance of the different genera normally distributed?
 - How many zeros there are per sample and per genus?
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
