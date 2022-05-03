@@ -12,7 +12,29 @@ More info on the data can be found [here](https://doi.org/10.1016/j.cels.2018.03
 
 ---
 
-## Getting started
+## Getting started - Local Computer
+
+- On your computer, navigate to the `I2ICourse` folder and create a `Project2B` subfolder:
+
+```bash
+cd ~/I2ICourse/
+mkdir Project2B
+```
+
+- Then activate the conda environment, and launch Jupyter Labs:  
+
+```bash
+cd ~/I2ICourse/
+conda activate i2i_env
+jupyter lab
+```
+
+- In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2B/`
+- Then follow the steps below.
+
+---
+
+## Getting started - Cloud Computer
 
 We will **work on the cloud computers** for the full project
 
@@ -26,11 +48,10 @@ mkdir Project2B
 ```
 
 - Then activate the conda environment, and launch Jupyter Labs:  
-**Important: on the cloud computer use `conda activate project2` instead!**
 
 ```bash
 cd ~/workdir/
-conda activate i2i_env
+conda activate project2
 jupyter lab
 ```
 
