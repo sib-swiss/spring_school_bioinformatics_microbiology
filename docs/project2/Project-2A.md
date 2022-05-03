@@ -172,7 +172,29 @@ The output should be stored under the name `[input_file_name]_Probabilities.h5`,
 
 ---
 
-## Post-process with Python
+## Post-process with Python - Personal Computer
+
+Follow these instruction if you run the python code locally (see below for instructions on how to run it on the cloud computer)
+
+### Launch Jupyter Labs
+
+- Navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
+
+```zsh
+cd ~/I2ICourse/
+conda activate i2i_env
+jupyter lab
+```
+
+- In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2A/`
+- Then open the `0_post_process_segementation.ipynb` notebook
+- Now run the notebook, see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) and follow the instructions in the notebook.
+
+---
+
+## Post-process with Python - Cloud Computer
+
+Follow these instructions if you are using the cloud computer to run Python.
 
 ### Export Data on local computer
 
@@ -228,14 +250,13 @@ git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology
 ### Launch Jupyter Labs
 
 - Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
-**Important: on the cloud computer use `conda activate project2` instead!**
 
 ```zsh
 cd ~/workdir/
-conda activate i2i_env
+conda activate project2
 jupyter lab
 ```
 
 - In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2A/`
-- Then open the `post_process_segementation.ipynb` notebook
+- Then open the `0_post_process_segementation.ipynb` notebook
 - Now run the notebook, see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) and follow the instructions in the notebook.

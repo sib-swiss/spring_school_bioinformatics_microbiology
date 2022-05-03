@@ -18,6 +18,7 @@ dependencies:
   - python=3.9
   - pathlib
   - pip
+  - jupyterlab
   - pip:
     - PyBacmman
     - elasticdeform

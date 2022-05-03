@@ -267,7 +267,44 @@ Now that we have segmented and tracked cells, we need to extract cell measuremen
 
 ---
 
-## Post-process with Python
+## Post-process with Python - Personal Computer
+
+Follow these instruction if you run the python code locally (see below for instructions on how to run it on the cloud computer)
+
+### Download the full dataset
+
+In the second notebook, we will analyze the full dataset that we prepared before the start of the code.  
+Here we download this dataset
+
+- Navigate to the project folder and download the data using `wget`:
+
+```bash
+cd ~/I2ICourse/Project2C
+wget -O cell_data_all.csv https://drive.switch.ch/index.php/s/DiXnrjTmySyXYzl/download
+ls 
+```
+
+You now should have the `cell_data_all.csv` file in your project folder.
+
+### Launch Jupyter Labs
+
+- Navigate to the project folder, activate the conda environment, and launch Jupyter Labs:
+
+```zsh
+cd ~/I2ICourse/
+conda activate i2i_env
+jupyter lab
+```
+
+- In Jupyter Labs, navigate to `spring_school_bioinformatics_microbiology/projects/project2/Project2A/`
+- Then open the `0_postprocess_bacmman.ipynb` notebook
+- Now run the notebook, see here for [instructions on Jupyter Labs](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html) and follow the instructions in the notebook.
+
+---
+
+## Post-process with Python - Cloud Computer
+
+Follow these instructions if you are using the cloud computer to run Python.
 
 ### Export Data on local computer
 
@@ -297,7 +334,7 @@ wget -O MM_test_1.csv public_link_to_your_zip_file
 
 ### Download the full dataset
 
-In the second notebook, we will analyze the full dataset (X positions) that we prepared before the start of the code.  
+In the second notebook, we will analyze the full dataset that we prepared before the start of the code.  
 Here we download this dataset
 
 - On the cloud computer navigate to the project folder and download the data using `wget`:
@@ -313,11 +350,10 @@ You now should have the `cell_data_all.csv` file in your project folder.
 ### Launch Jupyter Labs
 
 - On the cloud computer navigate to the `~/workdir/` folder, activate the conda environment, and launch Jupyter Labs:
-**Important: on the cloud computer use `conda activate project2` instead!**
 
 ```bash
 cd ~/workdir/
-conda activate i2i_env
+conda activate project2
 jupyter lab
 ```
 
