@@ -177,9 +177,9 @@ There are other taxonomic profiling tools that you can use, one that is already 
 
   
 - Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files. For our purpose, you can use the filtered_1P output from trimmomatic and convert it into a fasta file.)
-- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use sed to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
+- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use awk to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
 ```bash
-sed -n '1~4s/^@/>/p;2~4p' sample.fastq > sample.fasta
+cat infile.fq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > outfile.fasta
 ```
 -By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag.
 ```bash
