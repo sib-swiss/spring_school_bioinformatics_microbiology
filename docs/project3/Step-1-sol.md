@@ -419,8 +419,7 @@ Here are some hints of what you can check:
     
     ```r
     log_rel_ab = data.frame(rel_abundances=log10(as.vector(rel_ab) + 10^-4))
-    ggplot(data = log_rel_ab) + geom_histogram(aes(rel_abundances),bins=100) + xlab("All relative abundances (log10)") +
-  scale_y_log10()
+    ggplot(data = log_rel_ab) + geom_histogram(aes(rel_abundances),bins=100) + xlab("All relative abundances (log10)") + scale_y_log10()
     ```
     
     ![](../assets/images/Project3/step1_hist_rel_ab_log.png)
@@ -508,4 +507,10 @@ Here are some hints of what you can check:
   
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
 
+    <details>
+    <summary markdown="span">Solution</summary>
+    
+    There are different ways to explore this problem.
+  
 
+    </details>
