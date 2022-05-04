@@ -12,13 +12,18 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 
   - How many reads there are per sample?
     <details>
-    <summary markdown="span">Solution</summary>
+    <summary markdown="span">Solution 1</summary>
 
     Knowing that each read takes up four lines in the fastq file, we can simply count the number of lines with `wc -l` and divide the result by `4`. The following command does it all in one line. 
     ```bash
     echo $(cat sampleA_1.fastq|wc -l)/4|bc
     ```
-    Another solution, we can count the number of lines with `@read`:
+    </details> 
+ 
+    <details>
+    <summary markdown="span">Solution 2</summary>
+     
+    We can count the number of lines with `@read`:
     ```bash
     grep -c "@read" sampleA_1.fastq
     ```
