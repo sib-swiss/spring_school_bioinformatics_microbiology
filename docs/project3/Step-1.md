@@ -181,7 +181,7 @@ There are other taxonomic profiling tools that you can use, one that is already 
 ```bash
 cat infile.fq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > outfile.fasta
 ```
--By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag.
+-By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
 ```bash
 mapseq sample.fasta > sample.mseq
 mapseq -otucounts sample.mseq
@@ -191,14 +191,14 @@ mapseq -otucounts sample.mseq
 This is due to some chimeras that were filtered out recently, you can ignore the message.
 
 - Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq) for the command).
-- You have two main different parameters when creating the otutables: 
+- You have two main different parameters when creating the otutables, with which you can create the taxonomy and taxonomic resolution used in the resulting otutable: 
   - -ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.
-  - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard for species level in 16S), use the parameters 
+  - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard in 16S), use the parameters 
 ```bash
 -ti 1 -tl 3
 ```
-You can try to play around with the parameters and observe the number of mapped reads, found species etc. 
-- Can you compare mOTUs and MAPseq profiles?
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels.
+- (Optional): Can you compare mOTUs and MAPseq profiles?
 
 
 
