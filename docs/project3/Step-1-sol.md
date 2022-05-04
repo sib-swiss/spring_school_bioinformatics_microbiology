@@ -459,20 +459,47 @@ Here are some hints of what you can check:
 
     How many 0s are present overall in the data? 
     ```r
-    sum(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]*dim(norm_tax_profile)[2])
+    # we transform the relative abundance in a vector
+    temp = as.vector(rel_ab)
+    # and check the length (how many values there are)
+    length(temp) # 122016
+    # and how many values are zero:
+    sum(temp == 0) # 94133
     ```
-    77% of the data are 0s!
+    77% of the data are 0s (94133/122016)!
 
     If we look at the percentage of 0s per sample:
 
     ```r
-    data.frame(zeros_per_sample =colSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]))
+    head(data.frame(zeros_per_sample =colSums(rel_ab == 0)/(dim(rel_ab)[1])))
     ```
+    
+    Result:
+    ```R
+              zeros_per_sample
+    700002_T0        0.8536585
+    700002_T1        0.7398374
+    700002_T2        0.7520325
+    700002_T3        0.7723577
+    700004_T0        0.7723577
+    700004_T1        0.7723577
+    ```
+     
     We can see that the sparsity is similar across all samples. Do you think that if we had samples from a different environment (like Soil for instance), we might see something different?
 
-    Percentage of 0s per genus is simply `1 - prevalence`
+    Percentage of 0s per genus is the same as `1 - prevalence`:
     ```r
-    data.frame(zeros_per_sample =rowSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[2]))
+    head(data.frame(zeros_per_sample =rowSums(rel_ab == 0)/(dim(rel_ab)[2])))
+    ```
+    Result:
+    ```R
+                     zeros_per_sample
+    Blautia                0.00000000
+    Bacteroides            0.00000000
+    Agathobacter           0.04435484
+    Faecalibacterium       0.01008065
+    Bifidobacterium        0.09072581
+    Fusicatenibacter       0.02217742
     ```
 
     Again, we note that some genera are more prevalent than others.
