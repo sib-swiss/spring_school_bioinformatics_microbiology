@@ -363,7 +363,7 @@ Here are some hints of what you can check:
     ggplot(data = prevalence_df) + geom_histogram(mapping = aes(x = Prevalence), bins = 60)
     ```
     
-    ![](../assets/images/Project3/step1_hist_prevalence)
+    ![](../assets/images/Project3/step1_hist_prevalence.png)
 
     You can see that there are many species that apper only few times (on the left), and there are only few species that are present in all samples (on the right). We can also check which genera are the most prevalent:
     ```R
@@ -390,10 +390,6 @@ Here are some hints of what you can check:
     Sarcina                       0.002016129                       Sarcina
     Harryflintia                  0.002016129                  Harryflintia
     Paeniclostridium              0.002016129              Paeniclostridium
-    Enterobacter                  0.002016129                  Enterobacter
-    Christensenella               0.002016129               Christensenella
-    W5053                         0.002016129                         W5053
-    Desulfitibacter               0.002016129               Desulfitibacter
     ```
     Which are present in only one sample.
      
