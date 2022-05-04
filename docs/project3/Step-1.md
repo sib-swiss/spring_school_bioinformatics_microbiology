@@ -10,14 +10,14 @@ During sequencing, the nucleotide bases in a DNA sample (library) are determined
 Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forward and reverse. You can download three example fastq files at the following links (within a terminal):
 
 ```bash
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleA_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleA_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleA_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleA_2.fastq
 
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleB_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleB_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleB_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleB_2.fastq
 
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleC_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleC_2.fastq
 ```
 
 
@@ -214,7 +214,7 @@ Metagenomics enables the study of species abundances in complex mixtures of micr
 
 We will switch now to R examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
 ```R
-load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_dataset.Rdata"))
+load(url("https://zenodo.org/record/6517497/files/human_microbiome_dataset.Rdata"))
 ```
 
 Explore the taxonomic profiles (`tax_profile`), here are some hints of what you can check:
