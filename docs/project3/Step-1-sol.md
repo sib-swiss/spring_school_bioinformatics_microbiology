@@ -300,6 +300,8 @@ Here are some hints of what you can check:
     ```r
     ggplot(data = sample_read_counts) + geom_histogram(mapping = aes(x = total_read_counts), bins = 60) + ylab('Number of samples') + xlab('Total number of reads')
     ```
+    Which results in:
+    ![](../assets/images/Project3/step1_hist_n_read.png)
     Note how variable the total read counts are across all samples. This is a problem because this variation is most likely a result of the sequencing process and not any meaningful biological variation.
 
     </details>
