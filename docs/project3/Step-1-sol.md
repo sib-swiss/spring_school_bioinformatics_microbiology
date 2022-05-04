@@ -569,8 +569,8 @@ Here are some hints of what you can check:
     ```
     
     This means that samples from the same subject have a low distance, or in other words they are similar to each other. And they are much more similar compared to other subjects, even after 1 year (the last time point is 50 weeks). From this we understand two things:
-        - First, the human microbiome is stable over time
-        - Second, there is a great variability between subjects
+    - First, the human microbiome is stable over time
+    - Second, there is a great variability between subjects
 
 
     </details>
