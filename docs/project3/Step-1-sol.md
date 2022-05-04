@@ -642,3 +642,52 @@ Here are some hints of what you can check:
 
 
     </details>
+
+     
+     
+    <details>
+    <summary markdown="span">Solution 1</summary>
+    
+    We can do a PCA plot:
+    ```R
+    rel_ab = prop.table(tax_profile,2)
+    log_rel_ab = log10(rel_ab+ 10^-4)
+    
+    # remove zero rows
+    log_rel_ab = log_rel_ab[rowSums(rel_ab) > 0,]
+    
+    pc <- prcomp(t(log_rel_ab),
+                 center = TRUE,
+                 scale. = TRUE)
+    
+    df = data.frame(
+      pc1 = pc$x[,1],
+      pc2 = pc$x[,2],
+      Subject = as.factor(metadata[rownames(pc$x),"Subject"]),
+      Timepoint = metadata[rownames(pc$x),"Timepoint"],
+      Sex = metadata[rownames(pc$x),"Sex"]
+    )
+    ```
+    
+    And plot the result:
+    ```R
+    ggplot(df,aes(x = pc1,y = pc2, col = Sex)) + geom_point()
+    ```
+    
+    ![](../assets/images/Project3/step_1_pca_sex.png)
+    
+    ```R
+    ggplot(df,aes(x = pc1,y = pc2, col = Timepoint)) + geom_point()
+    ```
+    
+    ![](../assets/images/Project3/step_1_pca_timepoint.png)
+          
+    ```R
+    ggplot(df,aes(x = pc1,y = pc2, col = Subject)) + geom_point() +
+    theme(legend.position = "none")
+    ```
+    
+    ![](../assets/images/Project3/step_1_pca_subject.png)
+    
+    </details>
+     
