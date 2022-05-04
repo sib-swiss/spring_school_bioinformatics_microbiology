@@ -18,6 +18,7 @@ nav:
     - Project 3:
       - Description: project3.md
       - Preparation: project3/Prepare-before-start-of-the-course.md
+      - Remote Environment: project3/Remote-environment.md
       - Overview: project3/Overview.md
       - Step 1: project3/Step-1.md
       - Step 2: project3/Step-2.md

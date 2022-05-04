@@ -13,19 +13,60 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
   - How many reads there are per sample?
     
     <details>
-    <summary markdown="span">Solution</summary>
+    <summary markdown="span">Solution 1</summary>
 
     Knowing that each read takes up four lines in the fastq file, we can simply count the number of lines with `wc -l` and divide the result by `4`. The following command does it all in one line. 
     ```bash
     echo $(cat sampleA_1.fastq|wc -l)/4|bc
     ```
-
+    </details> 
+ 
+    <details>
+    <summary markdown="span">Solution 2</summary>
+     
+    We can count the number of lines with `@read`:
+    ```bash
+    grep -c "@read" sampleA_1.fastq
+    ```
+ 
     </details>
 
 - What is the average length of the reads? Is there a difference between the read lengths in the forward and reverse files?
     <details>
-    <summary markdown="span">Solution</summary>
-
+    <summary markdown="span">Solution 1</summary>
+ 
+    We can first extract only the sequences:
+    ```bash
+    grep -A 1 "@read" sampleA_1.fastq  | grep -v "\-\-" | grep -v "read" > sequences_sampleA_1
+    ```
+    With `-A 1` we select also 1 row after the match. With `grep -v` we remove what is not needed. We can now check the length with:
+    ```bash
+    cat sequences_sampleA_1 | awk '{print length}'
+    ```
+    This will print a big list, we can count how many times each length appear:
+    ```bash
+    cat sequences_sampleA_1 | awk '{print length}' | sort | uniq -c | sort -n | tail
+    ```
+    Which produces:
+    ```bash
+      238 96
+      242 92
+      258 93
+      341 97
+      344 94
+      346 95   
+      428 98
+      849 20
+     1194 99
+    61306 100
+    ```
+    So the majority of the reads have length 100 (61,306 out of 67,926, 90%)
+ 
+    </details>
+    
+    <details>
+    <summary markdown="span">Solution 2</summary>
+ 
     To quickly check the average length of the reads in the terminal, do: 
     ```bash
     awk 'NR%4==2{sum+=length($0)}END{print sum/(NR/4)}' sampleA_1.fastq
@@ -42,8 +83,8 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 
     ```bash
     #get list of read ids from the forward and reverse files
-    grep '@' sampleA_1.fastq > sampleA_ids_1.txt
-    grep '@' sampleA_2.fastq > sampleA_ids_2.txt
+    grep '@read' sampleA_1.fastq > sampleA_ids_1.txt
+    grep '@read' sampleA_2.fastq > sampleA_ids_2.txt
     #check if they are identical 
     diff -s sampleA_ids_1.txt  sampleA_ids_2.txt
     ```
@@ -275,20 +316,43 @@ Load packages and taxonomic profile into your R environment
 library(tidyverse)
 
 #tax profiles
-load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_dataset.Rdata"))
+load(url("https://zenodo.org/record/6517497/files/human_microbiome_dataset.Rdata"))
 ```
 
 Let's have a quick peek at our data. 
 ```r
 dim(tax_profile)
 ```
-```r
-head(tax_profile)
-```
 
+There are 246 rows and 496 columns. Let's check the content:
+ 
+```r
+tax_profile[1:3,1:3]
+```
+Which results in:
+```bash
+             700002_T0 700002_T1 700002_T2
+Blautia            229      1196      1758
+Bacteroides       4018      1705      1660
+Agathobacter        80      1580       126
+```
+The rows are genera and the columns are samples.
+ 
 ```r
 head(metadata)
 ```
+ 
+Which is:
+```bash
+          Subject Timepoint Sex
+700002_T0  700002         0   M
+700002_T1  700002        12   M
+700002_T2  700002        24   M
+700002_T3  700002        50   M
+700004_T0  700004         0   F
+700004_T1  700004        12   F
+```
+ 
 The 496 samples are from 124 patients (sampled 4 times over the course of the year). `tax_profile` contains the read counts of of species (rows) across all samples (columns).
 
 For each sample, we know the corresponding subject id, timepoint of sampling and the sex of the subject. 
@@ -310,8 +374,12 @@ Here are some hints of what you can check:
 
     How are the sample read counts distributed? 
     ```r
-    ggplot(data = sample_read_counts) + geom_histogram(mapping = aes(x = total_read_counts), bins = 60) + ylab('Number of samples')
+    ggplot(data = sample_read_counts) + geom_histogram(mapping = aes(x = total_read_counts), bins = 60) + ylab('Number of samples') + xlab('Total number of reads')
     ```
+    Which results in:
+    
+    ![](../assets/images/Project3/step1_hist_n_read.png)
+    
     Note how variable the total read counts are across all samples. This is a problem because this variation is most likely a result of the sequencing process and not any meaningful biological variation.
 
     </details>
@@ -328,17 +396,19 @@ Here are some hints of what you can check:
     We can do this by **relative abundance normalization** where we divide each value within a sample by the total read counts in that sample.
 
     ```r
-    norm_tax_profile <- sweep(tax_profile,2,sample_read_counts[,1],"/")
+    rel_ab = prop.table(tax_profile,2)
     ```
  
     Now the abundances of each sample should sum to 1. 
 
     ```r
-    all(colSums(norm_tax_profile) == 1)
+    all(colSums(rel_ab) == 1)
     ```
 
     </details>
 
+ 
+ 
 - Which genera are the most and least prevalent?
 
     <details>
@@ -349,17 +419,53 @@ Here are some hints of what you can check:
     First we calculate prevalence for all the genera. 
     ```r
     number_of_samples = dim(tax_profile)[2]
-    prevalence_df <- data.frame(Prevalence = rowSums(norm_tax_profile>0)/number_of_samples)
+    prevalence_df <- data.frame(Prevalence = rowSums(rel_ab>0)/number_of_samples, genus = rownames(tax_profile))
     ```
 
-    You can explore the least and most prevalent species like so
+    You can plot an histogram of the prevalences:
     ```r
-    prevalence_df %>% arrange(Prevalence)
+    ggplot(data = prevalence_df) + geom_histogram(mapping = aes(x = Prevalence), bins = 60)
     ```
+    
+    ![](../assets/images/Project3/step1_hist_prevalence.png)
 
-    You can see that the most prevalent species are typically genera that that should be present in all human guts. This type of quick exploration can also serve as a sanity check (is there something we should not be seeing at all?)
+    You can see that there are many species that apper only few times (on the left), and there are only few species that are present in all samples (on the right). We can also check which genera are the most prevalent:
+    ```R
+    head(prevalence_df[order(prevalence_df$Prevalence,decreasing = T),])
+    ```
+    Result:
+    ```R
+                     Prevalence            genus
+    Blautia           1.0000000          Blautia
+    Bacteroides       1.0000000      Bacteroides
+    -1                1.0000000               -1
+    Faecalibacterium  0.9899194 Faecalibacterium
+    Anaerostipes      0.9879032     Anaerostipes
+    Fusicatenibacter  0.9778226 Fusicatenibacter
+    ```
+    It means that the genus *Blautia* and *Bacteroides* are present in all species. The `-1` represents unassigned reads (i.e. that they do not map to any known genus).
+     
+    The least prevalent genera are:
+    ```R
+                                   Prevalence                         genus
+    Rosenbergiella                0.002016129                Rosenbergiella
+    28-4                          0.002016129                          28-4
+    Gallicola                     0.002016129                     Gallicola
+    Sarcina                       0.002016129                       Sarcina
+    Harryflintia                  0.002016129                  Harryflintia
+    Paeniclostridium              0.002016129              Paeniclostridium
+    ```
+    Which are present in only one sample.
+     
+     You can see that the most prevalent species are typically genera that that should be present in all human guts. This type of quick exploration can also serve as a sanity check (is there something we should not be seeing at all?)
 
     </details>
+
+     
+     
+
+     
+     
 - Is the relative abundance of the different genera normally distributed?
     <details>
     <summary markdown="span">Solution</summary>
@@ -367,23 +473,46 @@ Here are some hints of what you can check:
     If we look at the distribution of all relative abundances with a simple histogram:
 
     ```r
-    abundances_df = data.frame(rel_abundances=norm_tax_profile %>% as.vector())
-
-    ggplot(data = abundances_df) + geom_histogram(aes(rel_abundances),bins=100) 
+    abundances_df = data.frame(rel_abundances=as.vector(rel_ab))
+    ggplot(data = abundances_df) + geom_histogram(aes(rel_abundances),bins=100) + xlab("All relative abundances")
     ```
+    
+    ![](../assets/images/Project3/step1_hist_rel_ab.png)
 
-    What about for individual genera?
+    We can clearly see that the relative abundances are not normally distributed. Maybe if we log transform the data, the result improve. Note that in order to log transform the data we need to add a small value (in this case `10^-4`) so that we don't have the problem of calculating the log of zero. Code:
     
     ```r
-    genera_abundances_df = data.frame(rel_abundances=norm_tax_profile[10,])
-
-    ggplot(data = genera_abundances_df) + geom_histogram(aes(rel_abundances),bins=50)
+    log_rel_ab = data.frame(rel_abundances=log10(as.vector(rel_ab) + 10^-4))
+    ggplot(data = log_rel_ab) + geom_histogram(aes(rel_abundances),bins=100) + xlab("All relative abundances (log10)") + scale_y_log10()
     ```
+    
+    ![](../assets/images/Project3/step1_hist_rel_ab_log.png)
 
-    The abundances are not normally distributed, which is to be expected, consindering the sparsity and compositionality of microbiome data. 
+    As you can see even when we log transform, the high number of zero makes the distribution not normal. 
+    
+    
+    We can check also single genera. Here I select 3 genera: *Bacteroides* with prevalence of 1, *Akkermansia* with a prevalence of ~0.5 and *Harryflintia* with the lowest relative abundance. We can plot them with the following code:
+    
+    ```R
+    df_genera = data.frame(
+        genus = c(rep("Bacteroides",ncol(rel_ab)),rep("Akkermansia",ncol(rel_ab)),rep("Harryflintia",ncol(rel_ab))),
+        rel_ab = c(rel_ab["Bacteroides",],rel_ab["Akkermansia",],rel_ab["Harryflintia",])
+    )
+    
+    ggplot(data = df_genera) + geom_histogram(mapping = aes(x = rel_ab), bins = 60) + 
+    facet_grid(. ~ genus)
+    ```
+     
+    ![](../assets/images/Project3/step_1_3genus_rel_ab.png)
+    
+    As you can see for *Harryflintia* there are almost only zeros (only one sample contain this genus). On the other hand *Bacteroides* can almost have a normal distribution (with a long tail on the right). While *Akkermansia* shows a tipical microbiome distribution plot with many samples where the measure is zero and then a tail with few samples where the relative abundance is higher.
 
     </details>
-  
+
+     
+     
+     
+     
 - How many zeros there are per sample and per genus?
   
     <details>
@@ -393,20 +522,47 @@ Here are some hints of what you can check:
 
     How many 0s are present overall in the data? 
     ```r
-    sum(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]*dim(norm_tax_profile)[2])
+    # we transform the relative abundance in a vector
+    temp = as.vector(rel_ab)
+    # and check the length (how many values there are)
+    length(temp) # 122016
+    # and how many values are zero:
+    sum(temp == 0) # 94133
     ```
-    77% of the data are 0s!
+    77% of the data are 0s (94133/122016)!
 
     If we look at the percentage of 0s per sample:
 
     ```r
-    data.frame(zeros_per_sample =colSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]))
+    head(data.frame(zeros_per_sample =colSums(rel_ab == 0)/(dim(rel_ab)[1])))
     ```
+    
+    Result:
+    ```R
+              zeros_per_sample
+    700002_T0        0.8536585
+    700002_T1        0.7398374
+    700002_T2        0.7520325
+    700002_T3        0.7723577
+    700004_T0        0.7723577
+    700004_T1        0.7723577
+    ```
+     
     We can see that the sparsity is similar across all samples. Do you think that if we had samples from a different environment (like Soil for instance), we might see something different?
 
-    Percentage of 0s per genus is simply `1 - prevalence`
+    Percentage of 0s per genus is the same as `1 - prevalence`:
     ```r
-    data.frame(zeros_per_sample =rowSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[2]))
+    head(data.frame(zeros_per_sample =rowSums(rel_ab == 0)/(dim(rel_ab)[2])))
+    ```
+    Result:
+    ```R
+                     zeros_per_sample
+    Blautia                0.00000000
+    Bacteroides            0.00000000
+    Agathobacter           0.04435484
+    Faecalibacterium       0.01008065
+    Bifidobacterium        0.09072581
+    Fusicatenibacter       0.02217742
     ```
 
     Again, we note that some genera are more prevalent than others.
@@ -415,3 +571,13 @@ Here are some hints of what you can check:
   
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
 
+<<<<<<< HEAD
+=======
+    <details>
+    <summary markdown="span">Solution</summary>
+    
+    There are different ways to explore this problem.
+  
+
+    </details>
+>>>>>>> 54ce814c7708b41eb54b00e05ef645f338517909

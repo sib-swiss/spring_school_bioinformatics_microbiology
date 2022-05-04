@@ -10,14 +10,14 @@ During sequencing, the nucleotide bases in a DNA sample (library) are determined
 Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forward and reverse. You can download three example fastq files at the following links (within a terminal):
 
 ```bash
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleA_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleA_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleA_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleA_2.fastq
 
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleB_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleB_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleB_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleB_2.fastq
 
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleC_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleC_2.fastq
 ```
 
 
@@ -176,28 +176,29 @@ More information can be found also in [this protocol paper](https://currentproto
 There are other taxonomic profiling tools that you can use, one that is already avaialble in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
 
   
-- Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files.)
-- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use sed to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
+- Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files. For our purpose, you can use the filtered_1P output from trimmomatic and convert it into a fasta file.)
+- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use awk to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
 ```bash
-sed -n '1~4s/^@/>/p;2~4p' sample.fastq > sample.fasta
+cat infile.fq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > outfile.fasta
 ```
--By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag.
+-By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
 ```bash
 mapseq sample.fasta > sample.mseq
 mapseq -otucounts sample.mseq
 ```
 - While running mapseq, you may encounter the following error: !! Mon May  2 14:24:17 2022 [] mapseq.cpp:3614 void load_taxa(const estr&, eseqdb&): loading taxonomy, 14922 sequences not found in sequence database 
+
 This is due to some chimeras that were filtered out recently, you can ignore the message.
 
 - Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq) for the command).
-- You have two main different parameters when creating the otutables: 
-- - -ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.
-- - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard for species level in 16S), use the parameters 
+- You have two main different parameters when creating the otutables, with which you can create the taxonomy and taxonomic resolution used in the resulting otutable: 
+  - -ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.
+  - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard in 16S), use the parameters 
 ```bash
 -ti 1 -tl 3
 ```
-You can try to play around with the parameters and observe the number of mapped reads, found species etc. 
-- Can you compare mOTUs and MAPseq profiles?
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels.
+- (Optional): Can you compare mOTUs and MAPseq profiles?
 
 
 
@@ -213,7 +214,7 @@ Metagenomics enables the study of species abundances in complex mixtures of micr
 
 We will switch now to R examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
 ```R
-load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_dataset.Rdata"))
+load(url("https://zenodo.org/record/6517497/files/human_microbiome_dataset.Rdata"))
 ```
 
 Explore the taxonomic profiles (`tax_profile`), here are some hints of what you can check:
