@@ -252,7 +252,7 @@ Load packages and taxonomic profile into your R environment
 library(tidyverse)
 
 #tax profiles
-load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_dataset.Rdata"))
+load(url("https://zenodo.org/record/6517497/files/human_microbiome_dataset.Rdata"))
 ```
 
 Let's have a quick peek at our data. 
