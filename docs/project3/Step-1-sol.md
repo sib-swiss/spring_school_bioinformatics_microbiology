@@ -426,6 +426,23 @@ Here are some hints of what you can check:
     ![](../assets/images/Project3/step1_hist_rel_ab_log.png)
 
     As you can see even when we log transform, the high number of zero makes the distribution not normal. 
+    
+    
+    We can check also single genera. Here I select 3 genera: *Bacteroides* with prevalence of 1, *Akkermansia* with a prevalence of ~0.5 and *Harryflintia* with the lowest relative abundance. We can plot them with the following code:
+    
+    ```R
+    df_genera = data.frame(
+        genus = c(rep("Bacteroides",ncol(rel_ab)),rep("Akkermansia",ncol(rel_ab)),rep("Harryflintia",ncol(rel_ab))),
+        rel_ab = c(rel_ab["Bacteroides",],rel_ab["Akkermansia",],rel_ab["Harryflintia",])
+    )
+    
+    ggplot(data = df_genera) + geom_histogram(mapping = aes(x = rel_ab), bins = 60) + 
+    facet_grid(. ~ genus)
+    ```
+     
+    ![](../assets/images/Project3/step_1_3genus_rel_ab.png)
+    
+    As you can see for *Harryflintia* there are almost only zeros (only one sample contain this genus). On the other hand *Bacteroides* can almost have a normal distribution (with a long tail on the right). While *Akkermansia* shows a tipical microbiome distribution plot with many samples where the measure is zero and then a tail with few samples where the relative abundance is higher.
 
     </details>
 
