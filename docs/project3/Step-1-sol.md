@@ -508,9 +508,49 @@ Here are some hints of what you can check:
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
 
     <details>
-    <summary markdown="span">Solution</summary>
+    <summary markdown="span">Solution 1</summary>
     
-    There are different ways to explore this problem.
+    There are different ways to explore this problem. We can try to calculate the distance between all possible samples and then compare the distances of samples that come from the same subject and the distance that come from different subjects.
+    For example, you take sample 1 (`700002_T0`) and sample 2 (`700002_T1`), and since they are from the same subject, we will use the distance between these two samples as an example of *within-subject* distance.
+    
+    Code:
+    ```R
+    rel_ab = prop.table(tax_profile,2)
+    log_rel_ab = log10(rel_ab+ 10^-4)
+    
+    n_samples = ncol(log_rel_ab)
+    
+    # where to save the result
+    distance = c()
+    type = c()
+    
+    # we go through all the pair of samples and we calculate the distance
+    for(i in c(1: (n_samples-1) )){
+      for(j in c( (i+1) : n_samples)){
+        # name of the samples
+        s_i = colnames(log_rel_ab)[i]
+        s_j = colnames(log_rel_ab)[j]
+        # profiles
+        profile_i = log_rel_ab[,i]
+        profile_j = log_rel_ab[,j]
+        # calculate the distance as sum of the absolute distance
+        d = sum(abs(profile_i - profile_j))
+        # add the values
+        distance = c(distance,d)
+        # add correct type
+        if(metadata[s_i,"Subject"] == metadata[s_j,"Subject"]){
+          type = c(type,"Within distance")
+        }else{
+          type = c(type,"Between distance")
+        }
+      }
+    }
+    
+    df = data.frame(dist = distance,type = type)
+    
+    ggplot(df,aes(type,dist)) + geom_boxplot()
+    ```
+    
   
 
     </details>
