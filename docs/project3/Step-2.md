@@ -15,10 +15,8 @@ library("SIAMCAT")   # for statistical and machine learning analyses
 From the previous step you learned how to create taxonomic profiles. Here we provide 120 human gut taxonomic profiles in the form of a table where columns are samples and rows are species (or clade in general). Within R you can download and load the files with the following command:
 
 ``` R
-url_base = "https://www.embl.de/download/zeller/TEMP/NCCR_course/"
-
 # mOTUs species table
-feat.motus  <- paste0(url_base, 'Wirbel_species.motus')
+feat.motus  <- "https://zenodo.org/record/6517497/files/study1_species.motus"
 tax.profiles <- read.table(feat.motus, sep = '\t', quote = '',
                            comment.char = '', skip = 2,
                            stringsAsFactors = FALSE, check.names = FALSE,
@@ -28,7 +26,7 @@ tax.profiles <- as.matrix(tax.profiles)
 
 Load the metadata with:
 ```R
-meta.file  <- paste0(url_base, 'Wirbel.metadata')
+meta.file  <- "https://zenodo.org/record/6517497/files/study1.metadata"
 meta <- read.table(meta.file,
                    sep = '\t', quote = '',
                    stringsAsFactors = FALSE, check.names = FALSE, 
