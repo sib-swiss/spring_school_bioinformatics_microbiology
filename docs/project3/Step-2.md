@@ -67,7 +67,7 @@ We profiled the same samples with different methods.
 
 Here you can load the mOTUs profiles at genus level (instead of species level):
 ``` R
-feat.motus  <- paste0(url_base, 'Wirbel_genus.motus')
+feat.motus  <- "https://zenodo.org/record/6517497/files/study1_genus.motus"
 tax.profiles.genus <- read.table(feat.motus, sep = '\t', quote = '',
                            comment.char = '', skip = 2,
                            stringsAsFactors = FALSE, check.names = FALSE,
@@ -77,7 +77,7 @@ tax.profiles.genus <- as.matrix(tax.profiles.genus)
 
 And here you can find the MAPseq profiles using 97% OTUs:
 ```R
-feat.mapseq_97 = "https://sunagawalab.ethz.ch/share/NCCR_spring_schools_2022/97_otutable_mapseq.csv"
+feat.mapseq_97 = "https://zenodo.org/record/6517497/files/study1_97_otutable.mapseq"
 mapseq.profiles97 <- read.table(feat.mapseq_97, sep = ',', quote = '',
                            comment.char = '',
                            stringsAsFactors = FALSE, check.names = FALSE,
@@ -85,6 +85,32 @@ mapseq.profiles97 <- read.table(feat.mapseq_97, sep = ',', quote = '',
 mapseq.profiles97 <- as.matrix(mapseq.profiles97)
 ```
 
-If you replace "97" with "99", you can download the profiles with 99% OTUs.
+Or 99% OTUs:
+```R
+feat.mapseq_99 = "https://zenodo.org/record/6517497/files/study1_99_otutable.mapseq"
+mapseq.profiles99 <- read.table(feat.mapseq_99, sep = ',', quote = '',
+                           comment.char = '',
+                           stringsAsFactors = FALSE, check.names = FALSE,
+                           row.names = 1, header = TRUE)
+mapseq.profiles99 <- as.matrix(mapseq.profiles99)
+```
 
 - Do you see a similar signal using different taxonomic profiling tools or different taxonomic levels? 
+
+
+
+
+## Prediction on External Data
+
+We provide another dataset from a colorectal cancer 
+metagenomic study. The study population was recruited in France, you can
+find the data under:
+
+```r
+feat.motus_study2  <- "https://zenodo.org/record/6517497/files/study2_species.motus"
+meta.file  <- "https://zenodo.org/record/6517497/files/study2.metadata"
+```
+
+Note that the features are the same as the mOTUs species in study 1.
+
+- Apply the trained model (from `study1_species.motus`) on this new dataset and check the model performance  on the external dataset. (**Tip**: Check out the help for the `make.prediction` function in `SIAMCAT`)
