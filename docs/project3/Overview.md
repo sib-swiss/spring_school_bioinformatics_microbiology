@@ -11,7 +11,7 @@ The project is composed of two steps:
 
 | Day 	| Time   	| Topic   	|
 |-------	|-------	|---------	|
-| Tuesday  | Morning | Step1: obtain taxonomic profiles |
+| Tuesday  | Morning | Step1: Obtain taxonomic profiles |
 | Tuesday  | Afternoon | Step1: Explore properties of human gut taxonomic profiles |
 | Wednesday  | Morning | Step2: Association testing |
 | Thursday  | Morning | Step2: Machine learning |
