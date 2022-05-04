@@ -332,17 +332,19 @@ Here are some hints of what you can check:
     We can do this by **relative abundance normalization** where we divide each value within a sample by the total read counts in that sample.
 
     ```r
-    norm_tax_profile <- sweep(tax_profile,2,sample_read_counts[,1],"/")
+    rel_ab = prop.table(tax_profile,2)
     ```
  
     Now the abundances of each sample should sum to 1. 
 
     ```r
-    all(colSums(norm_tax_profile) == 1)
+    all(colSums(rel_ab) == 1)
     ```
 
     </details>
 
+ 
+ 
 - Which genera are the most and least prevalent?
 
     <details>
@@ -353,17 +355,55 @@ Here are some hints of what you can check:
     First we calculate prevalence for all the genera. 
     ```r
     number_of_samples = dim(tax_profile)[2]
-    prevalence_df <- data.frame(Prevalence = rowSums(norm_tax_profile>0)/number_of_samples)
+    prevalence_df <- data.frame(Prevalence = rowSums(rel_ab>0)/number_of_samples, genus = rownames(tax_profile))
     ```
 
-    You can explore the least and most prevalent species like so
+    You can plot an histogram of the prevalences:
     ```r
-    prevalence_df %>% arrange(Prevalence)
+    ggplot(data = prevalence_df) + geom_histogram(mapping = aes(x = Prevalence), bins = 60)
     ```
+    
+    ![](../assets/images/Project3/step1_hist_prevalence)
 
-    You can see that the most prevalent species are typically genera that that should be present in all human guts. This type of quick exploration can also serve as a sanity check (is there something we should not be seeing at all?)
+    You can see that there are many species that apper only few times (on the left), and there are only few species that are present in all samples (on the right). We can also check which genera are the most prevalent:
+    ```R
+    head(prevalence_df[order(prevalence_df$Prevalence,decreasing = T),])
+    ```
+    Result:
+    ```R
+                     Prevalence            genus
+    Blautia           1.0000000          Blautia
+    Bacteroides       1.0000000      Bacteroides
+    -1                1.0000000               -1
+    Faecalibacterium  0.9899194 Faecalibacterium
+    Anaerostipes      0.9879032     Anaerostipes
+    Fusicatenibacter  0.9778226 Fusicatenibacter
+    ```
+    It means that the genus *Blautia* and *Bacteroides* are present in all species. The `-1` represents unassigned reads (i.e. that they do not map to any known genus).
+     
+    The least prevalent genera are:
+    ```R
+                                   Prevalence                         genus
+    Rosenbergiella                0.002016129                Rosenbergiella
+    28-4                          0.002016129                          28-4
+    Gallicola                     0.002016129                     Gallicola
+    Sarcina                       0.002016129                       Sarcina
+    Harryflintia                  0.002016129                  Harryflintia
+    Paeniclostridium              0.002016129              Paeniclostridium
+    Enterobacter                  0.002016129                  Enterobacter
+    Christensenella               0.002016129               Christensenella
+    W5053                         0.002016129                         W5053
+    Desulfitibacter               0.002016129               Desulfitibacter
+    ```
+    Which are present in only one sample.
+     
+     You can see that the most prevalent species are typically genera that that should be present in all human guts. This type of quick exploration can also serve as a sanity check (is there something we should not be seeing at all?)
 
     </details>
+
+     
+     
+     
 - Is the relative abundance of the different genera normally distributed?
     <details>
     <summary markdown="span">Solution</summary>
