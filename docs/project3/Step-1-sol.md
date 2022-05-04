@@ -259,10 +259,21 @@ Let's have a quick peek at our data.
 ```r
 dim(tax_profile)
 ```
-```r
-head(tax_profile)
-```
 
+There are 246 rows and 496 columns. Let's check the content:
+ 
+```r
+tax_profile[1:3,1:3]
+```
+Which results in:
+```bash
+             700002_T0 700002_T1 700002_T2
+Blautia            229      1196      1758
+Bacteroides       4018      1705      1660
+Agathobacter        80      1580       126
+```
+The rows are genera and the columns are samples.
+ 
 ```r
 head(metadata)
 ```
@@ -287,7 +298,7 @@ Here are some hints of what you can check:
 
     How are the sample read counts distributed? 
     ```r
-    ggplot(data = sample_read_counts) + geom_histogram(mapping = aes(x = total_read_counts), bins = 60) + ylab('Number of samples')
+    ggplot(data = sample_read_counts) + geom_histogram(mapping = aes(x = total_read_counts), bins = 60) + ylab('Number of samples') + xlab('Total number of reads')
     ```
     Note how variable the total read counts are across all samples. This is a problem because this variation is most likely a result of the sequencing process and not any meaningful biological variation.
 
