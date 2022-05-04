@@ -52,19 +52,19 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 There are many different ways of performing the same task. If you have done something different and accomplished the same thing, awesome!
 
 
-  ## Check the quality of the sequencing data
+## Check the quality of the sequencing data
 
-  - Which part of the reads is of lower quality?
-        <details>
+- Which part of the reads is of lower quality?
+    <details>
     <summary markdown="span">Solution</summary>
 
     The ends of the reads are typically of lower quality. This is to be expected. The quality of calls typically degrades as the run progresses due to problems in the sequencing chemistry. 
 
     </details>
-  - Is there any difference between the quality of the forward and reverse reads?
+- Is there any difference between the quality of the forward and reverse reads?
     <details>
     <summary markdown="span">Solution</summary>
-    
+
     Reverse reads are usually of lower quality than forward reads, particularly at the read ends. Again this is due to the way paired end sequencing is performed with the forward orientiation is sequenced first followed by the reverse orientation. 
 
     </details>
@@ -82,7 +82,8 @@ There are many different ways of performing the same task. If you have done some
     ```bash
     trimmomatic PE sampleA_1.fastq sampleA_2.fastq sampleA_filtered_1P.fastq sampleA_filtered_1U.fastq sampleA_filtered_2P.fastq sampleA_filtered_2U.fastq ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
     ``` 
-    Here is a description of the parameters used in this specific command. You may have explored other parameters too!
+    Here is a description of the parameters used in this specific command. You may have explored other parameters too. 
+
     - `ILLUMINACLIP`: specifies the file containing the adapter sequences to trim and additional parameters on how to perform the adapter trimming. `TruSeq3-PE.fa` (provided by `trimmomatic`) contains the Illumina adapter sequences used by HiSeq and MiSeq machines. 
     - `LEADING`: Remove low quality bases (lower than `3`) from the beginning of the reads. 
     - `TRAILING`: Remove low quality bases (lower than `3`) from the ends of the reads.
@@ -91,7 +92,7 @@ There are many different ways of performing the same task. If you have done some
     </details>
 
 
-- How many files did trimmomatic generated? What do they contain?
+- How many files did trimmomatic generate? What do they contain?
     <details>
     <summary markdown="span">Solution</summary>
     
@@ -198,37 +199,25 @@ There are many different ways of performing the same task. If you have done some
 
 ## Explore taxonomic profiles
 
-Explore the taxonomic profiles (`tax_profile`), here are some hints of what you can check:
+Explore the taxonomic profiles (`tax_profile`).  
 
-- Which genera are the most and least prevalent?
-  
-- How many reads there are per sample?
-  
-- If you want to compare different samples, is it a problem that there are different read counts? Try to divide each value within a sample by the sum of the reads in that sample to normalise the data (also called relative abundance).
-  
-- Is the relative abundance of the different genera normally distributed?
-  
-- How many zeros there are per sample and per genus?
-  
-- How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
+<details>
+<summary markdown="span">Solution</summary>
 
-### Load packages
+Load packages and taxonomic profile into your R environment
 
 ```r
+#packages
 library(tidyverse)
-```
 
-
-### Load data
-
-```r
+#tax profiles
 load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_dataset.Rdata"))
 ```
 
-The samples are from 124 patients (sampled 4 times over the course of the year). `tax_profile` contains the read counts of of species (rows) across all samples (columns). 
-
-### Quick peek at the data
-
+Let's have a quick peek at our data. 
+```r
+dim(tax_profile)
+```
 ```r
 head(tax_profile)
 ```
@@ -236,94 +225,130 @@ head(tax_profile)
 ```r
 head(metadata)
 ```
+The 496 samples are from 124 patients (sampled 4 times over the course of the year). `tax_profile` contains the read counts of of species (rows) across all samples (columns).
 
-Calculate total number of reads in every sample (also called library size of sample)
+For each sample, we know the corresponding subject id, timepoint of sampling and the sex of the subject. 
 
-```r
-sample_read_counts <- data.frame(total_read_counts = colSums(tax_profile))
-```
 
-How are the sample read counts distributed? 
-```{r}
-ggplot(data = sample_read_counts) + geom_histogram(mapping = aes(x = total_read_counts), bins = 60) + ylab('Number of samples')
-```
+</details>
 
-Note how variable the total read counts are across all samples. This is a problem because this variation is most likely a result of the sequencing process and not any meaningful biological variation. 
+Here are some hints of what you can check:
 
-We need to remove this variation to meaningfully compare samples. 
-We can do this by **relative abundance normalization** where we divide each value within a sample by the total read counts in that sample.
+- How many reads there are per sample?
+    <details>
+    <summary markdown="span">Solution</summary>
 
-```{r}
-norm_tax_profile <- sweep(tax_profile,2,sample_read_counts[,1],"/")
-```
+    Calculate total number of reads in every sample (also called library size of sample)
+
+    ```r
+    sample_read_counts <- data.frame(total_read_counts = colSums(tax_profile))
+    ```
+
+    How are the sample read counts distributed? 
+    ```r
+    ggplot(data = sample_read_counts) + geom_histogram(mapping = aes(x = total_read_counts), bins = 60) + ylab('Number of samples')
+    ```
+    Note how variable the total read counts are across all samples. This is a problem because this variation is most likely a result of the sequencing process and not any meaningful biological variation.
+
+    </details>
+
+
+
+- If you want to compare different samples, is it a problem that there are different read counts? Try to divide each value within a sample by the sum of the reads in that sample to normalise the data (also called relative abundance).
+  
+
+    <details>
+    <summary markdown="span">Solution</summary>
+
+    We need to remove this technical variation caused by differing total read counts to meaningfully compare samples. 
+    We can do this by **relative abundance normalization** where we divide each value within a sample by the total read counts in that sample.
+
+    ```r
+    norm_tax_profile <- sweep(tax_profile,2,sample_read_counts[,1],"/")
+    ```
  
-Now the abundances of each sample should sum to 1. 
+    Now the abundances of each sample should sum to 1. 
 
-```{r}
-all(colSums(norm_tax_profile) == 1)
-```
+    ```r
+    all(colSums(norm_tax_profile) == 1)
+    ```
 
-Prevalence of a species refers to the the proportion of samples in which that species is detected. 
+    </details>
 
-First we calculate prevalence for all the genera. 
-```{r}
-number_of_samples = dim(tax_profile)[2]
-prevalence_df <- data.frame(Prevalence = rowSums(norm_tax_profile>0)/number_of_samples)
-```
+- Which genera are the most and least prevalent?
 
-You can explore the least and most prevalent species like so
-```{r}
-prevalence_df %>% arrange(Prevalence)
-```
+    <details>
+    <summary markdown="span">Solution</summary>
 
-You can see that the most prevalent species are typically genera that that should be present in all human guts. This type of quick exploration can also serve as a sanity check (is there something we should not be seeing at all?)  
-Taxonomic profiles are typically sparse because most species occur in frequently. Do we see this in our data as well? 
+    Prevalence of a species refers to the the proportion of samples in which that species is detected. 
 
-How many 0s are present overall in the data? 
-```{r}
-sum(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]*dim(norm_tax_profile)[2])
-```
-77% of the data are 0s!
+    First we calculate prevalence for all the genera. 
+    ```r
+    number_of_samples = dim(tax_profile)[2]
+    prevalence_df <- data.frame(Prevalence = rowSums(norm_tax_profile>0)/number_of_samples)
+    ```
 
-If we look at the percentage of 0s per sample:
+    You can explore the least and most prevalent species like so
+    ```r
+    prevalence_df %>% arrange(Prevalence)
+    ```
 
-```{r}
-data.frame(zeros_per_sample =colSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]))
-```
-We can see that the sparsity is similar across all samples. Do you think that if we had samples from a different environment (like Soil for instance), we might see something different?
+    You can see that the most prevalent species are typically genera that that should be present in all human guts. This type of quick exploration can also serve as a sanity check (is there something we should not be seeing at all?)
+
+    </details>
+- Is the relative abundance of the different genera normally distributed?
+    <details>
+    <summary markdown="span">Solution</summary>
+    
+    If we look at the distribution of all relative abundances with a simple histogram:
+
+    ```r
+    abundances_df = data.frame(rel_abundances=norm_tax_profile %>% as.vector())
+
+    ggplot(data = abundances_df) + geom_histogram(aes(rel_abundances),bins=100) 
+    ```
+
+    What about for individual genera?
+    
+    ```r
+    genera_abundances_df = data.frame(rel_abundances=norm_tax_profile[10,])
+
+    ggplot(data = genera_abundances_df) + geom_histogram(aes(rel_abundances),bins=50)
+    ```
+
+    The abundances are not normally distributed, which is to be expected, consindering the sparsity and compositionality of microbiome data. 
+
+    </details>
+  
+- How many zeros there are per sample and per genus?
+  
+    <details>
+    <summary markdown="span">Solution</summary>
+    
+    Taxonomic profiles are typically sparse because most species occur in frequently. Do we see this in our data as well? 
+
+    How many 0s are present overall in the data? 
+    ```r
+    sum(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]*dim(norm_tax_profile)[2])
+    ```
+    77% of the data are 0s!
+
+    If we look at the percentage of 0s per sample:
+
+    ```r
+    data.frame(zeros_per_sample =colSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[1]))
+    ```
+    We can see that the sparsity is similar across all samples. Do you think that if we had samples from a different environment (like Soil for instance), we might see something different?
+
+    Percentage of 0s per genus is simply `1 - prevalence`
+    ```r
+    data.frame(zeros_per_sample =rowSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[2]))
+    ```
+
+    Again, we note that some genera are more prevalent than others.
+
+    </details>
+  
+- How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
 
 
-
-Percentage of 0s per genus (1 - prevalence)
-```{r}
-data.frame(zeros_per_sample =rowSums(norm_tax_profile == 0)/(dim(norm_tax_profile)[2]))
-```
-
-Again, we note that some genera are more prevalent than others. 
-
-Do the relative abundances follow a normal distribution? 
-
-We can check this with a simple histogram
-```{r}
-abundances_df = data.frame(rel_abundances=norm_tax_profile %>% as.vector())
-
-ggplot(data = abundances_df) + geom_histogram(aes(rel_abundances),bins=100) 
-```
-
-What about for individual genera?
-```{r}
-genera_abundances_df = data.frame(rel_abundances=norm_tax_profile[10,])
-
-ggplot(data = genera_abundances_df) + geom_histogram(aes(rel_abundances),bins=50)
-```
-
-The abundances are not normally distributed, which is to be expected, consindering the sparsity and compositionality of microbiome data. 
-
-
-Asessing within sample variability and between sample variability:
-
-```{r}
-dist.matrix<- dist(t(norm_tax_profile))
-
-plot(hclust(dist.matrix))
-```
