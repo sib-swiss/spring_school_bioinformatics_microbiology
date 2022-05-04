@@ -646,7 +646,7 @@ Here are some hints of what you can check:
      
      
     <details>
-    <summary markdown="span">Solution 1</summary>
+    <summary markdown="span">Solution 2</summary>
     
     We can do a PCA plot:
     ```R
@@ -688,6 +688,8 @@ Here are some hints of what you can check:
     ```
     
     ![](../assets/images/Project3/step_1_pca_subject.png)
+          
+    There is no particular grouping by sex or by timepoint (as expected). It also seems that the plot based on subject (third plot where each color is a subject) is random. But, we can actually see some structure, in particular outside of the conglomerate of points at the center. 
     
     </details>
      
