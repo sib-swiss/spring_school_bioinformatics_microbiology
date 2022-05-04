@@ -277,6 +277,18 @@ The rows are genera and the columns are samples.
 ```r
 head(metadata)
 ```
+ 
+Which is:
+```bash
+          Subject Timepoint Sex
+700002_T0  700002         0   M
+700002_T1  700002        12   M
+700002_T2  700002        24   M
+700002_T3  700002        50   M
+700004_T0  700004         0   F
+700004_T1  700004        12   F
+```
+ 
 The 496 samples are from 124 patients (sampled 4 times over the course of the year). `tax_profile` contains the read counts of of species (rows) across all samples (columns).
 
 For each sample, we know the corresponding subject id, timepoint of sampling and the sex of the subject. 
