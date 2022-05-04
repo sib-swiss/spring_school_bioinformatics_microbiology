@@ -108,7 +108,7 @@ find the data under:
 
 ```r
 feat.motus_study2  <- "https://zenodo.org/record/6517497/files/study2_species.motus"
-meta.file  <- "https://zenodo.org/record/6517497/files/study2.metadata"
+meta.file_study2  <- "https://zenodo.org/record/6517497/files/study2.metadata"
 ```
 
 Note that the features are the same as the mOTUs species in study 1.
