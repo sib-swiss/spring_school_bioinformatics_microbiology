@@ -11,6 +11,7 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
  Explore the files, in particular you can check:
 
   - How many reads there are per sample?
+    
     <details>
     <summary markdown="span">Solution</summary>
 
@@ -90,8 +91,7 @@ There are many different ways of performing the same task. If you have done some
     - `SLIDINGWINDOW`: consider a window of bases (here `4` at once) and trim once the average quality within the window falls below a threshold quality (here `15`). 
     - `MINLEN`: remove reads lower than the specified min length (here `36`)
     </details>
-
-
+    
 - How many files did trimmomatic generate? What do they contain?
     <details>
     <summary markdown="span">Solution</summary>
@@ -128,7 +128,7 @@ There are many different ways of performing the same task. If you have done some
 ## Taxonomic profiling with mOTUs
 
 - Use `motus` (manual: [link](https://github.com/motu-tool/mOTUs_v2#simple-examples)) to create a profile from the files created by trimmomatic.
-      <details>
+    <details>
     <summary markdown="span">Solution</summary>
      Here is the mOTU command to generate a taxonomic profile using default parameters.
 
@@ -138,7 +138,8 @@ There are many different ways of performing the same task. If you have done some
 
     </details>
 - How many species are detected? How many are reference species and how many are unknown species?
-      <details>
+    
+    <details>
     <summary markdown="span">Solution</summary>
     You can quickly check how many species were detected with:
 
@@ -168,7 +169,7 @@ There are many different ways of performing the same task. If you have done some
 
     To increase precision at the cost of recall you can increase parameters `-g` (default: 3) and -l (default: 75). 
 
-    ```bash 
+    ```
     motus profile -f sampleA_filterd_1P.fastq -r sampleA_filtered_2P.fastq -s sampleA_filtered_1U.fastq,sampleA_filtered_2U.fastq -n sampleA -o sampleA_profile_high_p.txt -g 8 -l 90
     ```
     We have detected just 37 species. 
@@ -196,6 +197,69 @@ There are many different ways of performing the same task. If you have done some
     ```
     This results in a tab-separated file containing the tax profiles. 
     </details>
+## Taxonomic profiling with MAPseq
+
+- Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [github page](https://github.com/jfmrod/MAPseq) for the command). 
+
+    <details>
+    <summary markdown="span">Solution</summary>
+
+    In order to create a taxonomic profile using `MAPseq` for sampleA do:
+
+    ```bash
+    mapseq sampleA_filtered_1P.fasta > sampleA.mseq
+    ```
+    `MAPseq` seems to be a bit faster than mOTUs (took ~2 min to run)
+
+    `sampleA.mseq` contains the results from mapping reads to the reference database of OTUs provided by `MAPseq` (alignment score, database hit, etc) and the taxnomic classifications along with associated confidences. 
+
+    After generating the `.mseq` files for all the samples, you can merge them into one OTU table like so:
+
+    ```bash
+    mapseq -otutable sampleA.mseq sampleB.mseq sampleC.mseq -ti 1 -tl 3 > mapseq_otutable_otu97.tsv
+    ```
+    This creates an OTU table containing reads mapped to 97% OTUs for sampleA, sampleB and sampleC. 
+
+    Note that depending on whether `-ti` is 0 or 1, what `-tl` means changes. 
+
+    If you have `-ti 0`, then `-tl` indicates the taxonomic level (0 (domain), 1 (phylum), 2 (class), 3 (order), 4 (family), 5 (genus), 6 (species)) . So if `-ti 0 -tl 3` means that the OTU table will report only read counts mapping to order-level NCBI taxonomies. 
+
+    If you have `-ti 1`, then `-tl` indicates the OTU clustering level (1 (90% OTU), 2 (96% OTU), 3 (97% OTU), 4 (98%), 5 (99%)) . So if `-ti 1 -tl 3` means that the OTU table will report only read counts mapping to 97% OTUs. 
+    
+    To obtain reads mapping to 99% OTUs : 
+    ```bash
+    mapseq -otutable sampleA.mseq sampleB.mseq sampleC.mseq -ti 0 -tl 5 > mapseq_otutable_otu99.tsv
+    ```
+
+    If we increase the clustering level to 99%, we observe fewer species detected for all the samples. This might be because at a finer resolution, we might not be able to assign taxonomies too well resulting in a smaller number of species being profiled. 
+
+    To obtain reads mapping to 96% OTUs : 
+
+    ```bash
+    mapseq -otutable sampleA.mseq sampleB.mseq sampleC.mseq -ti 0 -tl 2 > mapseq_otutable_otu96.tsv
+    ```
+
+    If we decrease the clustering level to 96%, we observe more species detected for all the samples. 
+
+    </details>
+
+- Can you compare mOTUs and MAPseq profiles?
+    <details>
+    <summary markdown="span">Solution</summary>
+
+    | Profiler   | species detected in sampleA |
+    |------------|-----------------------------|
+    | mOTUs      | 97                          |
+    | MAPseq 97% | 173                         |
+    | MAPseq 99% | 121                         |
+    | MAPseq 96% | 179                         |
+    
+    It looks like mOTUs is a bit more conservative at detecting species. Note that since mOTUs and OTUs are defined differently, it might not be straightforward to make a direct comparison. 
+    </details>
+
+
+
+
 
 ## Explore taxonomic profiles
 
@@ -350,5 +414,4 @@ Here are some hints of what you can check:
     </details>
   
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
-
 
