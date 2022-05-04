@@ -18,13 +18,49 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
     ```bash
     echo $(cat sampleA_1.fastq|wc -l)/4|bc
     ```
-
+    Another solution, we can count the number of lines with `@read`:
+    ```bash
+    grep -c "@read" sampleA_1.fastq
+    ```
+ 
     </details>
 
 - What is the average length of the reads? Is there a difference between the read lengths in the forward and reverse files?
     <details>
-    <summary markdown="span">Solution</summary>
-
+    <summary markdown="span">Solution 1</summary>
+ 
+    We can first extract only the sequences:
+    ```bash
+    grep -A 1 "@read" sampleA_1.fastq  | grep -v "\-\-" | grep -v "read" > sequences_sampleA_1
+    ```
+    With `-A 1` we select also 1 row after the match. With `grep -v` we remove what is not needed. We can now check the length with:
+    ```bash
+    cat sequences_sampleA_1 | awk '{print length}'
+    ```
+    This will print a big list, we can count how many times each length appear:
+    ```bash
+    cat sequences_sampleA_1 | awk '{print length}' | sort | uniq -c | sort -n | tail
+    ```
+    Which produces:
+    ```bash
+      238 96
+      242 92
+      258 93
+      341 97
+      344 94
+      346 95   
+      428 98
+      849 20
+     1194 99
+    61306 100
+    ```
+    So the majority of the reads have length 100 (61,306 out of 67,926, 90%)
+ 
+    </details>
+    
+    <details>
+    <summary markdown="span">Solution 2</summary>
+ 
     To quickly check the average length of the reads in the terminal, do: 
     ```bash
     awk 'NR%4==2{sum+=length($0)}END{print sum/(NR/4)}' sampleA_1.fastq
@@ -41,8 +77,8 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 
     ```bash
     #get list of read ids from the forward and reverse files
-    grep '@' sampleA_1.fastq > sampleA_ids_1.txt
-    grep '@' sampleA_2.fastq > sampleA_ids_2.txt
+    grep '@read' sampleA_1.fastq > sampleA_ids_1.txt
+    grep '@read' sampleA_2.fastq > sampleA_ids_2.txt
     #check if they are identical 
     diff -s sampleA_ids_1.txt  sampleA_ids_2.txt
     ```
