@@ -142,19 +142,19 @@ There are many different ways of performing the same task. If you have done some
     <summary markdown="span">Solution</summary>
     You can quickly check how many species were detected with:
 
-  ```bash
-  #this also counts unassigned so subtract 1 from the result
-  grep -c -v '0.0000000000\|#' sampleA_profile.txt
-  ```
-  `97` species were dectected. 
-  Around `3.4 %` were unassigned . 
+    ```bash
+    #this also counts unassigned so subtract 1 from the result
+    grep -c -v '0.0000000000\|#' sampleA_profile.txt
+    ```
+    `97` species were dectected. 
+    Around `3.4 %` were unassigned . 
 
-  You can check how many ref-mOTUs were detected using these command:
-  ```bash
-  grep -v '0.0000000000\|#' sampleA_profile.txt > sampleA_profile_detected.txt
-  grep -c 'ref_mOTU_v3_' sampleA_profile_detected.txt
-  ```
-  `39` ref-mOTUs were detected in sampleA. Note that this number is also reported as stdout when you run `motus profile`
+    You can check how many ref-mOTUs were detected using these command:
+    ```bash
+    grep -v '0.0000000000\|#' sampleA_profile.txt > sampleA_profile_detected.txt
+    grep -c 'ref_mOTU_v3_' sampleA_profile_detected.txt
+    ```
+    `39` ref-mOTUs were detected in sampleA. Note that this number is also reported as stdout when you run `motus profile`
 
     </details>
   
