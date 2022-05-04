@@ -399,6 +399,8 @@ Here are some hints of what you can check:
 
      
      
+
+     
      
 - Is the relative abundance of the different genera normally distributed?
     <details>
@@ -407,23 +409,30 @@ Here are some hints of what you can check:
     If we look at the distribution of all relative abundances with a simple histogram:
 
     ```r
-    abundances_df = data.frame(rel_abundances=norm_tax_profile %>% as.vector())
-
-    ggplot(data = abundances_df) + geom_histogram(aes(rel_abundances),bins=100) 
+    abundances_df = data.frame(rel_abundances=as.vector(rel_ab))
+    ggplot(data = abundances_df) + geom_histogram(aes(rel_abundances),bins=100) + xlab("All relative abundances")
     ```
+    
+    ![](../assets/images/Project3/step1_hist_rel_ab.png)
 
-    What about for individual genera?
+    We can clearly see that the relative abundances are not normally distributed. Maybe if we log transform the data, the result improve. Note that in order to log transform the data we need to add a small value (in this case `10^-4`) so that we don't have the problem of calculating the log of zero. Code:
     
     ```r
-    genera_abundances_df = data.frame(rel_abundances=norm_tax_profile[10,])
-
-    ggplot(data = genera_abundances_df) + geom_histogram(aes(rel_abundances),bins=50)
+    log_rel_ab = data.frame(rel_abundances=log10(as.vector(rel_ab) + 10^-4))
+    ggplot(data = log_rel_ab) + geom_histogram(aes(rel_abundances),bins=100) + xlab("All relative abundances (log10)") +
+  scale_y_log10()
     ```
+    
+    ![](../assets/images/Project3/step1_hist_rel_ab_log.png)
 
-    The abundances are not normally distributed, which is to be expected, consindering the sparsity and compositionality of microbiome data. 
+    As you can see even when we log transform, the high number of zero makes the distribution not normal. 
 
     </details>
-  
+
+     
+     
+     
+     
 - How many zeros there are per sample and per genus?
   
     <details>
