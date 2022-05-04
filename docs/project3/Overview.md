@@ -6,3 +6,13 @@ The project is composed of two steps:
 - Step 2: Comparative metagenomic analysis. Here we will evaluate which species are correlated to helthy or diseased patients. In this example we will focus on colorectal cancer patients.
 
 ![](../assets/images/Project3/Overview.png)
+
+## Project timeline
+
+| Day 	| Time   	| Topic   	|
+|-------	|-------	|---------	|
+| Tuesday  | Morning | Step1: obtain taxonomic profiles |
+| Tuesday  | Afternoon | Step1: Explore properties of human gut taxonomic profiles |
+| Wednesday  | Morning | Step2: Association testing |
+| Thursday  | Morning | Step2: Machine learning |
+| Thursday  | Afternoon | Work on your presentations |
