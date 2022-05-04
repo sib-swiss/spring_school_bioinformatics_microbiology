@@ -551,6 +551,26 @@ Here are some hints of what you can check:
     ggplot(df,aes(type,dist)) + geom_boxplot()
     ```
     
-  
+    ![](../assets/images/Project3/step_1_distances.png)
+     
+    It is quite clear that they are different, but we can also test it:
+    ```R
+    wilcox.test(df[df$type == "Within distance",]$dist,
+                df[df$type == "Between distance",]$dist)
+    ```
+     
+    Result:
+    ```R
+    Wilcoxon rank sum test with continuity correction
+    
+    data:  df[df$type == "Within distance", ]$dist and df[df$type == "Between distance", ]$dist
+    W = 2844084, p-value < 2.2e-16
+    alternative hypothesis: true location shift is not equal to 0
+    ```
+    
+    This means that samples from the same subject have a low distance, or in other words they are similar to each other. And they are much more similar compared to other subjects, even after 1 year (the last time point is 50 weeks). From this we understand two things:
+        - First, the human microbiome is stable over time
+        - Second, there is a great variability between subjects
+
 
     </details>
