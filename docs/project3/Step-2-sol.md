@@ -373,3 +373,36 @@ meta.file_study2  <- "https://zenodo.org/record/6517497/files/study2.metadata"
 Note that the features are the same as the mOTUs species in study 1.
 
 - Apply the trained model (from `study1_species.motus`) on this new dataset and check the model performance  on the external dataset. (**Tip**: Check out the help for the `make.prediction` function in `SIAMCAT`)
+      
+    There are few steps:                 
+              
+                     
+    <details>
+    <summary markdown="span">Load the data</summary>
+    
+    We can load the data in the same way as it was loaded before for the mOTUs species:
+
+    ```r
+    feat.motus_study2  <- "https://zenodo.org/record/6517497/files/study2_species.motus"
+    meta.file_study2  <- "https://zenodo.org/record/6517497/files/study2.metadata"
+    
+    #Load the data
+    tax.profiles2 <- read.table(feat.motus_study2, sep = '\t', quote = '',
+                               comment.char = '', skip = 2,
+                               stringsAsFactors = FALSE, check.names = FALSE,
+                               row.names = 1, header = TRUE)
+    tax.profiles2 <- as.matrix(tax.profiles2)
+    
+    meta2 <- read.table(meta.file_study2,
+                       sep = '\t', quote = '',
+                       stringsAsFactors = FALSE, check.names = FALSE, 
+                       row.names = 1, header = TRUE)
+    ```
+    
+    And we create relative abundances:
+    
+    ```r
+    rel_ab2 = prop.table(tax.profiles2,2)
+    ```
+    
+    </details> 
