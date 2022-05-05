@@ -208,6 +208,7 @@ We can model the problem using machine learning.
     <details>
     <summary markdown="span">Normalization</summary>
     SIAMCAT offers a few normalization approaches that can be useful for subsequent statistical modeling in the sense that they transform features in a way that can increase the accuracy of the resulting models. Importantly, these normalization techniques do not make use of any label information (patient status), and can thus be applied up front to the whole data set (and outside of the following cross validation).
+    
     ```r
     sc.obj <- normalize.features(sc.obj, norm.method = 'log.std',
                                  norm.param = list(log.n0=1e-05, sd.min.q=0))
@@ -224,6 +225,7 @@ We can model the problem using machine learning.
     # phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 120 samples ]
     # phyloseq@sam_data()    Sample Data:          [ 120 samples by 16 sample variables ]
     ```
+    
     </details> 
     
     <details>
