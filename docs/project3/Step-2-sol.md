@@ -178,6 +178,11 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     ```r
     sc.obj <- check.associations(sc.obj, detect.lim = 1e-05)
     ```
+    
+    <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_association_testing_1.png">
+     
+    You can look at the figure in more detail at [this link](https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_association_testing_1.png).
+    
     </details> 
 
 
