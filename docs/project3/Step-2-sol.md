@@ -8,6 +8,7 @@ General note: this guide has been written assuming you use a R.
 
 
 Look at the metadata, how many controls (`CTR`) and cases (`CRC` for colorectal cancer) are there?
+
 <details>
 <summary markdown="span">Solution</summary>
 
@@ -49,7 +50,7 @@ df = data.frame(
 ggplot(df,aes(x = pc1,y = pc2, col = Group)) + geom_point()
 ```
 
-![](../assets/images/Project3/step_2_pca.png)
+<img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_pca.png" width="500">
 
 Overall there is not a big shift visible from the PCA.
 
