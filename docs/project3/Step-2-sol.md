@@ -429,4 +429,19 @@ Note that the features are the same as the mOTUs species in study 1.
     
     And now we find which samples are in common between the metadata and the profiles. Note that sometimes it happens that some samples are discarded because there was not enough DNA for sequencing or other problems.
     
+    ```r
+    sel = intersect(rownames(meta2),colnames(rel_ab2))
+    length(sel)
+    # 106
+    
+    meta2 = meta2[sel,]
+    rel_ab2 = rel_ab2[,sel]
+    
+    table(meta2$Group)
+    # CRC CTR 
+    #  46  60 
+    ```
+    
+    Now we have 106 samples (60 control and 46 CRC).
+    
     </details> 
