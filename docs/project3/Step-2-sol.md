@@ -1,4 +1,4 @@
-# Solution step 2: Comparative Metagenome Analysis with SIAMCAT
+# Solution Step 2: Comparative Metagenome Analysis with SIAMCAT
 
 General note: this guide has been written assuming you use a R.
 
@@ -8,6 +8,49 @@ General note: this guide has been written assuming you use a R.
 
 
 Look at the metadata, how many controls (`CTR`) and cases (`CRC` for colorectal cancer) are there?
+<details>
+<summary markdown="span">Solution 1</summary>
+
+We can check what there is in the metadata with:
+```r
+head(meta)
+```
+
+There are many columns, but the one we are interesed in is "Group":
+```r
+table(meta$Group)
+```
+Which results in:
+```
+CRC CTR 
+ 60  60 
+```
+
+There are 60 profiles from diseased patients (CRC) and 60 profiles from healthy individuals.
+
+We can check if there is an overall trend in the profiles looking at a PCA plot:
+```r
+rel_ab = prop.table(tax.profiles,2)
+log_rel_ab = log10(rel_ab+ 10^-4)
+
+# remove zero rows
+log_rel_ab = log_rel_ab[rowSums(rel_ab) > 0,]
+
+pc <- prcomp(t(log_rel_ab),
+             center = TRUE,
+             scale. = TRUE)
+
+df = data.frame(
+  pc1 = pc$x[,1],
+  pc2 = pc$x[,2],
+  Group = as.factor(meta[rownames(pc$x),"Group"])
+)
+
+ggplot(df,aes(x = pc1,y = pc2, col = Group)) + geom_point()
+```
+      
+      
+</details> 
 
 
 
