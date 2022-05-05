@@ -139,6 +139,45 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     library("SIAMCAT")
     ```
     Within SIAMCAT, the data are stored in the SIAMCAT object which contains the feature matrix, the metadata, and information about the groups you want to compare.
+    
+    ```r
+    rel_ab = prop.table(tax.profiles,2)
+    sc.obj <- siamcat(feat=rel_ab, meta=meta, 
+                      label='Group', case='CRC')
+    ```
+    
+    We can use SIAMCAT for feature filtering as well. Currently, the matrix of taxonomic profiles contains 33,571 different bacterial species. Of those, not all will be relevant for our question, since some are present only in a handful of samples (low prevalence) or at extremely low abundance. Therefore, it can make sense to filter your taxonomic profiles before you begin the analysis. Here, we could for example use the maximum species abundance as a filtering criterion. All species that have a relative abundance of at least 1e-03 in at least one of the samples will be kept, the rest is filtered out.
+    ```r
+    sc.obj <- filter.features(sc.obj, filter.method = 'abundance', cutoff = 1e-03)
+    ```
+ 
+    Additionally we can filter based on the prevalence:
+    ```r
+    sc.obj <- filter.features(sc.obj, filter.method = 'prevalence', 
+                              cutoff = 0.05, feature.type = 'filtered')
+    ```
+    
+    And we can have a look at the object:
+    ```r
+    sc.obj
+    ```
+    Result:
+    ```r
+    siamcat-class object
+    label()                Label object:         60 CTR and 60 CRC samples
+    filt_feat()            Filtered features:    1095 features after abundance, prevalence filtering
+    
+    contains phyloseq-class experiment-level object @phyloseq:
+    phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 120 samples ]
+    phyloseq@sam_data()    Sample Data:          [ 120 samples by 16 sample variables ]
+    ```
+    
+    We go from 33,571 taxa to 1,095 after abundance, prevalence filtering.
+              
+    Now, we can test the filtered feature for differential abundance with SIAMCAT:
+    ```r
+    sc.obj <- check.associations(sc.obj, detect.lim = 1e-05)
+    ```
     </details> 
 
 
