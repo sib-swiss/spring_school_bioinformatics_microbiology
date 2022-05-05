@@ -51,6 +51,8 @@ ggplot(df,aes(x = pc1,y = pc2, col = Group)) + geom_point()
 
 ![](../assets/images/Project3/step_2_pca.png)
       
+Overall there is not a big shift visible from the PCA.
+      
 </details> 
 
 
