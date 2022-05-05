@@ -235,15 +235,42 @@ We can model the problem using machine learning.
     Here, we split the dataset into 10 parts and then train a model on 9 of these
     parts and use the left-out part to test the model. The whole process is 
     repeated 10 times.
-
+    
     ```r
     sc.obj <- create.data.split(sc.obj, num.folds = 10, num.resample = 10)
     # Features splitted for cross-validation successfully.
     ```
     </details> 
+    
+     
+    </details> 
+    
+    
+    <details>
+    <summary markdown="span">Model Training</summary>
+    
+    Now, we can train a [LASSO logistic regression classifier](https://www.jstor.org/stable/2346178) in order to distinguish CRC cases and controls.
 
+    ```r
+    sc.obj <- train.model(sc.obj, method='lasso')
+    # Trained lasso models successfully.
+    ```
+    </details>  
      
      
+     
+    </details> 
+    
+    <details>
+    <summary markdown="span">Predictions</summary>
+    This function will automatically apply the models trained in cross validation to their respective test sets and aggregate the predictions across the whole data set.
+
+
+    ```r
+    sc.obj <- make.predictions(sc.obj)
+    # Made predictions successfully.
+    ```
+    </details> 
      
      
      
