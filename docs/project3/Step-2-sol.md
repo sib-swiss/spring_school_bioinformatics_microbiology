@@ -131,6 +131,15 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
 - Explore how SIAMCAT identify associations between clades and phenotypes: [link](https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html)
 - What kind of normalization SIAMCAT allow to use?
 - Try to run SIAMCAT to do association testing.
+    <details>
+    <summary markdown="span">Solution</summary>
+    
+    We can also use the SIAMCAT R package to test for differential abundance and produce standard visualizations.
+    ```r
+    library("SIAMCAT")
+    ```
+    Within SIAMCAT, the data are stored in the SIAMCAT object which contains the feature matrix, the metadata, and information about the groups you want to compare.
+    </details> 
 
 
 
