@@ -273,6 +273,38 @@ We can model the problem using machine learning.
     </details> 
      
      
+    </details> 
+    
+    <details>
+    <summary markdown="span">Model Evaluation</summary>
+    Calling the `evaluate.predictions` function will result in an assessment of precision and recall as well as in ROC analysis, both of which can be plotted:
+    
+    ```r
+    sc.obj <- evaluate.predictions(sc.obj)
+    # Evaluated predictions successfully.
+    model.evaluation.plot(sc.obj)
+    ```
+    </details> 
+     
+   
+    <details>
+    <summary markdown="span">Model Interpretation</summary>
+    
+    Finally, the `model.interpretation.plot` function will plot characteristics of the models (i.e. model coefficients or feature importance) alongside the input data aiding in understanding how / why the model works (or not).
+
+    
+    ```r
+    model.interpretation.plot(sc.obj, consens.thres = 0.7)
+    ```
+    </details> 
+       
+     
+     
+     
+     
+     
+     
+     
      
      
      
