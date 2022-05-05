@@ -9,7 +9,7 @@ General note: this guide has been written assuming you use a R.
 
 Look at the metadata, how many controls (`CTR`) and cases (`CRC` for colorectal cancer) are there?
 <details>
-<summary markdown="span">Solution 1</summary>
+<summary markdown="span">Solution</summary>
 
 We can check what there is in the metadata with:
 ```r
@@ -48,7 +48,8 @@ df = data.frame(
 
 ggplot(df,aes(x = pc1,y = pc2, col = Group)) + geom_point()
 ```
-      
+
+![](../assets/images/Project3/step_2.png)
       
 </details> 
 
