@@ -49,7 +49,7 @@ df = data.frame(
 ggplot(df,aes(x = pc1,y = pc2, col = Group)) + geom_point()
 ```
 
-![](../assets/images/Project3/step_2.png)
+![](../assets/images/Project3/step_2_pca.png)
       
 </details> 
 
