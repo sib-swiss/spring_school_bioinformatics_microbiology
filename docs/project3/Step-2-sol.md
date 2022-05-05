@@ -444,4 +444,44 @@ Note that the features are the same as the mOTUs species in study 1.
     
     Now we have 106 samples (60 control and 46 CRC).
     
+    </details>
+ 
+ 
+ 
+ 
+ 
+    <details>
+    <summary markdown="span">Make predictions</summary>
+    
+    We can now load the second dataset into a SIAMCAT object:
+    ```r
+    test.obj = siamcat(feat=rel_ab2, meta=meta2,
+                       label='Group', case='CRC')
+    ```
+     
+     
+     Now we can use the model that we built before (in `sc.obj`) and we can apply it to the `test.obj` holdout dataset. First, we will make the predictions on the based on the old dataset:
+    
+    ```r
+    test.obj <- make.predictions(
+    siamcat = sc.obj,
+    siamcat.holdout = test.obj)
+    # note that the features are normalized with the same parameters for the old dataset
+    
+    # evaluate the prediction
+    test.obj <- evaluate.predictions(test.obj)
+    ```
+    
+    Now, we can compare the performance of the classifier on the original and the holdout dataset by using the model.evaluation.plot function. Here, we can supply several SIAMCAT objects for which the model evaluation will be plotted in the same plot. Note that we can supply the objects as named objects in order to print the names in the legend.
+    
+    ```r
+    model.evaluation.plot('Original' = sc.obj,
+                          'Test' = test.obj ,
+                           colours=c('dimgrey', 'orange'))
+    ```
+     
+    <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_ROC_project2.png" width="500">
+    
+    <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_prec_recall_project2.png" width="500">
+    
     </details> 
