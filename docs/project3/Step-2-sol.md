@@ -284,6 +284,15 @@ We can model the problem using machine learning.
     # Evaluated predictions successfully.
     model.evaluation.plot(sc.obj)
     ```
+    
+    ROC:
+    
+    <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_auc.png" width="500">
+    
+    Precision-recall:
+    
+    <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_prec_rec.png" width="500">
+    
     </details> 
      
    
@@ -296,6 +305,9 @@ We can model the problem using machine learning.
     ```r
     model.interpretation.plot(sc.obj, consens.thres = 0.7)
     ```
+    
+    <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_ML_interpretation.png">
+    
     </details> 
        
      
