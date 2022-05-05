@@ -75,7 +75,7 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
     </details>
 
 - Do you have the same read IDs in the forward and reverse file? 
-      <details>
+    <details>
     <summary markdown="span">Solution</summary>
 
     Since these are paired reads, the read ids should be identical and in the same order. You can check this in the terminal like so: 
