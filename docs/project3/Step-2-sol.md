@@ -107,6 +107,24 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
                                               2.613795e-06 
  ```
  
+ The species with the most significant effect seems to be *Peptostreptococcus stomatis*, so let us take a look at the distribution of this species:
+ 
+ ```r
+ species <- 'Peptostreptococcus stomatis [ref_mOTU_v3_03281]'
+ df.plot <- data.frame(
+   log_rel_ab = log_rel_ab[species,],
+   group = meta[colnames(log_rel_ab),]$Group
+ )
+ 
+ ggplot(df.plot, aes(x=group, y=log_rel_ab)) +
+   geom_boxplot(outlier.shape = NA) +
+   geom_jitter(width = 0.08) + 
+   xlab('') + 
+   ylab('P. stomatis rel. ab. (log 10)')
+ ```
+ 
+ <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step2_wilc_test_1.png" width="500">
+ 
  </details> 
  
 
