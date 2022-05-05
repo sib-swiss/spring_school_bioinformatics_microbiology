@@ -189,6 +189,12 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
 
 
 
+
+
+
+
+
+
 ## Build machine learning models to predict colorectal cancer patients from a metagenomic sample
 
 Population-wide screening and prevention programs for colorectal cancer are recommended in many countries. Fecal occult blood testing (Hemoccult FOBT) is currently the standard noninvasive screening test. However, because FOBT has limited sensitivity and specificity for CRC and does not reliably detect precancerous lesions, there is an urgent demand for more accurate screening tests to identify patients who should undergo colonoscopy, which is considered the most effective diagnostic method. Here, we we can investigate the potential of fecal microbiota for noninvasive detection of colorectal cancer in several patients.
@@ -197,8 +203,50 @@ We can model the problem using machine learning.
 
 - Explore the SIAMCAT basic vignette to understand how you can train machine learning models to predict colerectal cancer from metagenomic samples.
 
+    The SIAMCAT machine learning workflow consists of several steps:
+    
+    <details>
+    <summary markdown="span">Normalization</summary>
+    SIAMCAT offers a few normalization approaches that can be useful for subsequent statistical modeling in the sense that they transform features in a way that can increase the accuracy of the resulting models. Importantly, these normalization techniques do not make use of any label information (patient status), and can thus be applied up front to the whole data set (and outside of the following cross validation).
+    ```r
+    sc.obj <- normalize.features(sc.obj, norm.method = 'log.std',
+                                 norm.param = list(log.n0=1e-05, sd.min.q=0))
+    # Features normalized successfully.
+    sc.obj
+    # siamcat-class object
+    # label()                Label object:         60 CTR and 60 CRC samples
+    # filt_feat()            Filtered features:    1095 features after abundance, prevalence filtering
+    # associations()         Associations:         Results from association testing
+    #                                              with 65 significant features at alpha 0.05
+    # norm_feat()            Normalized features:  1095 features normalized using log.std
+    # 
+    # contains phyloseq-class experiment-level object @phyloseq:
+    # phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 120 samples ]
+    # phyloseq@sam_data()    Sample Data:          [ 120 samples by 16 sample variables ]
+    ```
+    </details> 
+    
+    <details>
+    <summary markdown="span">Cross Validation Split</summary>
+    Cross validation is a technique to assess how well an ML model would generalize 
+    to external data by partionining the dataset into training and test sets.
+    Here, we split the dataset into 10 parts and then train a model on 9 of these
+    parts and use the left-out part to test the model. The whole process is 
+    repeated 10 times.
 
+    ```r
+    sc.obj <- create.data.split(sc.obj, num.folds = 10, num.resample = 10)
+    # Features splitted for cross-validation successfully.
+    ```
+    </details> 
 
+     
+     
+     
+     
+     
+     
+     
 ## Explore other profiling methods
 
 We profiled the same samples with different methods.
