@@ -48,6 +48,11 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
 - What kind of normalization SIAMCAT allow to use?
 - Try to run SIAMCAT to do association testing.
 
+The associations metrics computed by SIAMCAT are stored in the SIAMCAT
+object and can be extracted by using `associations(sc.obj)`, if you want to
+have a closer look at the results for yourself. For example, you can use it to plot a volcano plot of the
+associations between cancer and controls using the output from SIAMCAT.
+
 
 
 
