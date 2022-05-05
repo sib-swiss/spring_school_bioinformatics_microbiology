@@ -64,6 +64,51 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
 
 - How would you study and estimate these associations? How would you identify which species are associated to cancer? Which kind of test can you use?
 - Try to apply a t-test or a Wilcoxon test to your data.
+
+ <details>
+ <summary markdown="span">Solution</summary>
+ 
+ Since we observed before that the data is not normally distributed, we can use a Wilcoxon test instead of a t-test. We can test all microbial species for statistically significant differences. In order to do so, we perform a Wilcoxon test on each individual bacterial species.
+ ```r
+ # use the same log transformed data as before
+ rel_ab = prop.table(tax.profiles,2)
+ log_rel_ab = log10(rel_ab+ 10^-4)
+ 
+ # remove zero rows
+ log_rel_ab = log_rel_ab[rowSums(rel_ab) > 0,]
+ 
+ # we go through each measured species
+ p.vals <- rep_len(1, nrow(log_rel_ab))
+ names(p.vals) <- rownames(log_rel_ab)
+ 
+ for (i in rownames(log_rel_ab)){
+   x <- log_rel_ab[i,]
+   y <- meta[colnames(log_rel_ab),]$Group
+   t <- wilcox.test(x~y)
+   p.vals[i] <- t$p.value
+ }
+ head(sort(p.vals))
+ ```
+ 
+ Result:
+ ```r
+           Peptostreptococcus stomatis [ref_mOTU_v3_03281] 
+                                              7.269695e-09 
+                      Parvimonas micra [ref_mOTU_v3_04287] 
+                                              2.888822e-08 
+ Clostridiales species incertae sedis [meta_mOTU_v3_13876] 
+                                              2.707524e-07 
+                  Solobacterium moorei [ref_mOTU_v3_02442] 
+                                              3.083312e-07 
+                Dialister pneumosintes [ref_mOTU_v3_03630] 
+                                              1.619592e-06 
+ Porphyromonas species incertae sedis [meta_mOTU_v3_13569] 
+                                              2.613795e-06 
+ ```
+ 
+ </details> 
+ 
+
 - Explore how SIAMCAT identify associations between clades and phenotypes: [link](https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html)
 - What kind of normalization SIAMCAT allow to use?
 - Try to run SIAMCAT to do association testing.
