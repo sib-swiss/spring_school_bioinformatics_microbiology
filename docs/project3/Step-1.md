@@ -212,7 +212,7 @@ You can try to play around with the parameters and observe the number of mapped 
 Metagenomics enables the study of species abundances in complex mixtures of microorganisms and has become a standard methodology for the analysis of the human microbiome. However, species abundance data is inherently noisy and contains high levels of biological and technical variability as well as an excess of zeros due to non-detected species. This makes the statistical analysis challenging. Before moving to the next step, you will examine the properties of microbiome datasets.
 
 
-We will switch now to R examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
+We will switch now to R to examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
 ```R
 load(url("https://zenodo.org/record/6517497/files/human_microbiome_dataset.Rdata"))
 ```
