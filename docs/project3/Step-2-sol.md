@@ -52,6 +52,7 @@ ggplot(df,aes(x = pc1,y = pc2, col = Group)) + geom_point()
 
 <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_pca.png" width="500">
 
+
 Overall there is not a big shift visible from the PCA.
 
 </details> 
