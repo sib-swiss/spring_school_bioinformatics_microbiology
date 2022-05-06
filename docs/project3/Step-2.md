@@ -22,7 +22,7 @@ tax.profiles <- read.table(feat.motus, sep = '\t', quote = '',
                            row.names = 1, header = TRUE)
 ```
 
-Note that we use `skip = 2` tp skip the first two headers, and we skip `check.names` when loading in R because some mOTUs names are confusing for R (they are treated as comments).
+Note that we use `skip = 2` tp skip the first two headers, and `check.names = F` when loading the file because some mOTUs names are confusing for R (they are treated as comments).
 
 Here we provide 106 human gut taxonomic profiles in the form of a table where columns are samples and rows are species (or clade in general). You can load it directly with:
 
