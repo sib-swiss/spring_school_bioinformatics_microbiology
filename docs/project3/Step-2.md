@@ -68,10 +68,10 @@ We can model the problem using machine learning.
 We profiled the same samples with MAPseq, you can load it with:
 
 ``` r
-https://zenodo.org/record/6524317/files/mapseq_profiles_study1.Rdata
+load(url("https://zenodo.org/record/6524317/files/mapseq_profiles_study1.Rdata"))
 ```
 
-YOu can find two profile tables, one from 97% OTUs and one from 99% OTUs.
+You can find two profile tables, one from 97% OTUs and one from 99% OTUs.
 
 - Do you see a similar signal using different taxonomic profiling tools or different taxonomic levels? 
 
@@ -96,5 +96,5 @@ Note that the features are the same as the mOTUs species in study 1.
 We profiled this same dataset also with MAPseq, if you want to check it:
 
 ```r
-https://zenodo.org/record/6524317/files/mapseq_profiles_study1.Rdata
+load(url("https://zenodo.org/record/6524317/files/mapseq_profiles_study2.Rdata"))
 ```
