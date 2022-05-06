@@ -173,13 +173,14 @@ More information can be found also in [this protocol paper](https://currentproto
 
 ## Taxonomic profiling with MAPseq
 
-There are other taxonomic profiling tools that you can use, one that is already avaialble in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
+There are other taxonomic profiling tools that you can use, one that is already available in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
 
   
-- Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files. For our purpose, you can use the filtered_1P output from trimmomatic and convert it into a fasta file.)
-- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use awk to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
+- Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files. You can combinee the forward and reverse fastq files after quality filtering with cat and then convert it into a fasta file.)
+- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use awk to filter out the first and second lines of each read (4 lines in total). In order to concatenate and convert your files, use the following command within your terminal:
 ```bash
-cat infile.fq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > outfile.fasta
+cat sampleA_filtered_P1.fastq sampleA_filtered_P2.fastq > sampleA_filtered.fastq
+cat sampleA_filtered.fastq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > sampleA.fasta
 ```
 -By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
 ```bash
