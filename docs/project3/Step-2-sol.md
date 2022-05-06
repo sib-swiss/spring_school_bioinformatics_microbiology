@@ -183,10 +183,12 @@ Overall there is not a big shift visible from the PCA.
     ```
     
     <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_association_testing_1.png">
-     
-    You can look at the figure in more detail at [this link](https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_association_testing_1.png).
+    
     
     </details> 
+
+
+
 
 
 
