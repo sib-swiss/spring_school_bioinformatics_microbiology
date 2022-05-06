@@ -12,26 +12,31 @@ Look at the metadata, how many controls (`CTR`) and cases (`CRC` for colorectal 
 <details>
 <summary markdown="span">Solution</summary>
 
+Load the data:
+```r
+load(url("https://zenodo.org/record/6524317/files/motus_profiles_study1.Rdata"))
+```
+
 We can check what there is in the metadata with:
 ```r
-head(meta)
+head(meta_study1)
 ```
 
 There are many columns, but the one we are interesed in is "Group":
 ```r
-table(meta$Group)
+table(meta_study1$Group)
 ```
 Which results in:
 ```
 CRC CTR 
- 60  60 
+ 46  60 
 ```
 
-There are 60 profiles from diseased patients (CRC) and 60 profiles from healthy individuals.
+There are 46 profiles from diseased patients (CRC) and 60 profiles from healthy individuals.
 
 We can check if there is an overall trend in the profiles looking at a PCA plot:
 ```r
-rel_ab = prop.table(tax.profiles,2)
+rel_ab = prop.table(motus_study1)
 log_rel_ab = log10(rel_ab+ 10^-4)
 
 # remove zero rows
@@ -44,7 +49,7 @@ pc <- prcomp(t(log_rel_ab),
 df = data.frame(
   pc1 = pc$x[,1],
   pc2 = pc$x[,2],
-  Group = as.factor(meta[rownames(pc$x),"Group"])
+  Group = as.factor(meta_study1[rownames(pc$x),"Group"])
 )
 
 ggplot(df,aes(x = pc1,y = pc2, col = Group)) + geom_point()
@@ -61,9 +66,7 @@ Overall there is not a big shift visible from the PCA.
 
 ## Identify which species show an association to colorectal cancer patients
 
-Colorectal carcinoma (CRC) is among the three most common cancers with more than 1.2 million new cases and about 600,000 deaths per year worldwide. If CRC is diagnosed early, when it is still localized, the 5-year survival rate is > 80%, but decreases to < 10% for late diagnosis of metastasized cancer. With the data that we just dowloaded, we can check if there is any association between specific bacterial species and CRC patients.
 
-- How would you study and estimate these associations? How would you identify which species are associated to cancer? Which kind of test can you use?
 - Try to apply a t-test or a Wilcoxon test to your data.
 
     <details>
@@ -72,7 +75,7 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     Since we observed before that the data is not normally distributed, we can use a Wilcoxon test instead of a t-test. We can test all microbial species for statistically significant differences. In order to do so, we perform a Wilcoxon test on each individual bacterial species.
     ```r
     # use the same log transformed data as before
-    rel_ab = prop.table(tax.profiles,2)
+    rel_ab = prop.table(motus_study1,2)
     log_rel_ab = log10(rel_ab+ 10^-4)
     
     # remove zero rows
@@ -84,7 +87,7 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     
     for (i in rownames(log_rel_ab)){
       x <- log_rel_ab[i,]
-      y <- meta[colnames(log_rel_ab),]$Group
+      y <- meta_study1[colnames(log_rel_ab),]$Group
       t <- wilcox.test(x~y)
       p.vals[i] <- t$p.value
     }
@@ -93,34 +96,34 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     
     Result:
     ```r
-              Peptostreptococcus stomatis [ref_mOTU_v3_03281] 
-                                                 7.269695e-09 
-                            Parvimonas micra [ref_mOTU_v3_04287] 
-                                                 2.888822e-08 
-    Clostridiales species incertae sedis [meta_mOTU_v3_13876] 
-                                                 2.707524e-07 
-                     Solobacterium moorei [ref_mOTU_v3_02442] 
-                                                 3.083312e-07 
-                   Dialister pneumosintes [ref_mOTU_v3_03630] 
-                                                 1.619592e-06 
-    Porphyromonas species incertae sedis [meta_mOTU_v3_13569] 
-                                                 2.613795e-06 
+                     Dialister pneumosintes [ref_mOTU_v3_03630] 
+                                                   1.277337e-07 
+    Fusobacterium nucleatum subsp. animalis [ref_mOTU_v3_01001] 
+                                                   1.137605e-06 
+              Olsenella sp. Marseille-P2300 [ref_mOTU_v3_10001] 
+                                                   2.184340e-05 
+   Fusobacterium nucleatum subsp. vincentii [ref_mOTU_v3_01002] 
+                                                   5.576030e-05 
+             Anaerotignum lactatifermentans [ref_mOTU_v3_02190] 
+                                                   8.752588e-05 
+   Fusobacterium nucleatum subsp. nucleatum [ref_mOTU_v3_01003] 
+                                                   1.667614e-04 
     ```
     
-    The species with the most significant effect seems to be *Peptostreptococcus stomatis*, so let us take a look at the distribution of this species:
+    The species with the most significant effect seems to be *Dialister pneumosintes*, so let us take a look at the distribution of this species:
     
     ```r
-    species <- 'Peptostreptococcus stomatis [ref_mOTU_v3_03281]'
+    species <- 'Dialister pneumosintes [ref_mOTU_v3_03630]'
     df.plot <- data.frame(
       log_rel_ab = log_rel_ab[species,],
-      group = meta[colnames(log_rel_ab),]$Group
+      group = meta_study1[colnames(log_rel_ab),]$Group
     )
     
     ggplot(df.plot, aes(x=group, y=log_rel_ab)) +
       geom_boxplot(outlier.shape = NA) +
       geom_jitter(width = 0.08) + 
       xlab('') + 
-      ylab('P. stomatis rel. ab. (log 10)')
+      ylab('D. pneumosintes rel. ab. (log 10)')
     ```
     
     <img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step2_wilc_test_1.png" width="500">
@@ -128,8 +131,7 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     </details> 
  
 
-- Explore how SIAMCAT identify associations between clades and phenotypes: [link](https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html)
-- What kind of normalization SIAMCAT allow to use?
+
 - Try to run SIAMCAT to do association testing.
     <details>
     <summary markdown="span">Solution</summary>
@@ -141,8 +143,8 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     Within SIAMCAT, the data are stored in the SIAMCAT object which contains the feature matrix, the metadata, and information about the groups you want to compare.
     
     ```r
-    rel_ab = prop.table(tax.profiles,2)
-    sc.obj <- siamcat(feat=rel_ab, meta=meta, 
+    rel_ab = prop.table(motus_study1,2)
+    sc.obj <- siamcat(feat=rel_ab, meta=meta_study1, 
                       label='Group', case='CRC')
     ```
     
@@ -164,15 +166,15 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
     Result:
     ```r
     siamcat-class object
-    label()                Label object:         60 CTR and 60 CRC samples
-    filt_feat()            Filtered features:    1095 features after abundance, prevalence filtering
+    label()                Label object:         60 CTR and 46 CRC samples
+    filt_feat()            Filtered features:    1167 features after abundance, prevalence filtering
     
     contains phyloseq-class experiment-level object @phyloseq:
-    phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 120 samples ]
-    phyloseq@sam_data()    Sample Data:          [ 120 samples by 16 sample variables ]
+    phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 106 samples ]
+    phyloseq@sam_data()    Sample Data:          [ 106 samples by 12 sample variables ]
     ```
     
-    We go from 33,571 taxa to 1,095 after abundance, prevalence filtering.
+    We go from 33,571 taxa to 1,167 after abundance and prevalence filtering.
               
     Now, we can test the filtered feature for differential abundance with SIAMCAT:
     ```r
