@@ -368,60 +368,20 @@ Overall there is not a big shift visible from the PCA.
     And we create relative abundances:
     
     ```r
-    rel_ab2 = prop.table(tax.profiles2,2)
+    rel_ab2 = prop.table(motus_study2,2)
     ```
     
     </details>
- 
- 
- 
-    <details>
-    <summary markdown="span">Check the data</summary>
     
-    Let's check the labels in the metadata
-
-    ```r
-    table(meta2$Group)
     
-    # ADA CRC CTR NAA 
-    #  15  53  61  27
-    ```
-    
-    We are interested in the comparison between control samples (`CTR`) and colorectal cancer samples (`CRC`), so we first remove the other samples, which represent advanced adenoma (`ADA`) or non-advanced adenoma (`NAA`):
-    
-    ```r
-    meta2 = meta2[meta2$Group %in% c("CRC","CTR"),]
-    ```
-    
-    And now we find which samples are in common between the metadata and the profiles. Note that sometimes it happens that some samples are discarded because there was not enough DNA for sequencing or other problems.
-    
-    ```r
-    sel = intersect(rownames(meta2),colnames(rel_ab2))
-    length(sel)
-    # 106
-    
-    meta2 = meta2[sel,]
-    rel_ab2 = rel_ab2[,sel]
-    
-    table(meta2$Group)
-    # CRC CTR 
-    #  46  60 
-    ```
-    
-    Now we have 106 samples (60 control and 46 CRC).
-    
-    </details>
- 
- 
- 
- 
- 
+     
+     
     <details>
     <summary markdown="span">Make predictions</summary>
     
     We can now load the second dataset into a SIAMCAT object:
     ```r
-    test.obj = siamcat(feat=rel_ab2, meta=meta2,
+    test.obj = siamcat(feat=rel_ab2, meta=meta_study2,
                        label='Group', case='CRC')
     ```
      
