@@ -95,19 +95,20 @@ Overall there is not a big shift visible from the PCA.
     ```
     
     Result:
+    
     ```r
-                     Dialister pneumosintes [ref_mOTU_v3_03630] 
-                                                   1.277337e-07 
-    Fusobacterium nucleatum subsp. animalis [ref_mOTU_v3_01001] 
-                                                   1.137605e-06 
-              Olsenella sp. Marseille-P2300 [ref_mOTU_v3_10001] 
-                                                   2.184340e-05 
-   Fusobacterium nucleatum subsp. vincentii [ref_mOTU_v3_01002] 
-                                                   5.576030e-05 
-             Anaerotignum lactatifermentans [ref_mOTU_v3_02190] 
-                                                   8.752588e-05 
-   Fusobacterium nucleatum subsp. nucleatum [ref_mOTU_v3_01003] 
-                                                   1.667614e-04 
+                      Dialister pneumosintes [ref_mOTU_v3_03630] 
+                                                    1.277337e-07 
+     Fusobacterium nucleatum subsp. animalis [ref_mOTU_v3_01001] 
+                                                    1.137605e-06 
+               Olsenella sp. Marseille-P2300 [ref_mOTU_v3_10001] 
+                                                    2.184340e-05 
+    Fusobacterium nucleatum subsp. vincentii [ref_mOTU_v3_01002] 
+                                                    5.576030e-05 
+              Anaerotignum lactatifermentans [ref_mOTU_v3_02190] 
+                                                    8.752588e-05 
+    Fusobacterium nucleatum subsp. nucleatum [ref_mOTU_v3_01003] 
+                                                    1.667614e-04 
     ```
     
     The species with the most significant effect seems to be *Dialister pneumosintes*, so let us take a look at the distribution of this species:
