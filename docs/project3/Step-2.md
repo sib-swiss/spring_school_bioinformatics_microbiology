@@ -41,7 +41,7 @@ Colorectal carcinoma (CRC) is among the three most common cancers with more than
 - How would you study and estimate these associations? How would you identify which species are associated to cancer? Which kind of test can you use?
 - Try to apply a t-test or a Wilcoxon test to your data.
 - Explore how SIAMCAT identify associations between clades and phenotypes: [link](https://bioconductor.org/packages/release/bioc/vignettes/SIAMCAT/inst/doc/SIAMCAT_vignette.html)
-- What kind of normalization SIAMCAT allow to use?
+- What kind of normalization and filters there are in SIAMCAT?
 - Try to run SIAMCAT to do association testing.
 
 The associations metrics computed by SIAMCAT are stored in the SIAMCAT
