@@ -200,11 +200,16 @@ Overall there is not a big shift visible from the PCA.
 
 
 
+
+
+
+
+
+
+
+
+
 ## Build machine learning models to predict colorectal cancer patients from a metagenomic sample
-
-Population-wide screening and prevention programs for colorectal cancer are recommended in many countries. Fecal occult blood testing (Hemoccult FOBT) is currently the standard noninvasive screening test. However, because FOBT has limited sensitivity and specificity for CRC and does not reliably detect precancerous lesions, there is an urgent demand for more accurate screening tests to identify patients who should undergo colonoscopy, which is considered the most effective diagnostic method. Here, we we can investigate the potential of fecal microbiota for noninvasive detection of colorectal cancer in several patients.
-
-We can model the problem using machine learning.
 
 - Explore the SIAMCAT basic vignette to understand how you can train machine learning models to predict colerectal cancer from metagenomic samples.
 
@@ -220,15 +225,15 @@ We can model the problem using machine learning.
     # Features normalized successfully.
     sc.obj
     # siamcat-class object
-    # label()                Label object:         60 CTR and 60 CRC samples
-    # filt_feat()            Filtered features:    1095 features after abundance, prevalence filtering
+    # label()                Label object:         60 CTR and 46 CRC samples
+    # filt_feat()            Filtered features:    1167 features after abundance, prevalence filtering
     # associations()         Associations:         Results from association testing
-    #                                              with 65 significant features at alpha 0.05
-    # norm_feat()            Normalized features:  1095 features normalized using log.std
+    #                                              with 12 significant features at alpha 0.05
+    # norm_feat()            Normalized features:  1167 features normalized using log.std
     # 
     # contains phyloseq-class experiment-level object @phyloseq:
-    # phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 120 samples ]
-    # phyloseq@sam_data()    Sample Data:          [ 120 samples by 16 sample variables ]
+    # phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 106 samples ]
+    # phyloseq@sam_data()    Sample Data:          [ 106 samples by 12 sample variables ]
     ```
     
     </details> 
