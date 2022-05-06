@@ -12,27 +12,23 @@ library("SIAMCAT")   # for statistical and machine learning analyses
 
 ## Download the taxonomic profiles and metadata
 
-From the previous step you learned how to create taxonomic profiles. Here we provide 120 human gut taxonomic profiles in the form of a table where columns are samples and rows are species (or clade in general). Within R you can download and load the files with the following command:
+From the previous step you learned how to create taxonomic profiles. Within R you can load the files created with mOTUs with the following command:
 
 ``` R
-# mOTUs species table
-feat.motus  <- "https://zenodo.org/record/6517497/files/study1_species.motus"
+feat.motus  <- "path/to/motus/merged/table"
 tax.profiles <- read.table(feat.motus, sep = '\t', quote = '',
                            comment.char = '', skip = 2,
                            stringsAsFactors = FALSE, check.names = FALSE,
                            row.names = 1, header = TRUE)
-tax.profiles <- as.matrix(tax.profiles)
 ```
 
-Load the metadata with:
-```R
-meta.file  <- "https://zenodo.org/record/6517497/files/study1.metadata"
-meta <- read.table(meta.file,
-                   sep = '\t', quote = '',
-                   stringsAsFactors = FALSE, check.names = FALSE, 
-                   row.names = 1, header = TRUE)
-```
+Note that we use `skip = 2` tp skip the first two headers, and we skip `check.names` when loading in R because some mOTUs names are confusing for R (they are treated as comments).
 
+Here we provide 106 human gut taxonomic profiles in the form of a table where columns are samples and rows are species (or clade in general). You can load it directly with:
+
+```r
+load(url("https://zenodo.org/record/6524317/files/motus_profiles_study1.Rdata"))
+```
 
 Look at the metadata, how many controls (`CTR`) and cases (`CRC` for colorectal cancer) are there?
 
@@ -69,37 +65,13 @@ We can model the problem using machine learning.
 
 ## Explore other profiling methods
 
-We profiled the same samples with different methods.
+We profiled the same samples with MAPseq, you can load it with:
 
-Here you can load the mOTUs profiles at genus level (instead of species level):
-``` R
-feat.motus  <- "https://zenodo.org/record/6517497/files/study1_genus.motus"
-tax.profiles.genus <- read.table(feat.motus, sep = '\t', quote = '',
-                           comment.char = '', skip = 2,
-                           stringsAsFactors = FALSE, check.names = FALSE,
-                           row.names = 1, header = TRUE)
-tax.profiles.genus <- as.matrix(tax.profiles.genus)
+``` r
+https://zenodo.org/record/6524317/files/mapseq_profiles_study1.Rdata
 ```
 
-And here you can find the MAPseq profiles using 97% OTUs:
-```R
-feat.mapseq_97 = "https://zenodo.org/record/6517497/files/study1_97_otutable.mapseq"
-mapseq.profiles97 <- read.table(feat.mapseq_97, sep = ',', quote = '',
-                           comment.char = '',
-                           stringsAsFactors = FALSE, check.names = FALSE,
-                           row.names = 1, header = TRUE)
-mapseq.profiles97 <- as.matrix(mapseq.profiles97)
-```
-
-Or 99% OTUs:
-```R
-feat.mapseq_99 = "https://zenodo.org/record/6517497/files/study1_99_otutable.mapseq"
-mapseq.profiles99 <- read.table(feat.mapseq_99, sep = ',', quote = '',
-                           comment.char = '',
-                           stringsAsFactors = FALSE, check.names = FALSE,
-                           row.names = 1, header = TRUE)
-mapseq.profiles99 <- as.matrix(mapseq.profiles99)
-```
+YOu can find two profile tables, one from 97% OTUs and one from 99% OTUs.
 
 - Do you see a similar signal using different taxonomic profiling tools or different taxonomic levels? 
 
@@ -109,14 +81,20 @@ mapseq.profiles99 <- as.matrix(mapseq.profiles99)
 ## Prediction on External Data
 
 We provide another dataset from a colorectal cancer 
-metagenomic study. The study population was recruited in France, you can
+metagenomic study. The study population was recruited in Germany, you can
 find the data under:
 
 ```r
-feat.motus_study2  <- "https://zenodo.org/record/6517497/files/study2_species.motus"
-meta.file_study2  <- "https://zenodo.org/record/6517497/files/study2.metadata"
+load(url("https://zenodo.org/record/6524317/files/motus_profiles_study2.Rdata"))
 ```
 
 Note that the features are the same as the mOTUs species in study 1.
 
-- Apply the trained model (from `study1_species.motus`) on this new dataset and check the model performance  on the external dataset. (**Tip**: Check out the help for the `make.prediction` function in `SIAMCAT`)
+- Apply the trained model (from `motus_profiles_study1.Rdata`) on this new dataset and check the model performance on the external dataset. (**Tip**: Check out the help for the `make.prediction` function in `SIAMCAT`, or the vignette).
+
+
+We profiled this same dataset also with MAPseq, if you want to check it:
+
+```r
+https://zenodo.org/record/6524317/files/mapseq_profiles_study1.Rdata
+```
