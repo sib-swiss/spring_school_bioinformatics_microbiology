@@ -28,3 +28,12 @@ we will build fitness models for different resistance mechanisms and we will pre
 we will compare the growth of mutants with different resistance mechanisms, and we will study the growth conditions favoring different mechanisms
 
 * preparation for the presentation
+
+
+#### References:
+Scott, M., Gunderson, C. W., Mateescu, E. M., Zhang, Z., & Hwa, T. (2010). Interdependence of cell growth and gene expression: origins and consequences. Science, 330(6007), 1099-1102.
+
+Greulich, P., Scott, M., Evans, M. R., & Allen, R. J. (2015). Growth‐dependent bacterial susceptibility to ribosome‐targeting antibiotics. Molecular systems biology, 11(3), 796.
+
+Pinheiro, F., Warsi, O., Andersson, D. I., & Lässig, M. (2021). Metabolic fitness landscapes predict the evolution of antibiotic resistance. Nature Ecology & Evolution, 5(5), 677-687.
+

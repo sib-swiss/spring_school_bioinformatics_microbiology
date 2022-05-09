@@ -7,17 +7,17 @@ General note: this guide has been written assuming you use a Mac or Linux Comman
 ## Download example sequencing data
 
 During sequencing, the nucleotide bases in a DNA sample (library) are determined by the sequencer. For each fragment in the library, a sequence is generated, also called a read, which is simply a succession of nucleotides.
-Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forwards and reverse. You can download three example fastq files at the following links (within a terminal):
+Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forward and reverse. You can download three example fastq files at the following links (within a terminal):
 
 ```bash
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleA_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleA_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleA_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleA_2.fastq
 
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleB_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleB_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleB_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleB_2.fastq
 
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_course/sampleC_2.fastq
+wget https://zenodo.org/record/6517497/files/sampleC_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleC_2.fastq
 ```
 
 
@@ -40,7 +40,9 @@ A fastq file contains 4 lines for each read, with the following information:
  3. A line starting with `+` and sometimes the same information as in line 1
  4. A string of characters that represents the quality score (same number of characters as in line 2)
 
-We can have a look at the first read (4 lines) with `head -n 4 raw_reads_1.fastq`:
+We can have a look at the first read (4 lines) with:
+
+ `head -n 4 sampleA_1.fastq`
 ```
 @read98
 CATCGACGACCTGGACGACCTGGACTTCATCGAGCGGGTGAAGATCCAGCAGAAGAACTGGATCGGCCGCTCCACCGGTGCCGAGGTCACCTTCAAGGCC
@@ -70,7 +72,7 @@ And, for each quality score there is an associated probability for correctly cal
 Explore the files, in particular you can check:
 
 - How many reads there are per sample?
-- What is the average length of the reads? Is there a difference between forward and reverse?
+- What is the average length of the reads? Is there a difference between the read lengths in the forward and reverse files?
 - Do you have the same read IDs in the forward and reverse file? 
 
 
@@ -91,7 +93,7 @@ Therefore, it is necessary to understand, identify and exclude error-types that 
 You can evaluate the quality of fastq files with fastQC. For example run:
 
 ```bash
-fastqc raw_reads_forward.fastq
+fastqc sampleA_1.fastq
 ```
 
 Which will produce an html file. You can find more information on the different panels here: [link](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/)
@@ -105,7 +107,7 @@ Which will produce an html file. You can find more information on the different 
 
 ## Filter and trim reads
 
-The quality drops in the end of the sequences we analysed. This could cause bias in downstream analyses with these potentially incorrectly called nucleotides. Sequences must be treated to reduce bias in downstream analysis. Trimming can help to increase the number of reads the aligner or assembler are able to succesfully use, reducing the number of reads that are unmapped or unassembled. In general, quality treatments include:
+The quality drops in the ends of the sequences we analysed. This could cause bias in downstream analyses with these potentially incorrectly called nucleotides. Sequences must be treated to reduce bias in downstream analysis. Trimming can help to increase the number of reads the aligner or assembler are able to succesfully use, reducing the number of reads that are unmapped or unassembled. In general, quality treatments include:
 
 1. Trimming/cutting: 
    - from low quality score regions
@@ -121,7 +123,7 @@ To accomplish this task we will use [trimmomatic](http://www.usadellab.org/cms/?
 Note that if you installed trimmomatic with conda, you can run with `trimmomatic PE [...]` (do not need to specify `java -jar trimmomatic-0.39.jar PE [...]`).
 
 - Try to run trimmomatic (you can use different parameters).
-- How many files did trimmomatic generated? What do they contain?
+- How many files did trimmomatic generate? What do they contain?
 - How many reads have been filtered out?
 - Check the quality of the filtered reads, did the quality improve?
 
@@ -171,30 +173,33 @@ More information can be found also in [this protocol paper](https://currentproto
 
 ## Taxonomic profiling with MAPseq
 
-There are other taxonomic profiling tools that you can use, one that is already avaialble in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
+There are other taxonomic profiling tools that you can use, one that is already available in the virtual machine is [MAPseq](https://github.com/jfmrod/MAPseq).
 
-- Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files.)
-- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use sed to filter out the first and second lines of each read (4 lines in total). In order to convert your files, use the following command within your terminal:
+  
+- Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files. You can combinee the forward and reverse fastq files after quality filtering with cat and then convert it into a fasta file.)
+- Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use awk to filter out the first and second lines of each read (4 lines in total). In order to concatenate and convert your files, use the following command within your terminal:
 ```bash
-sed -n '1~4s/^@/>/p;2~4p' sample.fastq > sample.fasta
+cat sampleA_filtered_P1.fastq sampleA_filtered_P2.fastq > sampleA_filtered.fastq
+cat sampleA_filtered.fastq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > sampleA.fasta
 ```
--By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag.
+-By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
 ```bash
 mapseq sample.fasta > sample.mseq
 mapseq -otucounts sample.mseq
 ```
 - While running mapseq, you may encounter the following error: !! Mon May  2 14:24:17 2022 [] mapseq.cpp:3614 void load_taxa(const estr&, eseqdb&): loading taxonomy, 14922 sequences not found in sequence database 
+
 This is due to some chimeras that were filtered out recently, you can ignore the message.
 
 - Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the [githube page](https://github.com/jfmrod/MAPseq) for the command).
-- You have two main different parameters when creating the otutables: 
-- - -ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.
-- - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard for species level in 16S), use the parameters 
+- You have two main different parameters when creating the otutables, with which you can create the taxonomy and taxonomic resolution used in the resulting otutable: 
+  - -ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.
+  - -tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard in 16S), use the parameters 
 ```bash
 -ti 1 -tl 3
 ```
-You can try to play around with the parameters and observe the number of mapped reads, found species etc. 
-- Can you compare mOTUs and MAPseq profiles?
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels.
+- (Optional): Can you compare mOTUs and MAPseq profiles?
 
 
 
@@ -208,16 +213,16 @@ You can try to play around with the parameters and observe the number of mapped 
 Metagenomics enables the study of species abundances in complex mixtures of microorganisms and has become a standard methodology for the analysis of the human microbiome. However, species abundance data is inherently noisy and contains high levels of biological and technical variability as well as an excess of zeros due to non-detected species. This makes the statistical analysis challenging. Before moving to the next step, you will examine the properties of microbiome datasets.
 
 
-We will switch now to R examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
+We will switch now to R to examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
 ```R
-load(url("https://www.embl.de/download/zeller/TEMP/NCCR_course/human_microbiome_dataset.Rdata"))
+load(url("https://zenodo.org/record/6517497/files/human_microbiome_dataset.Rdata"))
 ```
 
 Explore the taxonomic profiles (`tax_profile`), here are some hints of what you can check:
 
-- Which genera is the most and least prevalent?
 - How many reads there are per sample?
 - If you want to compare different samples, is it a problem that there are different read counts? Try to divide each value within a sample by the sum of the reads in that sample to normalise the data (also called relative abundance).
+- Which genera is the most and least prevalent?
 - Is the relative abundance of the different genera normally distributed?
 - How many zeros there are per sample and per genus?
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
