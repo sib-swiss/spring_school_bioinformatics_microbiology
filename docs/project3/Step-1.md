@@ -42,6 +42,7 @@ Example:
 curl https://zenodo.org/record/6517497/files/sampleA_1.fastq -o sampleA_1.fastq
 ```
 
+---
 
 When we work with metagenomic data we usually have two fastq files produced by
 the Illumina sequencer:
