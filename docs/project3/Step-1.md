@@ -233,7 +233,7 @@ You can try to play around with the parameters and observe the number of mapped 
 
 
 
-## Explore taxonomic profiles
+## Explore human gut taxonomic profiles
 
 Metagenomics enables the study of species abundances in complex mixtures of microorganisms and has become a standard methodology for the analysis of the human microbiome. However, species abundance data is inherently noisy and contains high levels of biological and technical variability as well as an excess of zeros due to non-detected species. This makes the statistical analysis challenging. Before moving to the next step, you will examine the properties of microbiome datasets.
 
@@ -251,3 +251,23 @@ Explore the taxonomic profiles (`tax_profile`), here are some hints of what you 
 - Is the relative abundance of the different genera normally distributed?
 - How many zeros there are per sample and per genus?
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
+
+
+
+
+
+## (Optional) Explore other profiles
+
+If you are really fast, you can work with a bigger set of metagenomic samples. In R you can load with:
+```r
+load(url("https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/motus_11k_samples.Rdata"))
+```
+
+There are 11,163 taxonomic profiles created with mOTUs. In the metadata you have the information of the environment per sample.
+
+You might want to remove samples that have few reads, for example require to have at least 5,000 reads per sample.
+
+You can explore the differences between the different environments.
+
+
+
