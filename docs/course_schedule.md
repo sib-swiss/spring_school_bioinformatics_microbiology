@@ -30,8 +30,8 @@ ONGOING WORK
 |-------	|-------	|---------	|
 | 09:00 	| 10:30	| Mini-projects (work in groups)	|
 | 10:30   | 11:00   | Coffee Break  |
-| 11:00 	| 12:30	| Mini-projects (work in groups)	|
-| 12:30   | 14:00   | Lunch |
+| 11:00 	| 13:00	| Mini-projects (work in groups)	|
+| 13:00   | 14:00   | Lunch |
 | 14:00 	| 15:30	| Mini-projects (work in groups)	|
 | 15:30   | 16:00   | Coffee Break  |
 | 16:00 	| 17:00	| Mini-projects (work in groups)	|
@@ -44,8 +44,8 @@ ONGOING WORK
 | 09:00 	| 10:30	| Mini-projects (work in groups)	|
 | 10:30   | 11:00   | Coffee Break  |
 | 11:00 	| 12:30	| Mini-projects (work in groups)	|
-| 12:30   | 14:00   | Lunch |
-| 14:00   | 17:00   | Recreational activity |
+| 12:30   | 13:45   | Lunch |
+| 14:00   | 17:30   | Recreational activity |
 | 19:00   |   | Dinner|
 
 
@@ -55,8 +55,8 @@ ONGOING WORK
 |-------	|-------	|---------	|
 | 09:00 	| 10:30	| Mini-projects (work in groups)	|
 | 10:30   | 11:00   | Coffee Break  |
-| 11:00 	| 12:30	| Keynote lecture by Dr. Joao Xavier from the Memorial Sloan Kettering Institute	|
-| 12:30   | 14:00   | Lunch |
+| 11:00 	| 12:45	| Keynote lecture by Dr. Joao Xavier from the Memorial Sloan Kettering Institute	|
+| 12:45   | 14:00   | Lunch |
 | 14:00| 17:00 |  Mini-projects : prepare your presentations  |
 | 19:00   |   | Dinner|
 

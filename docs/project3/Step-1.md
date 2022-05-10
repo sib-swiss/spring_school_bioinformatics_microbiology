@@ -2,6 +2,8 @@
 
 General note: this guide has been written assuming you use a Mac or Linux Command Line.
 
+The presentation can be found [here](../assets/presentations/project3/P3_Taxonomic_Profiling.pdf).
+
 ---
 
 ## Download example sequencing data
@@ -20,6 +22,29 @@ wget https://zenodo.org/record/6517497/files/sampleC_1.fastq
 wget https://zenodo.org/record/6517497/files/sampleC_2.fastq
 ```
 
+If it doesn't work you can use also:
+```bash
+wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleA_1.fastq
+wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleA_2.fastq
+
+wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleB_1.fastq
+wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleB_2.fastq
+
+wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleC_1.fastq
+wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleC_2.fastq
+```
+
+Note that if you are using macOS, you need to use `curl`:
+```
+curl <link> -o <file name>
+```
+
+Example:
+```bash
+curl https://zenodo.org/record/6517497/files/sampleA_1.fastq -o sampleA_1.fastq
+```
+
+---
 
 When we work with metagenomic data we usually have two fastq files produced by
 the Illumina sequencer:
@@ -182,7 +207,7 @@ There are other taxonomic profiling tools that you can use, one that is already 
 cat sampleA_filtered_P1.fastq sampleA_filtered_P2.fastq > sampleA_filtered.fastq
 cat sampleA_filtered.fastq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > sampleA.fasta
 ```
--By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
+- By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
 ```bash
 mapseq sample.fasta > sample.mseq
 mapseq -otucounts sample.mseq
@@ -198,7 +223,7 @@ This is due to some chimeras that were filtered out recently, you can ignore the
 ```bash
 -ti 1 -tl 3
 ```
-You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels.
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels. If you use mapseq-OTUs, you can look them up in the interactive webinterface [microbeatlas](https://microbeatlas.org), by searching for the respective identifier in the taxa tab (e.g. 97_3).
 - (Optional): Can you compare mOTUs and MAPseq profiles?
 
 
