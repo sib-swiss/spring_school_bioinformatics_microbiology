@@ -2,7 +2,7 @@
 
 General note: this guide has been written assuming you use a Mac or Linux Command Line.
 
-The presentation can be found [here](../assets/presentations/project3/P3_Taxonomic_profiling.pdf).
+The presentation can be found [here](../assets/presentations/project3/P3_Taxonomic_Profiling.pdf).
 
 ---
 
