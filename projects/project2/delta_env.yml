@@ -1,0 +1,28 @@
+name: i2idelta_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python>=3.7
+  - scikit-image>=0.18
+  - opencv>=4.1
+  - tensorflow>=2.0
+  - ffmpeg-python
+  - requests
+  - h5py
+  - ipykernel
+  - scipy
+  - matplotlib
+  - numpy
+  - seaborn
+  - napari
+  - pandas
+  - qt
+  - scikit-learn
+  - dask-image
+  - pathlib
+  - pip
+  - jupyterlab
+  - pip:
+    - PyBacmman
+    - elasticdeform
