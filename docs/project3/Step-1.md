@@ -205,7 +205,7 @@ There are other taxonomic profiling tools that you can use, one that is already 
 cat sampleA_filtered_P1.fastq sampleA_filtered_P2.fastq > sampleA_filtered.fastq
 cat sampleA_filtered.fastq | awk '{if(NR%4==1) {printf(">%s\n",substr($0,2));} else if(NR%4==2) print;}' > sampleA.fasta
 ```
--By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
+- By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID's. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
 ```bash
 mapseq sample.fasta > sample.mseq
 mapseq -otucounts sample.mseq
@@ -221,7 +221,7 @@ This is due to some chimeras that were filtered out recently, you can ignore the
 ```bash
 -ti 1 -tl 3
 ```
-You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels.
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels. If you use mapseq-OTUs, you can look them up in the interactive webinterface [microbeatlas](https://microbeatlas.org), by searching for the respective identifier in the taxa tab (e.g. 97_3).
 - (Optional): Can you compare mOTUs and MAPseq profiles?
 
 
