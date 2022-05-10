@@ -12,6 +12,33 @@ More info on the data can be found [here](https://doi.org/10.1016/j.cels.2018.03
 
 ---
 
+## Install Delta (Windows only) Note for windows users
+
+For Mac/Linux users Delta was installed when we created the i2i_env conda environment.
+However, Delta is not available from Conda for Windows. We have to install in manually, following these steps:
+
+### Download Delta (via git)
+  
+```bash
+cd ~/I2ICourse/
+git clone https://gitlab.com/dunloplab/delta.git
+```
+
+### Download Delta (manually)
+
+Download code [here](https://gitlab.com/dunloplab/delta.git). Unzip file in `~/I2ICourse/` dir.
+
+### Add Delta path to each Notebook
+
+Add the start of every notebook where we import delta, add the following lines at the top of the cell where we import delta:
+
+```python
+import sys
+sys.path.append(“path/to/delta”)
+```
+
+---
+
 ## Getting started - Local Computer
 
 - On your computer, navigate to the `I2ICourse` folder and create a `Project2B` subfolder:

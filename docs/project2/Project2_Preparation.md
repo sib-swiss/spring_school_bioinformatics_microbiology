@@ -2,6 +2,10 @@
 
 To get started quickly during the course, we ask you to prepare a few things.
 
+General note: this code has been developed for Linux / Mac and Windows users will have to make some modifications.
+We will try to point them out below. You can also use [WSL](https://docs.microsoft.com/en-us/windows/wsl/install) to run Linux on a Windows machine (you can run windows and linux side-by-side, no reboot required).
+
+
 ## Optional: Python Tutorial
 
 For those with little or no Python experience: we recommend you have a look at the following two notebooks that very briefly introduced the most important concepts and syntax:
@@ -89,14 +93,12 @@ Although Mac OSX has a number of Terminal packages included by default (e.g. git
 
 ---
 
-### Optional: Install Conda (Python)
-
-**Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**  
-These instructions are provided for the sake of completeness in case you want to continue working on the project after the course.
+### Install Conda (Python)
 
 Note: all our code has been tested with Conda version 4.11 and python version 3.9
 
-- Install [Anaconda](https://docs.anaconda.com/anaconda/install/index.html) following the provided instruction.
+- Install [Anaconda](https://docs.anaconda.com/anaconda/install/index.html) or [Mini-conda](https://docs.conda.io/en/latest/miniconda.html) or [Mamba Forge](https://mamba.readthedocs.io/en/latest/installation.html) following the provided instruction.
+- Mini-conda is a light weight version of Anaconda. Mamba is a faster, but fully compatible, alternative to conda.
 - **Important**: if you have an older version of Anaconda installed (Anaconda2 or below) please first remove it and re-install the latest Anaconda3 version!
 - If you already have an Anaconda3 (or Mini Conda) installation, please update to latest version using:
 
@@ -111,14 +113,9 @@ conda update --all
 conda install python=3.9
 ```
 
-Note: alternatively you can install MiniConda, this is a minimal conda install that takes up much less space than Anaconda, but provides identical functionality. Follow instructions [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html).
-
 ---
 
-### Optional: get project code and setup conda environment
-
-**Note: during the course we will use cloud-based computers for this step, so you do not have to do this on your private machine.**  
-These instructions are provided for the sake of completeness in case you want to continue working on the project after the course.
+### Get project code and setup conda environment
 
 Note: all our code has been tested with Conda version 4.11 and python version 3.9
 
@@ -126,6 +123,7 @@ Note: all our code has been tested with Conda version 4.11 and python version 3.
 
 - We need to obtain the code we need for the course by cloning the Git repository
 - Open the command line and navigate to your home folder, then create a new folder called `I2ICourse` for the course:
+- **Windows users**: if you don't have git, you can get it [here](https://git-scm.com/download/win)
 
 ```bash
 cd ~
@@ -144,24 +142,24 @@ git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology
 #### Create Conda environment for project
 
 - It is best practice to use a separate conda environment for each project, this way you avoid conflicts in package requirements.
-- You can create a new conda environment with the following command:
-
-```bash
-conda create --name [environment_name] [list of packages to install]
-```
-
-- Alternatively you can create a new environment from a `.yml` environment file that specifies all packages:
-
-```bash
-conda env create -f environment.yml
-```
-
 - We now create the environment for the course, using the provided environment file, which you can find in `~/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/environment.yml`
+
+**Important: Linux/Mac users use this command:**
 
 ```bash
 cd ~/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/
 conda env create -f environment.yml
 ```
+
+**Important: Windows users use this command:**
+
+(The Delta2 package is not available from conda for windows users, we will install it later by hand)
+
+```bash
+cd ~/I2ICourse/spring_school_bioinformatics_microbiology/projects/project2/
+conda env create -f environment_windows.yml
+```
+
 
 #### Test Conda environment
 
