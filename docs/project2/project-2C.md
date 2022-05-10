@@ -40,7 +40,7 @@ Then download the image data and pre-trained DL network using:
 
 ```bash
 cd Project2C
-wget -O RawData.zip https://drive.switch.ch/index.php/s/GPOQL4yrghaEmHS/download
+curl -o RawData.zip https://drive.switch.ch/index.php/s/GPOQL4yrghaEmHS/download
 unzip RawData.zip
 ```
 
@@ -329,7 +329,7 @@ Now we download the data file we just uploaded to the cloud:
 
 ```bash
 cd Project2C
-wget -O MM_test_1.csv public_link_to_your_zip_file
+curl -o MM_test_1.csv public_link_to_your_zip_file
 ```
 
 ### Download the full dataset
@@ -341,7 +341,7 @@ Here we download this dataset
 
 ```bash
 cd ~/workdir/Project2C
-wget -O cell_data_all.csv https://drive.switch.ch/index.php/s/DiXnrjTmySyXYzl/download
+curl -o cell_data_all.csv https://drive.switch.ch/index.php/s/DiXnrjTmySyXYzl/download
 ls 
 ```
 
