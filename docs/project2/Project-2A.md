@@ -47,7 +47,7 @@ mkdir ProcessedData
 - This should have created the following folder: `~/I2ICourse/Project2A/ProcessedData/`:
 
 - Note: two useful terminal commands are:
-  - `ls`: show current folder content
+  - `ls`: show current folder content (on Windows use `dir`)
   - `pwd`: show path of current folder
 
 ---
@@ -65,7 +65,7 @@ cd ~/I2ICourse/Project2A/
 - Download the data set and unzip it using:
   
 ```zsh
-wget -O RawData.zip https://drive.switch.ch/index.php/s/VsWWiuaIctITWQl/download
+curl -o RawData.zip https://drive.switch.ch/index.php/s/VsWWiuaIctITWQl/download
 unzip RawData.zip
 ```
 
@@ -229,7 +229,7 @@ Now we download the data file we just uploaded to the cloud:
 
 ```bash
 cd ~/workdir/Project2A/ProcessedData
-wget -O data.zip public_link_to_your_zip_file
+curl -o  data.zip public_link_to_your_zip_file
 unzip -j data.zip
 ```
 
