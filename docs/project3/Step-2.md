@@ -8,6 +8,8 @@ library("tidyverse") # for general data wrangling and plotting
 library("SIAMCAT")   # for statistical and machine learning analyses
 ```
 
+The presentation about association testing can be found [here](../assets/presentations/project3/P3_association_testing.pdf).
+
 ---
 
 ## Download the taxonomic profiles and metadata
