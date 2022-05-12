@@ -9,8 +9,8 @@ library("SIAMCAT")   # for statistical and machine learning analyses
 ```
 
 Here you can find a link for the presentations:
-- [association testing](../assets/presentations/project3/P3_association_testing.pdf)
-- [machine learning](../assets/presentations/project3/step2_ML.pdf).
+    - [association testing](../assets/presentations/project3/P3_association_testing.pdf)
+    - [machine learning](../assets/presentations/project3/P3_machine_learning.pdf).
 
 ---
 
