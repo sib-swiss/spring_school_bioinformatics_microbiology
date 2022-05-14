@@ -244,18 +244,3 @@ Explore the taxonomic profiles (`tax_profile`), here are some hints of what you 
 
 
 
-## (Optional) Explore other profiles
-
-If you are really fast, you can work with a bigger set of metagenomic samples. In R you can load with:
-```r
-load(url("https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/motus_11k_samples.Rdata"))
-```
-
-There are 11,163 taxonomic profiles created with mOTUs. In the metadata you have the information of the environment per sample.
-
-You might want to remove samples that have few reads, for example require to have at least 5,000 reads per sample.
-
-You can explore the differences between the different environments.
-
-
-
