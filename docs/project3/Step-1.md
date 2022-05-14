@@ -22,18 +22,6 @@ wget https://zenodo.org/record/6517497/files/sampleC_1.fastq
 wget https://zenodo.org/record/6517497/files/sampleC_2.fastq
 ```
 
-If it doesn't work you can use also:
-```bash
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleA_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleA_2.fastq
-
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleB_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleB_2.fastq
-
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleC_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleC_2.fastq
-```
-
 Note that if you are using macOS, you need to use `curl`:
 ```
 curl <link> -o <file name>
