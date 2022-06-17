@@ -22,18 +22,6 @@ wget https://zenodo.org/record/6517497/files/sampleC_1.fastq
 wget https://zenodo.org/record/6517497/files/sampleC_2.fastq
 ```
 
-If it doesn't work you can use also:
-```bash
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleA_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleA_2.fastq
-
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleB_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleB_2.fastq
-
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleC_1.fastq
-wget https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/sampleC_2.fastq
-```
-
 Note that if you are using macOS, you need to use `curl`:
 ```
 curl <link> -o <file name>
@@ -253,21 +241,6 @@ Explore the taxonomic profiles (`tax_profile`), here are some hints of what you 
 - How much variability there is within Subject (check the `metadata` table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?
 
 
-
-
-
-## (Optional) Explore other profiles
-
-If you are really fast, you can work with a bigger set of metagenomic samples. In R you can load with:
-```r
-load(url("https://www.embl.de/download/zeller/TEMP/NCCR_spring_school/motus_11k_samples.Rdata"))
-```
-
-There are 11,163 taxonomic profiles created with mOTUs. In the metadata you have the information of the environment per sample.
-
-You might want to remove samples that have few reads, for example require to have at least 5,000 reads per sample.
-
-You can explore the differences between the different environments.
 
 
 
