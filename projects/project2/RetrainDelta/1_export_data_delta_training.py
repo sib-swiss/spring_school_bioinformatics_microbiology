@@ -5,7 +5,7 @@ import h5py
 import numpy as np
 import tifffile
 
-root = pathlib.Path(pathlib.Path.home(), 'Andreas', 'Delta2_Caulobacter')
+root = pathlib.Path(pathlib.Path.home(), 'home', 'Delta2_Caulobacter')
 data_dir = root / 'data'
 
 training_file = data_dir /  'training_data_delta.hdf5'
