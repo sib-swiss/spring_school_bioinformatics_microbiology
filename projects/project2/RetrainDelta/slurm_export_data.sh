@@ -7,8 +7,8 @@
 #SBATCH --nodes=1                   # number of compute nodes
 
 
-#SBATCH --time=7-00:00:00           #This is the time that your task will run
-#SBATCH --qos=1week                 #You will run in this queue
+#SBATCH --time=1-00:00:00           #This is the time that your task will run
+#SBATCH --qos=1day                 #You will run in this queue
 
 # Paths to STDOUT or STDERR files should be absolute or relative to current working directory
 #SBATCH --output=export_data_log                    #This is the joined STDOUT and STDERR file
@@ -34,5 +34,4 @@ export LD_LIBRARY_PATH="$CONDA_PREFIX/lib/"
 
 #add your command lines below
 #############################
-cd $HOME / 
-python mlsFig_mmTest.py
+python 1_export_data_delta_training.py
