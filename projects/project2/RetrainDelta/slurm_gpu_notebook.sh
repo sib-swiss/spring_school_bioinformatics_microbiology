@@ -1,14 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=cpu_notebook        #This is the name of your job
-#SBATCH --cpus-per-task=16             #This is the number of cores reserved
-#SBATCH --mem-per-cpu=4G               #This is the memory reserved per core.
-#SBATCH --nodes=1                      # number of compute nodes
-#SBATCH --time=6:00:00              #This is the time that your task will run
-#SBATCH --qos=6hours                     #You will run in this queue
+#SBATCH --job-name=JupLab
+#SBATCH --time=06:00:00
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=64G
+#SBATCH --qos=6hours    # 30min, 6hours, 1day, 1week, infinite  --> 6hours default, slurm is backfilling so be specific with time
+#SBATCH --partition=rtx8000  #a100 / rtx8000
+#SBATCH --gres=gpu:1        # --gres=gpu:2 for two GPU, etc
+#SBATCH -o slog_gpu_notebook-%J.oe
 
-# Paths to STDOUT or STDERR files should be absolute or relative to current working directory
-#SBATCH -o slog_cpunotebook-%J.oe
-
+ml Java/11.0.3_7
+ml FFmpeg
 
 # activate a conda environment of your choice (here we use base)
 eval "$(conda shell.bash hook)"
