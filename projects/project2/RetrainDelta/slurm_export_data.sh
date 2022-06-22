@@ -31,7 +31,6 @@ export LD_LIBRARY_PATH="$CONDA_PREFIX/lib/"
 #export your required environment variables below
 #################################################
 
-
 #add your command lines below
 #############################
 python 1_export_data_delta_training.py
