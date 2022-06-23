@@ -56,7 +56,7 @@ def split_lineages(lin):
         list of dictionaries, each dictionary gives properties of cell from birth to division
     """
     new_lin = []
-    lut = np.empty((0,5)) #id / first frame / last_frame / new_cell_id / colony_id
+    lut = np.empty((0,6)) #id / first frame / last_frame / new_cell_id / colony_id
     id_cell = 0 
     
     firstcells = lin.cellnumbers[0]
@@ -106,13 +106,61 @@ def split_lineages(lin):
             new_cell['id_par'] = id_par 
             new_cell['id_colony'] = id_colony 
             new_cell['generation'] = gen
-            new_cell['age'] = new_cell['frames'] - new_cell['frames'][0]
-
+            
+            age = np.array(new_cell['frames'])
+            age -= age[0]          
+            new_cell['age'] = age.tolist()
                 
             lut = np.concatenate((lut, np.array(cur_lut)[np.newaxis,:]))               
             new_lin.append(new_cell) 
             id_cell += 1   
     return new_lin
+
+
+def add_exra_lin_info(df):
+    """Add extra lineage info of cell to dataframe
+
+    Parameters
+    ----------
+    df : pandas dataframe
+
+    Returns
+    -------
+    pandas dataframe
+        input dataframe with additional columns added
+    """
+    #create look up table to link cells to parent, offspring, and siblings
+    df_full = df.loc[df['id_par']>=0, ['id_par', 'id_cell']].reset_index(drop=True)
+    dflin = df_full.groupby('id_par').agg([min, max]).rename(columns={"min" : "d1", "max" : "d2"})
+    dflin.columns = dflin.columns.droplevel()
+    dflin = dflin.reset_index()
+    dflin.head()
+
+    df["id_d1"] = -1
+    df["id_d2"] = -1
+    df["id_sib"] = -1
+
+    #add offspring to parent
+    for mom in np.unique(dflin["id_par"]):
+        if mom >= 0:
+            df.loc[df["id_cell"] == mom, "id_d1"] = int(dflin.loc[dflin["id_par"] == mom, "d1"])
+            df.loc[df["id_cell"] == mom, "id_d2"] = int(dflin.loc[dflin["id_par"] == mom, "d2"])
+    
+    #add siblings to d1    
+    for cell in np.unique(dflin["d1"]):
+        df.loc[df["id_cell"] == cell, "id_sib"] = int(dflin.loc[dflin["d1"] == cell, "d2"])
+        
+    #add siblings to d2    
+    for cell in np.unique(dflin["d2"]):
+        df.loc[df["id_cell"] == cell, "id_sib"] = int(dflin.loc[dflin["d2"] == cell, "d1"])
+
+    #rearange columns
+    new_cols = [c for c in df.columns.tolist() if "id_" in c ]
+    [new_cols.append(c) for c in df.columns.tolist() if not "id_" in c]
+    df = df[new_cols] 
+    
+    return df
+
 
 def lin_to_df(cell_list):
     """Convert list of dictionaries into dataframe
