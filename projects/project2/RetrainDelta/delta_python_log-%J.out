@@ -1,0 +1,514 @@
+[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU'), PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+Loading configuration from: /scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/config_2D_caulobacter.json
+starting with movie AKS1088->TL01_01
+09:07:41.648 [Thread-0] DEBUG loci.common.NIOByteBufferProvider - Using mapped byte buffer? false
+09:07:41.803 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.URLReader
+java.lang.ClassNotFoundException: loci.formats.in.URLReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:41.806 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.SlideBook6Reader
+java.lang.ClassNotFoundException: loci.formats.in.SlideBook6Reader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:41.806 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ScreenReader
+java.lang.ClassNotFoundException: loci.formats.in.ScreenReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:41.807 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ZarrReader
+java.lang.ClassNotFoundException: loci.formats.in.ZarrReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:42.161 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.URLReader
+java.lang.ClassNotFoundException: loci.formats.in.URLReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:122) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ImageReader.getDefaultReaderClasses(ImageReader.java:80) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.in.FilePatternReader.<init>(FilePatternReader.java:67) ~[bioformats_package.jar:6.6.0]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[na:na]
+	at java.base/java.lang.Class.newInstance(Class.java:584) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:126) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:225) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.optimizer.OptRuntime.callProp0(OptRuntime.java:85) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1._c_script_0(<java-python-bridge>:6) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:394) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3091) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.exec(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.Context.evaluateString(Context.java:1079) ~[rhino-1.7R4.jar:1.7R4]
+09:07:42.163 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.SlideBook6Reader
+java.lang.ClassNotFoundException: loci.formats.in.SlideBook6Reader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:122) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ImageReader.getDefaultReaderClasses(ImageReader.java:80) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.in.FilePatternReader.<init>(FilePatternReader.java:67) ~[bioformats_package.jar:6.6.0]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[na:na]
+	at java.base/java.lang.Class.newInstance(Class.java:584) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:126) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:225) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.optimizer.OptRuntime.callProp0(OptRuntime.java:85) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1._c_script_0(<java-python-bridge>:6) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:394) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3091) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.exec(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.Context.evaluateString(Context.java:1079) ~[rhino-1.7R4.jar:1.7R4]
+09:07:42.164 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ScreenReader
+java.lang.ClassNotFoundException: loci.formats.in.ScreenReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:122) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ImageReader.getDefaultReaderClasses(ImageReader.java:80) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.in.FilePatternReader.<init>(FilePatternReader.java:67) ~[bioformats_package.jar:6.6.0]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[na:na]
+	at java.base/java.lang.Class.newInstance(Class.java:584) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:126) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:225) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.optimizer.OptRuntime.callProp0(OptRuntime.java:85) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1._c_script_0(<java-python-bridge>:6) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:394) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3091) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.exec(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.Context.evaluateString(Context.java:1079) ~[rhino-1.7R4.jar:1.7R4]
+09:07:42.164 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ZarrReader
+java.lang.ClassNotFoundException: loci.formats.in.ZarrReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:122) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ImageReader.getDefaultReaderClasses(ImageReader.java:80) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.in.FilePatternReader.<init>(FilePatternReader.java:67) ~[bioformats_package.jar:6.6.0]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490) ~[na:na]
+	at java.base/java.lang.Class.newInstance(Class.java:584) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.mozilla.javascript.MemberBox.invoke(MemberBox.java:126) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:225) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.optimizer.OptRuntime.callProp0(OptRuntime.java:85) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1._c_script_0(<java-python-bridge>:6) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:394) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3091) ~[rhino-1.7R4.jar:1.7R4]
+	at org.mozilla.javascript.gen._java_python_bridge__1.call(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.gen._java_python_bridge__1.exec(<java-python-bridge>) ~[na:na]
+	at org.mozilla.javascript.Context.evaluateString(Context.java:1079) ~[rhino-1.7R4.jar:1.7R4]
+09:07:42.203 [Thread-0] DEBUG o.s.nativelib.NativeLibraryUtil - processor is INTEL_64 os.arch is amd64
+09:07:42.204 [Thread-0] DEBUG o.s.nativelib.NativeLibraryUtil - architecture is LINUX_64 os.name is linux
+09:07:42.205 [Thread-0] DEBUG o.s.nativelib.NativeLibraryUtil - architecture is LINUX_64 os.name is linux
+09:07:42.205 [Thread-0] DEBUG o.s.nativelib.NativeLibraryUtil - platform specific path is META-INF/lib/linux_64/
+09:07:42.205 [Thread-0] DEBUG o.scijava.nativelib.BaseJniExtractor - mappedLib is libturbojpeg.so
+09:07:42.205 [Thread-0] DEBUG o.scijava.nativelib.BaseJniExtractor - URL is jar:file:/scicore/home/vanvli0000/vanvli0000/mambaforge/envs/delta2_env/lib/python3.9/site-packages/bioformats/jars/bioformats_package.jar!/META-INF/lib/linux_64/libturbojpeg.so
+09:07:42.205 [Thread-0] DEBUG o.scijava.nativelib.BaseJniExtractor - URL path is file:/scicore/home/vanvli0000/vanvli0000/mambaforge/envs/delta2_env/lib/python3.9/site-packages/bioformats/jars/bioformats_package.jar!/META-INF/lib/linux_64/libturbojpeg.so
+09:07:42.211 [Thread-0] DEBUG o.scijava.nativelib.BaseJniExtractor - Extracting 'jar:file:/scicore/home/vanvli0000/vanvli0000/mambaforge/envs/delta2_env/lib/python3.9/site-packages/bioformats/jars/bioformats_package.jar!/META-INF/lib/linux_64/libturbojpeg.so' to '/tmp/libturbojpeg7078751749972159356.so'
+09:07:42.305 [Thread-0] DEBUG loci.common.services.ServiceFactory - Loaded properties from: services.properties
+09:07:42.305 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface ome.codecs.services.JAIIIOService and implementation class ome.codecs.services.JAIIIOServiceImpl
+09:07:42.305 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.JPEGXRService and implementation class loci.formats.services.JPEGXRServiceImpl
+09:07:42.306 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.LuraWaveService and implementation class loci.formats.services.LuraWaveServiceImpl
+09:07:42.306 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.MDBService and implementation class loci.formats.services.MDBServiceImpl
+09:07:42.306 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.MetakitService and implementation class loci.formats.services.MetakitServiceImpl
+09:07:42.306 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.EXIFService and implementation class loci.formats.services.EXIFServiceImpl
+09:07:42.307 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.JHDFService and implementation class loci.formats.services.JHDFServiceImpl
+09:07:42.307 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.WlzService and implementation class loci.formats.services.WlzServiceImpl
+09:07:42.308 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.NetCDFService and implementation class loci.formats.services.NetCDFServiceImpl
+09:07:42.308 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.JAIIIOService and implementation class loci.formats.services.JAIIIOServiceImpl
+09:07:42.309 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.OMEXMLService and implementation class loci.formats.services.OMEXMLServiceImpl
+09:07:42.309 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.POIService and implementation class loci.formats.services.POIServiceImpl
+09:07:42.309 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.common.services.S3ClientService and implementation class loci.common.services.S3ClientServiceImpl
+09:07:42.309 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface loci.formats.services.JPEGTurboService and implementation class loci.formats.services.JPEGTurboServiceImpl
+09:07:42.310 [Thread-0] DEBUG loci.common.services.ServiceFactory - Added interface interface ome.codecs.services.LuraWaveService and implementation class ome.codecs.services.LuraWaveServiceImpl
+09:07:42.355 [Thread-0] DEBUG loci.formats.FormatHandler - TiffReader initializing /scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_01_R3D-1.tif
+09:07:42.355 [Thread-0] DEBUG loci.formats.FormatHandler - loci.formats.in.TiffReader.initFile(/scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_01_R3D-1.tif)
+09:07:42.358 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Reading IFDs
+09:07:42.480 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Populating metadata
+09:07:42.488 [Thread-0] INFO  loci.formats.in.TiffReader - Checking comment style
+09:07:42.515 [Thread-0] INFO  loci.formats.in.BaseTiffReader - Populating OME metadata
+09:07:42.524 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.URLReader
+java.lang.ClassNotFoundException: loci.formats.in.URLReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:42.524 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.SlideBook6Reader
+java.lang.ClassNotFoundException: loci.formats.in.SlideBook6Reader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:42.524 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ScreenReader
+java.lang.ClassNotFoundException: loci.formats.in.ScreenReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:42.525 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ZarrReader
+java.lang.ClassNotFoundException: loci.formats.in.ZarrReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:07:42.569 [Thread-0] DEBUG loci.formats.FormatHandler - TiffReader initializing /scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_01_R3D-1.tif
+09:07:42.601 [Thread-0] DEBUG loci.formats.FormatHandler - loci.formats.in.TiffReader.initFile(/scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_01_R3D-1.tif)
+09:07:42.601 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Reading IFDs
+09:07:42.644 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Populating metadata
+09:07:42.646 [Thread-0] INFO  loci.formats.in.TiffReader - Checking comment style
+09:07:42.700 [Thread-0] INFO  loci.formats.in.BaseTiffReader - Populating OME metadata
+Initialized experiment reader:
+                - 1 positions
+                - 3 imaging channels
+                - 56 timepoints
+Thu Jun 23 09:07:49 2022, Position 0 - Starting pre-processing
+Thu Jun 23 09:07:49 2022, Position 0 - Starting segmentation (56 frames)
+Thu Jun 23 09:08:24 2022, Position 0 - Starting tracking (56 frames)
+Thu Jun 23 09:08:24 2022, Position 0 - Tracking - frame 0/56 
+Thu Jun 23 09:08:24 2022, Position 0 - Tracking - frame 1/56 
+Thu Jun 23 09:08:25 2022, Position 0 - Tracking - frame 2/56 
+Thu Jun 23 09:08:26 2022, Position 0 - Tracking - frame 3/56 
+Thu Jun 23 09:08:27 2022, Position 0 - Tracking - frame 4/56 
+Thu Jun 23 09:08:28 2022, Position 0 - Tracking - frame 5/56 
+Thu Jun 23 09:08:29 2022, Position 0 - Tracking - frame 6/56 
+Thu Jun 23 09:08:30 2022, Position 0 - Tracking - frame 7/56 
+Thu Jun 23 09:08:32 2022, Position 0 - Tracking - frame 8/56 
+Thu Jun 23 09:08:33 2022, Position 0 - Tracking - frame 9/56 
+Thu Jun 23 09:08:34 2022, Position 0 - Tracking - frame 10/56 
+Thu Jun 23 09:08:35 2022, Position 0 - Tracking - frame 11/56 
+Thu Jun 23 09:08:37 2022, Position 0 - Tracking - frame 12/56 
+Thu Jun 23 09:08:38 2022, Position 0 - Tracking - frame 13/56 
+Thu Jun 23 09:08:39 2022, Position 0 - Tracking - frame 14/56 
+Thu Jun 23 09:08:41 2022, Position 0 - Tracking - frame 15/56 
+Thu Jun 23 09:08:43 2022, Position 0 - Tracking - frame 16/56 
+Thu Jun 23 09:08:44 2022, Position 0 - Tracking - frame 17/56 
+Thu Jun 23 09:08:46 2022, Position 0 - Tracking - frame 18/56 
+Thu Jun 23 09:08:47 2022, Position 0 - Tracking - frame 19/56 
+Thu Jun 23 09:08:49 2022, Position 0 - Tracking - frame 20/56 
+Thu Jun 23 09:08:51 2022, Position 0 - Tracking - frame 21/56 
+Thu Jun 23 09:08:52 2022, Position 0 - Tracking - frame 22/56 
+Thu Jun 23 09:08:54 2022, Position 0 - Tracking - frame 23/56 
+Thu Jun 23 09:08:56 2022, Position 0 - Tracking - frame 24/56 
+Thu Jun 23 09:08:58 2022, Position 0 - Tracking - frame 25/56 
+Thu Jun 23 09:09:00 2022, Position 0 - Tracking - frame 26/56 
+Thu Jun 23 09:09:02 2022, Position 0 - Tracking - frame 27/56 
+Thu Jun 23 09:09:05 2022, Position 0 - Tracking - frame 28/56 
+Thu Jun 23 09:09:07 2022, Position 0 - Tracking - frame 29/56 
+Thu Jun 23 09:09:09 2022, Position 0 - Tracking - frame 30/56 
+Thu Jun 23 09:09:12 2022, Position 0 - Tracking - frame 31/56 
+Thu Jun 23 09:09:14 2022, Position 0 - Tracking - frame 32/56 
+Thu Jun 23 09:09:17 2022, Position 0 - Tracking - frame 33/56 
+Thu Jun 23 09:09:19 2022, Position 0 - Tracking - frame 34/56 
+Thu Jun 23 09:09:22 2022, Position 0 - Tracking - frame 35/56 
+Thu Jun 23 09:09:25 2022, Position 0 - Tracking - frame 36/56 
+Thu Jun 23 09:09:28 2022, Position 0 - Tracking - frame 37/56 
+Thu Jun 23 09:09:31 2022, Position 0 - Tracking - frame 38/56 
+Thu Jun 23 09:09:34 2022, Position 0 - Tracking - frame 39/56 
+Thu Jun 23 09:09:37 2022, Position 0 - Tracking - frame 40/56 
+Thu Jun 23 09:09:40 2022, Position 0 - Tracking - frame 41/56 
+Thu Jun 23 09:09:43 2022, Position 0 - Tracking - frame 42/56 
+Thu Jun 23 09:09:47 2022, Position 0 - Tracking - frame 43/56 
+Thu Jun 23 09:09:50 2022, Position 0 - Tracking - frame 44/56 
+Thu Jun 23 09:09:54 2022, Position 0 - Tracking - frame 45/56 
+Thu Jun 23 09:09:58 2022, Position 0 - Tracking - frame 46/56 
+Thu Jun 23 09:10:02 2022, Position 0 - Tracking - frame 47/56 
+Thu Jun 23 09:10:06 2022, Position 0 - Tracking - frame 48/56 
+Thu Jun 23 09:10:11 2022, Position 0 - Tracking - frame 49/56 
+Thu Jun 23 09:10:15 2022, Position 0 - Tracking - frame 50/56 
+Thu Jun 23 09:10:20 2022, Position 0 - Tracking - frame 51/56 
+Thu Jun 23 09:10:24 2022, Position 0 - Tracking - frame 52/56 
+Thu Jun 23 09:10:29 2022, Position 0 - Tracking - frame 53/56 
+Thu Jun 23 09:10:34 2022, Position 0 - Tracking - frame 54/56 
+Thu Jun 23 09:10:39 2022, Position 0 - Tracking - frame 55/56 
+Thu Jun 23 09:10:45 2022, Position 0 - Starting feature extraction (56 frames)
+Thu Jun 23 09:10:46 2022, Position 0 - Feature extraction - frame 0/56 
+Thu Jun 23 09:10:46 2022, Position 0 - Feature extraction - frame 1/56 
+Thu Jun 23 09:10:47 2022, Position 0 - Feature extraction - frame 2/56 
+Thu Jun 23 09:10:47 2022, Position 0 - Feature extraction - frame 3/56 
+Thu Jun 23 09:10:47 2022, Position 0 - Feature extraction - frame 4/56 
+Thu Jun 23 09:10:47 2022, Position 0 - Feature extraction - frame 5/56 
+Thu Jun 23 09:10:47 2022, Position 0 - Feature extraction - frame 6/56 
+Thu Jun 23 09:10:48 2022, Position 0 - Feature extraction - frame 7/56 
+Thu Jun 23 09:10:48 2022, Position 0 - Feature extraction - frame 8/56 
+Thu Jun 23 09:10:48 2022, Position 0 - Feature extraction - frame 9/56 
+Thu Jun 23 09:10:48 2022, Position 0 - Feature extraction - frame 10/56 
+Thu Jun 23 09:10:49 2022, Position 0 - Feature extraction - frame 11/56 
+Thu Jun 23 09:10:49 2022, Position 0 - Feature extraction - frame 12/56 
+Thu Jun 23 09:10:49 2022, Position 0 - Feature extraction - frame 13/56 
+Thu Jun 23 09:10:50 2022, Position 0 - Feature extraction - frame 14/56 
+Thu Jun 23 09:10:50 2022, Position 0 - Feature extraction - frame 15/56 
+Thu Jun 23 09:10:50 2022, Position 0 - Feature extraction - frame 16/56 
+Thu Jun 23 09:10:51 2022, Position 0 - Feature extraction - frame 17/56 
+Thu Jun 23 09:10:51 2022, Position 0 - Feature extraction - frame 18/56 
+Thu Jun 23 09:10:51 2022, Position 0 - Feature extraction - frame 19/56 
+Thu Jun 23 09:10:52 2022, Position 0 - Feature extraction - frame 20/56 
+Thu Jun 23 09:10:52 2022, Position 0 - Feature extraction - frame 21/56 
+Thu Jun 23 09:10:52 2022, Position 0 - Feature extraction - frame 22/56 
+Thu Jun 23 09:10:53 2022, Position 0 - Feature extraction - frame 23/56 
+Thu Jun 23 09:10:53 2022, Position 0 - Feature extraction - frame 24/56 
+Thu Jun 23 09:10:53 2022, Position 0 - Feature extraction - frame 25/56 
+Thu Jun 23 09:10:54 2022, Position 0 - Feature extraction - frame 26/56 
+Thu Jun 23 09:10:54 2022, Position 0 - Feature extraction - frame 27/56 
+Thu Jun 23 09:10:55 2022, Position 0 - Feature extraction - frame 28/56 
+Thu Jun 23 09:10:55 2022, Position 0 - Feature extraction - frame 29/56 
+Thu Jun 23 09:10:56 2022, Position 0 - Feature extraction - frame 30/56 
+Thu Jun 23 09:10:56 2022, Position 0 - Feature extraction - frame 31/56 
+Thu Jun 23 09:10:57 2022, Position 0 - Feature extraction - frame 32/56 
+Thu Jun 23 09:10:57 2022, Position 0 - Feature extraction - frame 33/56 
+Thu Jun 23 09:10:58 2022, Position 0 - Feature extraction - frame 34/56 
+Thu Jun 23 09:10:59 2022, Position 0 - Feature extraction - frame 35/56 
+Thu Jun 23 09:10:59 2022, Position 0 - Feature extraction - frame 36/56 
+Thu Jun 23 09:11:00 2022, Position 0 - Feature extraction - frame 37/56 
+Thu Jun 23 09:11:00 2022, Position 0 - Feature extraction - frame 38/56 
+Thu Jun 23 09:11:01 2022, Position 0 - Feature extraction - frame 39/56 
+Thu Jun 23 09:11:02 2022, Position 0 - Feature extraction - frame 40/56 
+Thu Jun 23 09:11:02 2022, Position 0 - Feature extraction - frame 41/56 
+Thu Jun 23 09:11:03 2022, Position 0 - Feature extraction - frame 42/56 
+Thu Jun 23 09:11:04 2022, Position 0 - Feature extraction - frame 43/56 
+Thu Jun 23 09:11:05 2022, Position 0 - Feature extraction - frame 44/56 
+Thu Jun 23 09:11:05 2022, Position 0 - Feature extraction - frame 45/56 
+Thu Jun 23 09:11:06 2022, Position 0 - Feature extraction - frame 46/56 
+Thu Jun 23 09:11:07 2022, Position 0 - Feature extraction - frame 47/56 
+Thu Jun 23 09:11:08 2022, Position 0 - Feature extraction - frame 48/56 
+Thu Jun 23 09:11:09 2022, Position 0 - Feature extraction - frame 49/56 
+Thu Jun 23 09:11:10 2022, Position 0 - Feature extraction - frame 50/56 
+Thu Jun 23 09:11:11 2022, Position 0 - Feature extraction - frame 51/56 
+Thu Jun 23 09:11:12 2022, Position 0 - Feature extraction - frame 52/56 
+Thu Jun 23 09:11:13 2022, Position 0 - Feature extraction - frame 53/56 
+Thu Jun 23 09:11:14 2022, Position 0 - Feature extraction - frame 54/56 
+Thu Jun 23 09:11:15 2022, Position 0 - Feature extraction - frame 55/56 
+Thu Jun 23 09:11:16 2022, Position 0 - Saving to pickle format
+/scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/processed_data/AKS1088/TL01_01/Position000000.pkl
+Thu Jun 23 09:11:17 2022, Position 0 - Saving results movie
+/scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/processed_data/AKS1088/TL01_01/Position000000.mp4
+Thu Jun 23 09:11:39 2022, Position 0 - Clearing variables from memory
+starting with movie AKS1088->TL01_02
+09:11:39.809 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.URLReader
+java.lang.ClassNotFoundException: loci.formats.in.URLReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.810 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.SlideBook6Reader
+java.lang.ClassNotFoundException: loci.formats.in.SlideBook6Reader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.811 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ScreenReader
+java.lang.ClassNotFoundException: loci.formats.in.ScreenReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.812 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ZarrReader
+java.lang.ClassNotFoundException: loci.formats.in.ZarrReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.855 [Thread-0] DEBUG loci.formats.FormatHandler - TiffReader initializing /scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_02_R3D-1.tif
+09:11:39.856 [Thread-0] DEBUG loci.formats.FormatHandler - loci.formats.in.TiffReader.initFile(/scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_02_R3D-1.tif)
+09:11:39.856 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Reading IFDs
+09:11:39.927 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Populating metadata
+09:11:39.927 [Thread-0] INFO  loci.formats.in.TiffReader - Checking comment style
+09:11:39.936 [Thread-0] INFO  loci.formats.in.BaseTiffReader - Populating OME metadata
+09:11:39.938 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.URLReader
+java.lang.ClassNotFoundException: loci.formats.in.URLReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.939 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.SlideBook6Reader
+java.lang.ClassNotFoundException: loci.formats.in.SlideBook6Reader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.939 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ScreenReader
+java.lang.ClassNotFoundException: loci.formats.in.ScreenReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.939 [Thread-0] DEBUG loci.formats.ClassList - Could not find loci.formats.in.ZarrReader
+java.lang.ClassNotFoundException: loci.formats.in.ZarrReader
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:583) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:315) ~[na:na]
+	at loci.formats.ClassList.parseLine(ClassList.java:196) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.parseFile(ClassList.java:258) ~[bioformats_package.jar:6.6.0]
+	at loci.formats.ClassList.<init>(ClassList.java:138) ~[bioformats_package.jar:6.6.0]
+09:11:39.970 [Thread-0] DEBUG loci.formats.FormatHandler - TiffReader initializing /scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_02_R3D-1.tif
+09:11:39.971 [Thread-0] DEBUG loci.formats.FormatHandler - loci.formats.in.TiffReader.initFile(/scicore/home/vanvli0000/vanvli0000/home/Delta2_Caulobacter/data/rawdata/AKS1088/20220311_AKS1088-1093_dense_TL01_02_R3D-1.tif)
+09:11:39.971 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Reading IFDs
+09:11:39.987 [Thread-0] INFO  loci.formats.in.MinimalTiffReader - Populating metadata
+09:11:39.987 [Thread-0] INFO  loci.formats.in.TiffReader - Checking comment style
+09:11:40.008 [Thread-0] INFO  loci.formats.in.BaseTiffReader - Populating OME metadata
+Initialized experiment reader:
+                - 1 positions
+                - 3 imaging channels
+                - 71 timepoints
+Thu Jun 23 09:11:42 2022, Position 0 - Starting pre-processing
+Thu Jun 23 09:11:42 2022, Position 0 - Starting segmentation (71 frames)
+Thu Jun 23 09:12:08 2022, Position 0 - Starting tracking (71 frames)
+Thu Jun 23 09:12:08 2022, Position 0 - Tracking - frame 0/71 
+Thu Jun 23 09:12:08 2022, Position 0 - Tracking - frame 1/71 
+Thu Jun 23 09:12:09 2022, Position 0 - Tracking - frame 2/71 
+Thu Jun 23 09:12:09 2022, Position 0 - Tracking - frame 3/71 
+Thu Jun 23 09:12:10 2022, Position 0 - Tracking - frame 4/71 
+Thu Jun 23 09:12:11 2022, Position 0 - Tracking - frame 5/71 
+Thu Jun 23 09:12:12 2022, Position 0 - Tracking - frame 6/71 
+Thu Jun 23 09:12:13 2022, Position 0 - Tracking - frame 7/71 
+Thu Jun 23 09:12:14 2022, Position 0 - Tracking - frame 8/71 
+Thu Jun 23 09:12:14 2022, Position 0 - Tracking - frame 9/71 
+Thu Jun 23 09:12:15 2022, Position 0 - Tracking - frame 10/71 
+Thu Jun 23 09:12:16 2022, Position 0 - Tracking - frame 11/71 
+Thu Jun 23 09:12:18 2022, Position 0 - Tracking - frame 12/71 
+Thu Jun 23 09:12:19 2022, Position 0 - Tracking - frame 13/71 
+Thu Jun 23 09:12:20 2022, Position 0 - Tracking - frame 14/71 
+Thu Jun 23 09:12:21 2022, Position 0 - Tracking - frame 15/71 
+Thu Jun 23 09:12:22 2022, Position 0 - Tracking - frame 16/71 
+Thu Jun 23 09:12:23 2022, Position 0 - Tracking - frame 17/71 
+Thu Jun 23 09:12:24 2022, Position 0 - Tracking - frame 18/71 
+Thu Jun 23 09:12:25 2022, Position 0 - Tracking - frame 19/71 
+Thu Jun 23 09:12:27 2022, Position 0 - Tracking - frame 20/71 
+Thu Jun 23 09:12:28 2022, Position 0 - Tracking - frame 21/71 
+Thu Jun 23 09:12:29 2022, Position 0 - Tracking - frame 22/71 
+Thu Jun 23 09:12:31 2022, Position 0 - Tracking - frame 23/71 
+Thu Jun 23 09:12:32 2022, Position 0 - Tracking - frame 24/71 
+Thu Jun 23 09:12:34 2022, Position 0 - Tracking - frame 25/71 
+Thu Jun 23 09:12:35 2022, Position 0 - Tracking - frame 26/71 
+Thu Jun 23 09:12:37 2022, Position 0 - Tracking - frame 27/71 
+Thu Jun 23 09:12:39 2022, Position 0 - Tracking - frame 28/71 
+Thu Jun 23 09:12:40 2022, Position 0 - Tracking - frame 29/71 
+Thu Jun 23 09:12:42 2022, Position 0 - Tracking - frame 30/71 
+Thu Jun 23 09:12:44 2022, Position 0 - Tracking - frame 31/71 
+Thu Jun 23 09:12:46 2022, Position 0 - Tracking - frame 32/71 
+Thu Jun 23 09:12:48 2022, Position 0 - Tracking - frame 33/71 
+Thu Jun 23 09:12:50 2022, Position 0 - Tracking - frame 34/71 
+Thu Jun 23 09:12:52 2022, Position 0 - Tracking - frame 35/71 
+Thu Jun 23 09:12:54 2022, Position 0 - Tracking - frame 36/71 
+Thu Jun 23 09:12:56 2022, Position 0 - Tracking - frame 37/71 
+Thu Jun 23 09:12:59 2022, Position 0 - Tracking - frame 38/71 
+Thu Jun 23 09:13:01 2022, Position 0 - Tracking - frame 39/71 
+Thu Jun 23 09:13:03 2022, Position 0 - Tracking - frame 40/71 
