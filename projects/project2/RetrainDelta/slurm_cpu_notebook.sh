@@ -9,6 +9,8 @@
 # Paths to STDOUT or STDERR files should be absolute or relative to current working directory
 #SBATCH -o slog_cpunotebook-%J.oe
 
+ml Java/11.0.3_7
+ml FFmpeg
 
 # activate a conda environment of your choice (here we use base)
 eval "$(conda shell.bash hook)"
