@@ -56,7 +56,7 @@ def split_lineages(lin):
         list of dictionaries, each dictionary gives properties of cell from birth to division
     """
     new_lin = []
-    lut = np.empty((0,6)) #id / first frame / last_frame / new_cell_id / colony_id
+    lut = np.empty((0,6), dtype=np.float32) #id / first frame / last_frame / new_cell_id / colony_id
     id_cell = 0 
     
     firstcells = lin.cellnumbers[0]
@@ -73,7 +73,7 @@ def split_lineages(lin):
                     corr_frame = (lut[:,2] == cell['frames'][0]-1)
                     id_par = int(lut[np.all((corr_cell, corr_frame), axis=0),3])
                     id_colony = int(lut[np.all((corr_cell, corr_frame), axis=0),4])
-                    gen = int(lut[np.all((corr_cell, corr_frame), axis=0),5]) + 1
+                    gen = lut[np.all((corr_cell, corr_frame), axis=0),5].item() + 1
                 else: 
                     id_par = -1  
                     id_colony = id if id in firstcells else -1  
