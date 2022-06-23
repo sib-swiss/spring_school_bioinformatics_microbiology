@@ -66,27 +66,30 @@ def split_lineages(lin):
         div_time = [i for i, val in enumerate(cell['daughters']) if val != None]
         ndiv = len(div_time)
         
-        for i in range(ndiv+1):
-            
+        for i in range(ndiv+1):            
             if i==0:
                 if cell['mother'] is not None:
                     corr_cell = lut[:,0] == cell['mother']
                     corr_frame = (lut[:,2] == cell['frames'][0]-1)
                     id_par = int(lut[np.all((corr_cell, corr_frame), axis=0),3])
                     id_colony = int(lut[np.all((corr_cell, corr_frame), axis=0),4])
+                    gen = int(lut[np.all((corr_cell, corr_frame), axis=0),5]) + 1
                 else: 
                     id_par = -1  
-                    id_colony = id if  id in firstcells else -1             
-            else: id_par = id_cell - 1
+                    id_colony = id if id in firstcells else -1  
+                    gen = 0 if id in firstcells else np.nan 
+            else: 
+                id_par = id_cell - 1
+                gen += 1
                 
            
             if ndiv == 0:
                 new_cell = cell.copy()
-                cur_lut = [id, cell['frames'][0], cell['frames'][-1], id_cell, id_colony]
+                cur_lut = [id, cell['frames'][0], cell['frames'][-1], id_cell, id_colony, gen]
             else:
                 start = div_time[i-1] if i>0 else 0
                 end = div_time[i] if i<ndiv else len(cell['frames'])   
-                cur_lut = [id, cell['frames'][start], cell['frames'][end-1], id_cell, id_colony]    
+                cur_lut = [id, cell['frames'][start], cell['frames'][end-1], id_cell, id_colony, gen]    
                         
                 new_cell = {}
                 for key, item in cell.items():
@@ -102,6 +105,8 @@ def split_lineages(lin):
             new_cell['id_cell'] = id_cell 
             new_cell['id_par'] = id_par 
             new_cell['id_colony'] = id_colony 
+            new_cell['generation'] = gen
+            new_cell['age'] = new_cell['frames'] - new_cell['frames'][0]
 
                 
             lut = np.concatenate((lut, np.array(cur_lut)[np.newaxis,:]))               
@@ -134,49 +139,6 @@ def lin_to_df(cell_list):
 
     return df
 
-def add_exra_lin_info(df):
-    """Add extra lineage info of cell to dataframe
-
-    Parameters
-    ----------
-    df : pandas dataframe
-
-    Returns
-    -------
-    pandas dataframe
-        input dataframe with additional columns added
-    """
-    #create look up table to link cells to parent, offspring, and siblings
-    df_full = df.loc[df['id_par']>=0, ['id_par', 'id_cell']].reset_index(drop=True)
-    dflin = df_full.groupby('id_par').agg([min, max]).rename(columns={"min" : "d1", "max" : "d2"})
-    dflin.columns = dflin.columns.droplevel()
-    dflin = dflin.reset_index()
-    dflin.head()
-
-    df["id_d1"] = -1
-    df["id_d2"] = -1
-    df["id_sib"] = -1
-
-    #add offspring to parent
-    for mom in np.unique(dflin["id_par"]):
-        if mom >= 0:
-            df.loc[df["id_cell"] == mom, "id_d1"] = int(dflin.loc[dflin["id_par"] == mom, "d1"])
-            df.loc[df["id_cell"] == mom, "id_d2"] = int(dflin.loc[dflin["id_par"] == mom, "d2"])
-    
-    #add siblings to d1    
-    for cell in np.unique(dflin["d1"]):
-        df.loc[df["id_cell"] == cell, "id_sib"] = int(dflin.loc[dflin["d1"] == cell, "d2"])
-        
-    #add siblings to d2    
-    for cell in np.unique(dflin["d2"]):
-        df.loc[df["id_cell"] == cell, "id_sib"] = int(dflin.loc[dflin["d2"] == cell, "d1"])
-
-    #rearange columns
-    new_cols = [c for c in df.columns.tolist() if "id_" in c ]
-    [new_cols.append(c) for c in df.columns.tolist() if not "id_" in c]
-    df = df[new_cols] 
-    
-    return df
 
 
 def delta_to_df(input):
