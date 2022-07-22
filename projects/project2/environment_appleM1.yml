@@ -1,0 +1,30 @@
+name: i2i_env
+channels:
+  - apple
+  - conda-forge
+dependencies:
+  - python=3.9  ## specify desired version
+  - pip
+  - tensorflow-deps
+  - h5py
+  - ipykernel
+  - scipy
+  - matplotlib
+  - numpy
+  - seaborn
+  - napari
+  - pandas
+  - qt
+  - scikit-image
+  - scikit-learn
+  - dask-image
+  - pathlib
+  - jupyterlab
+  - opencv=4
+  - ffmpeg-python
+  - requests
+  ## PyPI packages
+  - pip:
+    - tensorflow-macos
+    - tensorflow-metal  ## optional, but recommended
+    - elasticdeform

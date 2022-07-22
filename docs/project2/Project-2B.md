@@ -114,3 +114,41 @@ Work trough the `2_post_processing_delta` notebook.
 ## Analyze the data
 
 Once you have the data analyzed, try to extract biological insight from it. Discuss with your tutor what question you could address. For this step on we encourage people to team-up in pairs/small-groups and work together. You can use the `3_explore_data_delta` notebook as a starting point.
+
+---
+
+## Note: use hardware acceleration on Apple Silicon  
+
+### Create a Conda environment
+
+```bash
+conda create env -f environment_appleM1.yml
+```
+
+This was tested with MiniConda for Apple M1 installed from [here](https://docs.conda.io/en/latest/miniconda.html), if you run into problems try uninstalling your current conda version and install the version above. The `.env` can be found in the project2 repository.
+
+### Git clone Delta
+
+```bash
+cd ~choose/a/path/for/delta  (below I use ~/miniconda/delta )
+git clone https://gitlab.com/dunloplab/delta.git
+```
+
+### Add Delta to search path (permanently)
+
+add the following line to `~/.zshrc` or `~/.bashrc` file (depending on if you have a bash or zsh shell):
+
+```bash
+export PYTHONPATH="${PYTHONPATH}:~/miniconda/delta"  
+```
+
+Change `~/miniconda/delta` in the line above to the path you used in step 2a
+
+After that you can run the notebooks without further changes.
+
+You can check if you have access to GPU by running:
+
+```python
+import tensorflow as tf
+tf.config.list_physical_devices() 
+```
