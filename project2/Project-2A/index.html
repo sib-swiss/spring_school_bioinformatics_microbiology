@@ -1,0 +1,1386 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/bacteria.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Project 2A - Bioinformatics and computational approaches in Microbiology</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-2a-semi-automated-processing-using-fiji-ilastik-and-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-header__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bioinformatics and computational approaches in Microbiology
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project 2A
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-nav__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    Bioinformatics and computational approaches in Microbiology
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../precourse/" class="md-nav__link">
+        Precourse preparations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course_schedule/" class="md-nav__link">
+        Course schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Project 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Project 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/timeline/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Project 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Project 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project2_Preparation/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project2_Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Project 2A
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Project 2A
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-data" class="md-nav__link">
+    Note on data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-project-folders" class="md-nav__link">
+    Create project folders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-data" class="md-nav__link">
+    Download Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Download Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternative-download-via-browser" class="md-nav__link">
+    Alternative Download via browser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-preprocessing-with-fiji" class="md-nav__link">
+    Data preprocessing with Fiji
+  </a>
+  
+    <nav class="md-nav" aria-label="Data preprocessing with Fiji">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merging-splitting-color-channels" class="md-nav__link">
+    Merging &amp; splitting color channels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crop-image" class="md-nav__link">
+    Crop Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-data-for-segmentation" class="md-nav__link">
+    Export data for segmentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aside-other-preprocessing-steps" class="md-nav__link">
+    Aside: Other preprocessing steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#segment-with-ilastik" class="md-nav__link">
+    Segment with Ilastik
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-personal-computer" class="md-nav__link">
+    Post-process with Python - Personal Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Personal Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-cloud-computer" class="md-nav__link">
+    Post-process with Python - Cloud Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Cloud Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-data-on-local-computer" class="md-nav__link">
+    Export Data on local computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-project-folders-on-cloud-computer" class="md-nav__link">
+    Setup project folders on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-data-on-cloud-computer" class="md-nav__link">
+    Download data on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-project-code-on-cloud-computer" class="md-nav__link">
+    Download project code on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs_1" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project-2B/" class="md-nav__link">
+        Project 2B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-2C/" class="md-nav__link">
+        Project 2C
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project2_Resources" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Project 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Project 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Prepare-before-start-of-the-course/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Remote-environment/" class="md-nav__link">
+        Remote Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-1/" class="md-nav__link">
+        Step 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-1-sol/" class="md-nav__link">
+        Step 1 solution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-2/" class="md-nav__link">
+        Step 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-2-sol/" class="md-nav__link">
+        Step 2 solutions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Project 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Project 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4a/" class="md-nav__link">
+        Project 4A
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4b/" class="md-nav__link">
+        Project 4B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/timeline/" class="md-nav__link">
+        Project timeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-data" class="md-nav__link">
+    Note on data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-project-folders" class="md-nav__link">
+    Create project folders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-data" class="md-nav__link">
+    Download Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Download Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternative-download-via-browser" class="md-nav__link">
+    Alternative Download via browser
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-preprocessing-with-fiji" class="md-nav__link">
+    Data preprocessing with Fiji
+  </a>
+  
+    <nav class="md-nav" aria-label="Data preprocessing with Fiji">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#merging-splitting-color-channels" class="md-nav__link">
+    Merging &amp; splitting color channels
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crop-image" class="md-nav__link">
+    Crop Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-data-for-segmentation" class="md-nav__link">
+    Export data for segmentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aside-other-preprocessing-steps" class="md-nav__link">
+    Aside: Other preprocessing steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#segment-with-ilastik" class="md-nav__link">
+    Segment with Ilastik
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-personal-computer" class="md-nav__link">
+    Post-process with Python - Personal Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Personal Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-cloud-computer" class="md-nav__link">
+    Post-process with Python - Cloud Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Cloud Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-data-on-local-computer" class="md-nav__link">
+    Export Data on local computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-project-folders-on-cloud-computer" class="md-nav__link">
+    Setup project folders on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-data-on-cloud-computer" class="md-nav__link">
+    Download data on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-project-code-on-cloud-computer" class="md-nav__link">
+    Download project code on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs_1" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/edit/master/docs/project2/Project-2A.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="project-2a-semi-automated-processing-using-fiji-ilastik-and-python">Project 2A: Semi-automated processing using Fiji, Ilastik, and Python</h1>
+<p>Here we will use a semi-automated pipeline to segment time-lapse data and quantify cell properties over time. We will not track cells.</p>
+<p>We will use a set of tools that are very frequently used in image analysis:</p>
+<ul>
+<li><a href="https://imagej.net/software/fiji/">Fiji, aka: ImageJ on steroids</a>, which is a generalist user-friendly, GUI based, image analysis program offering many tools and plugins for manual and semi-automated analysis.</li>
+<li><a href="https://www.ilastik.org">Ilastik</a>, which is a user-friendly, GUI based tool, offering several supervised machine learning pipelines.</li>
+<li><a href="https://neptune.ai/blog/image-processing-python">python</a>, a generalist programming language which has become the language of choice for the image analysis community</li>
+</ul>
+<p>General note: this guide has been written assuming you use a Mac or Linux Command Line.
+For windows Powershell see <a href="https://devblogs.microsoft.com/scripting/table-of-basic-powershell-commands/">here</a>, for command prompt see <a href="https://www.makeuseof.com/tag/essential-windows-cmd-commands/">here</a>.</p>
+<hr />
+<h2 id="note-on-data">Note on data</h2>
+<p>The dataset we will work with here consists of a time-lapse data of a synthetic microbial cross-feeding community consisting of two auxotrophic strains of <em>E. coli</em> that can only grow by exchanging Amino-Acids with each other. The two cell-types are fluorescently labeled with two different colors and grow together in a mono-layer within a 2D microfluidic growth chamber (a so-called family-machine).</p>
+<hr />
+<h2 id="create-project-folders">Create project folders</h2>
+<p>We first create a folder on your private computer for this course. Here we will assume it is <code>~/I2ICourse/</code> but you can use any folder (just change path variables accordingly).</p>
+<ul>
+<li>Open the command line and navigate to your home folder, then create a new folder called <code>I2ICourse</code> for the course:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~
+mkdir I2ICourse
+</code></pre></div>
+<ul>
+<li>Next create a folder for Project-2A <code>~/I2ICourse/Project2A/</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/I2ICourse/
+mkdir Project2A
+</code></pre></div>
+<ul>
+<li>And also make a folder for the processed data (output from all steps below):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> Project2A
+mkdir ProcessedData
+</code></pre></div>
+<ul>
+<li>
+<p>This should have created the following folder: <code>~/I2ICourse/Project2A/ProcessedData/</code>:</p>
+</li>
+<li>
+<p>Note: two useful terminal commands are:</p>
+</li>
+<li><code>ls</code>: show current folder content (on Windows use <code>dir</code>)</li>
+<li><code>pwd</code>: show path of current folder</li>
+</ul>
+<hr />
+<h2 id="download-data">Download Data</h2>
+<p>Here we will download the data via the command line.</p>
+<ul>
+<li>Navigate to the data folder:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/I2ICourse/Project2A/
+</code></pre></div>
+<ul>
+<li>Download the data set and unzip it using:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>curl -o RawData.zip https://drive.switch.ch/index.php/s/VsWWiuaIctITWQl/download
+unzip RawData.zip
+</code></pre></div>
+<ul>
+<li>You should now have a folder <code>~/I2ICourse/Project2A/RawData</code> containing 3 tif files (hint: use <code>ls</code> to check!)</li>
+<li>We can delete the zip-file using: <code>rm RawData.zip</code></li>
+</ul>
+<h3 id="alternative-download-via-browser">Alternative Download via browser</h3>
+<p>If you have trouble downloading via command line, you can also use your browser:</p>
+<ul>
+<li>Open this <a href="https://drive.switch.ch/index.php/s/VsWWiuaIctITWQl">link</a></li>
+<li>Click Download</li>
+<li>Unzip the compressed file inside your data folder.</li>
+<li>The data should now be located in <code>~/I2ICourse/Project2A/RawData</code></li>
+<li>Please rename the folder if needed</li>
+</ul>
+<hr />
+<h2 id="data-preprocessing-with-fiji">Data preprocessing with Fiji</h2>
+<p>We will first prepare the data in Fiji</p>
+<h3 id="merging-splitting-color-channels">Merging &amp; splitting color channels</h3>
+<p>Before pre-processing we need to merge the color channels.</p>
+<ul>
+<li>Open the individual color images (<code>pos0-[c].tif</code>, where c={r,g,p})</li>
+<li><code>Image</code> -&gt; <code>Color</code> -&gt; <code>Merge Channels</code></li>
+<li>Make sure <code>Create composite</code> is selected</li>
+<li>Under C1 (red) select the [r] image</li>
+<li>Under C2 (green) select the [g] image</li>
+<li>
+<p>Under C4 (grey) select the [p] image</p>
+</li>
+<li>
+<p>Save on disk as <code>pos0-merged.tif</code></p>
+</li>
+<li>use your processed data folder, e.g.: <code>~/I2ICourse/Project2A/ProcessedData/</code></li>
+</ul>
+<h3 id="crop-image">Crop Image</h3>
+<ul>
+<li>Make a rectangular selection around the area of interest</li>
+<li>Make sure that you make the area big enough to accommodate any remaining jitter.</li>
+<li>Go to <code>Image</code>-&gt;<code>Crop</code></li>
+<li>Save image as <code>pos0-preproc-merged.tif</code></li>
+<li>use your processed data folder, e.g.: <code>~/I2ICourse/Project2A/ProcessedData/</code></li>
+</ul>
+<h3 id="export-data-for-segmentation">Export data for segmentation</h3>
+<p>First we split the image into separate color channels</p>
+<ul>
+<li><code>Image</code> -&gt; <code>Color</code> -&gt; <code>Split Channels</code></li>
+<li>Save the separate image channels under the name <code>pos0-preproc-[c].tif</code></li>
+</ul>
+<p>In addition we need a combined image with the red and green channels.</p>
+<ul>
+<li>Use <code>Merge Channels</code> to combine the red and green channels (do not include phase!).</li>
+<li>Save on disk as <code>pos0-preproc-rg.tif</code></li>
+<li>use your processed data folder, e.g.: <code>~/I2ICourse/Project2A/ProcessedData/</code></li>
+</ul>
+<hr />
+<h2 id="aside-other-preprocessing-steps">Aside: Other preprocessing steps</h2>
+<p>During preprocessing you would often also do some other steps, for example:</p>
+<ul>
+<li>Registration: i.e. aligning images between frames to compensate for stage and sample drift</li>
+<li>Deconvolution: i.e. correcting for diffraction artifacts to make segmentation easier.</li>
+</ul>
+<p>Unfortunately we do not have time to go into this now, but please ask us during the breaks for more information!</p>
+<hr />
+<h2 id="segment-with-ilastik">Segment with Ilastik</h2>
+<p>We will give a brief live-demo of how to use Ilastik, please let us know when you are at this step, so that we can get the entire group together.</p>
+<p>You can find  detailed instructions (and a movie) <a href="https://www.ilastik.org/documentation/pixelclassification/pixelclassification">here</a>.</p>
+<p>Most important steps (see also the pdf in the Project2A repository folder):</p>
+<ul>
+<li>Open Ilastik</li>
+<li>Select <code>Pixel Classification</code> workflow</li>
+<li>Save it in processed data folder as &lsquo;proj2A-ilastik&rsquo;</li>
+<li>Go to <code>Input Data</code></li>
+<li>Load the data of the red-green channel.</li>
+<li><strong>Important: when adding the input data, you might have to change the axis order: double click on the axis order (e.g. <code>zcyx</code>) and change to <code>tcyx</code>.</strong></li>
+<li>Go to <code>Feature Selection</code></li>
+<li>Select all features</li>
+<li>Go to <code>Training</code></li>
+<li>Make two labels: <code>Cells</code> and <code>BG</code></li>
+<li>Add sparse training points to indicate which pixels belong to cells and which to background</li>
+<li><strong>Important: save your project frequently! Ilastik can crash!</strong></li>
+<li>Use <code>Live Update</code> to visualize training</li>
+<li>Evaluate the result by checking <code>Segmentation (Layer 1)</code></li>
+<li>You can use the <code>Uncertainty</code> to see where more training points need to be added</li>
+<li>Focus attention on pixels in between cells</li>
+<li>Once the segmentation looks good, check a few other frames and update training as needed, until it looks good for all frames.</li>
+<li>Go to <code>Prediction Export</code></li>
+<li>See details <a href="https://www.ilastik.org/documentation/basics/export.html">here</a></li>
+<li>In <code>Export Settings</code> select <code>Probabilities</code> in the <code>source</code> field.</li>
+<li>Open <code>Choose Export Image Setting</code> and select <code>hdf5</code> format.</li>
+<li>Then click <code>Export All</code></li>
+<li>Select as output folder <code>~/I2ICourse/Project2A/ProcessedData/</code></li>
+</ul>
+<p>The output should be stored under the name <code>[input_file_name]_Probabilities.h5</code>, i.e. <code>pos0_preproc-rg_Probabilities.h5</code>.</p>
+<hr />
+<h2 id="post-process-with-python-personal-computer">Post-process with Python - Personal Computer</h2>
+<p>Follow these instruction if you run the python code locally (see below for instructions on how to run it on the cloud computer)</p>
+<h3 id="launch-jupyter-labs">Launch Jupyter Labs</h3>
+<ul>
+<li>Navigate to the project folder, activate the conda environment, and launch Jupyter Labs:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/I2ICourse/
+conda activate i2i_env
+jupyter lab
+</code></pre></div>
+<ul>
+<li>In Jupyter Labs, navigate to <code>spring_school_bioinformatics_microbiology/projects/project2/Project2A/</code></li>
+<li>Then open the <code>0_post_process_segementation.ipynb</code> notebook</li>
+<li>Now run the notebook, see here for <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">instructions on Jupyter Labs</a> and follow the instructions in the notebook.</li>
+</ul>
+<hr />
+<h2 id="post-process-with-python-cloud-computer">Post-process with Python - Cloud Computer</h2>
+<p>Follow these instructions if you are using the cloud computer to run Python.</p>
+<h3 id="export-data-on-local-computer">Export Data on local computer</h3>
+<p>For the next steps we will switch to the cloud computers, but before that we need to transfer the data-file we just created:</p>
+<ul>
+<li>On your local computer, compress the <code>~/I2ICourse/Project2A/ProcessedData</code> folder into a zip-file</li>
+<li>Upload this zip file to a cloud drive</li>
+<li>Create a public share link and copy the address</li>
+</ul>
+<h3 id="setup-project-folders-on-cloud-computer">Setup project folders on cloud computer</h3>
+<ul>
+<li>Login to the <strong>cloud computer</strong> (your tutor will provide info in how to do this)</li>
+<li>Launch the command window and create a <code>Project2A</code> folder within the <code>~\workdir\</code> folder:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workdir/
+mkdir Project2A
+</code></pre></div>
+<p><strong>Important Note: on the cloud computer we need to store all data in the <code>~/workdir/</code> folder or sub-folders of this, to make sure that files remain available after restarting the instance.</strong></p>
+<p>Also add a <code>ProcessedData</code> subfolder to the <code>Project2A</code> folder:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> Project2A
+mkdir ProcessedData
+</code></pre></div>
+<h3 id="download-data-on-cloud-computer">Download data on cloud computer</h3>
+<p>Now we download the data file we just uploaded to the cloud:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workdir/Project2A/ProcessedData
+curl -o  data.zip public_link_to_your_zip_file
+unzip -j data.zip
+</code></pre></div>
+<ul>
+<li>Check that the data transferred successfully (use <code>ls</code>)</li>
+<li>If so, then you can remove the zip file use <code>rm data.zip</code></li>
+</ul>
+<h3 id="download-project-code-on-cloud-computer">Download project code on cloud computer</h3>
+<ul>
+<li>Navigate to the <code>workdir</code> folder and use the <code>git clone</code> command to download the course code:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workdir/
+git clone https://github.com/sib-swiss/spring_school_bioinformatics_microbiology.git
+</code></pre></div>
+<ul>
+<li>This will create the folder <code>~/workdir/spring_school_bioinformatics_microbiology/</code> which contains all the Jupyter notebooks as well as the other course files</li>
+</ul>
+<h3 id="launch-jupyter-labs_1">Launch Jupyter Labs</h3>
+<ul>
+<li>Next  navigate to the project folder, activate the conda environment, and launch Jupyter Labs:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workdir/
+conda activate project2
+jupyter lab
+</code></pre></div>
+<ul>
+<li>In Jupyter Labs, navigate to <code>spring_school_bioinformatics_microbiology/projects/project2/Project2A/</code></li>
+<li>Then open the <code>0_post_process_segementation.ipynb</code> notebook</li>
+<li>Now run the notebook, see here for <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">instructions on Jupyter Labs</a> and follow the instructions in the notebook.</li>
+</ul>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Project2_Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Project-2B/" class="md-footer__link md-footer__link--next" aria-label="Next: Project 2B" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Project 2B
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

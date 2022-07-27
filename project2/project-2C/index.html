@@ -1,0 +1,1755 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/bacteria.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Project 2C - Bioinformatics and computational approaches in Microbiology</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#segmentation-and-tracking-mother-machine-data-with-bacmman-distnet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-header__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bioinformatics and computational approaches in Microbiology
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project 2C
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-nav__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    Bioinformatics and computational approaches in Microbiology
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../precourse/" class="md-nav__link">
+        Precourse preparations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course_schedule/" class="md-nav__link">
+        Course schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Project 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Project 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/timeline/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Project 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Project 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project2_Preparation/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project2_Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project-2A/" class="md-nav__link">
+        Project 2A
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project-2B/" class="md-nav__link">
+        Project 2B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Project 2C
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Project 2C
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-analysis" class="md-nav__link">
+    Note on analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-data" class="md-nav__link">
+    Note on data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-image-and-model-data" class="md-nav__link">
+    Download Image and Model Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-experiment-in-bacmman" class="md-nav__link">
+    Create experiment in Bacmman
+  </a>
+  
+    <nav class="md-nav" aria-label="Create experiment in Bacmman">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-bacmman" class="md-nav__link">
+    Open Bacmman
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-working-directory" class="md-nav__link">
+    Set working directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-new-data-set" class="md-nav__link">
+    Create new data set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-image-data" class="md-nav__link">
+    Add image data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapt-configuration-file" class="md-nav__link">
+    Adapt configuration file
+  </a>
+  
+    <nav class="md-nav" aria-label="Adapt configuration file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-time-interval" class="md-nav__link">
+    Set time-interval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-model-weights-of-deep-learning-network" class="md-nav__link">
+    Load model weights of Deep-learning network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aside-download-default-model-for-e-coli" class="md-nav__link">
+    Aside: download default model for E. coli
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-and-run-pre-processing-pipeline" class="md-nav__link">
+    Define and run Pre-processing pipeline
+  </a>
+  
+    <nav class="md-nav" aria-label="Define and run Pre-processing pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preprocessing-steps" class="md-nav__link">
+    Preprocessing steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-automated-pre-processing-pipeline" class="md-nav__link">
+    Test automated pre-processing pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-pre-processing-pipeline" class="md-nav__link">
+    Run pre-processing pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-tracking-and-segmentation" class="md-nav__link">
+    Run tracking and segmentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-segmentation-and-tracking-results" class="md-nav__link">
+    Inspect segmentation and tracking results
+  </a>
+  
+    <nav class="md-nav" aria-label="Inspect segmentation and tracking results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-micro-channel-segmentation-and-tracking" class="md-nav__link">
+    Check micro-channel segmentation and tracking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-bacterial-segmentation-and-tracking" class="md-nav__link">
+    Check bacterial segmentation and tracking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-cell-measurements-the-data" class="md-nav__link">
+    Extract cell measurements the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-personal-computer" class="md-nav__link">
+    Post-process with Python - Personal Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Personal Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-full-dataset" class="md-nav__link">
+    Download the full dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-cloud-computer" class="md-nav__link">
+    Post-process with Python - Cloud Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Cloud Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-data-on-local-computer" class="md-nav__link">
+    Export Data on local computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-data-on-cloud-computer" class="md-nav__link">
+    Download data on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-the-full-dataset_1" class="md-nav__link">
+    Download the full dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs_1" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-information-adapting-pre-processing-configurations" class="md-nav__link">
+    Additional Information - Adapting pre-processing configurations
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Information - Adapting pre-processing configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimize-pre-processing-pipeline" class="md-nav__link">
+    Optimize pre-processing pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-pre-processing-steps" class="md-nav__link">
+    Manual pre-processing steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-processing-outside-of-bacmman" class="md-nav__link">
+    Pre-processing outside of Bacmman
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-configuration" class="md-nav__link">
+    Storing configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Project2_Resources" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Project 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Project 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Prepare-before-start-of-the-course/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Remote-environment/" class="md-nav__link">
+        Remote Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-1/" class="md-nav__link">
+        Step 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-1-sol/" class="md-nav__link">
+        Step 1 solution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-2/" class="md-nav__link">
+        Step 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project3/Step-2-sol/" class="md-nav__link">
+        Step 2 solutions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Project 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Project 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4a/" class="md-nav__link">
+        Project 4A
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4b/" class="md-nav__link">
+        Project 4B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/timeline/" class="md-nav__link">
+        Project timeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-analysis" class="md-nav__link">
+    Note on analysis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-data" class="md-nav__link">
+    Note on data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#download-image-and-model-data" class="md-nav__link">
+    Download Image and Model Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-experiment-in-bacmman" class="md-nav__link">
+    Create experiment in Bacmman
+  </a>
+  
+    <nav class="md-nav" aria-label="Create experiment in Bacmman">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-bacmman" class="md-nav__link">
+    Open Bacmman
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-working-directory" class="md-nav__link">
+    Set working directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-new-data-set" class="md-nav__link">
+    Create new data set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-image-data" class="md-nav__link">
+    Add image data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapt-configuration-file" class="md-nav__link">
+    Adapt configuration file
+  </a>
+  
+    <nav class="md-nav" aria-label="Adapt configuration file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-time-interval" class="md-nav__link">
+    Set time-interval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-model-weights-of-deep-learning-network" class="md-nav__link">
+    Load model weights of Deep-learning network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aside-download-default-model-for-e-coli" class="md-nav__link">
+    Aside: download default model for E. coli
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-and-run-pre-processing-pipeline" class="md-nav__link">
+    Define and run Pre-processing pipeline
+  </a>
+  
+    <nav class="md-nav" aria-label="Define and run Pre-processing pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preprocessing-steps" class="md-nav__link">
+    Preprocessing steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-automated-pre-processing-pipeline" class="md-nav__link">
+    Test automated pre-processing pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-pre-processing-pipeline" class="md-nav__link">
+    Run pre-processing pipeline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-tracking-and-segmentation" class="md-nav__link">
+    Run tracking and segmentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspect-segmentation-and-tracking-results" class="md-nav__link">
+    Inspect segmentation and tracking results
+  </a>
+  
+    <nav class="md-nav" aria-label="Inspect segmentation and tracking results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-micro-channel-segmentation-and-tracking" class="md-nav__link">
+    Check micro-channel segmentation and tracking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-bacterial-segmentation-and-tracking" class="md-nav__link">
+    Check bacterial segmentation and tracking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extract-cell-measurements-the-data" class="md-nav__link">
+    Extract cell measurements the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-personal-computer" class="md-nav__link">
+    Post-process with Python - Personal Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Personal Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-full-dataset" class="md-nav__link">
+    Download the full dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-process-with-python-cloud-computer" class="md-nav__link">
+    Post-process with Python - Cloud Computer
+  </a>
+  
+    <nav class="md-nav" aria-label="Post-process with Python - Cloud Computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-data-on-local-computer" class="md-nav__link">
+    Export Data on local computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-data-on-cloud-computer" class="md-nav__link">
+    Download data on cloud computer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-the-full-dataset_1" class="md-nav__link">
+    Download the full dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-jupyter-labs_1" class="md-nav__link">
+    Launch Jupyter Labs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-information-adapting-pre-processing-configurations" class="md-nav__link">
+    Additional Information - Adapting pre-processing configurations
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Information - Adapting pre-processing configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimize-pre-processing-pipeline" class="md-nav__link">
+    Optimize pre-processing pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-pre-processing-steps" class="md-nav__link">
+    Manual pre-processing steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-processing-outside-of-bacmman" class="md-nav__link">
+    Pre-processing outside of Bacmman
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-configuration" class="md-nav__link">
+    Storing configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/edit/master/docs/project2/project-2C.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="segmentation-and-tracking-mother-machine-data-with-bacmman-distnet">Segmentation and Tracking Mother Machine Data with Bacmman &amp; DistNet</h1>
+<p>Bacmman is a <a href="https://imagej.net/software/fiji/">ImageJ</a> plugin for analyzing mother machine data. All interactions with the software are via a GUI making it relatively user-friendly (though with a bit of a steep learning curve). At the backend Bacmman uses a state-of-the-art deep learning network to track and segment cells.</p>
+<p>Bacmman is described extensively in this <a href="https://doi.org/10.1038/s41596-019-0216-9">Nature Protocols article</a>, however note that some parts are outdated. Specifically, the protocol uses the older, classical algorithm to track and segment cells. The parts that describe the GUI are still very useful though.<br />
+More up-to-date info can be found on <a href="https://github.com/jeanollion/bacmman/wiki">this wiki</a>.</p>
+<p>The Distnet Deep Learning network is described in <a href="https://arxiv.org/abs/2003.07790">this publication</a>.</p>
+<p>Note: parts of this tutorial have been adapted from <a href="https://github.com/jeanollion/bacmman/wiki/DistNet">this Wiki</a> page of Jean Ollion, on these wiki pages you can also find additional information and tutorials.</p>
+<h2 id="note-on-analysis">Note on analysis</h2>
+<p>Analyzing imaging data is computationally intensive and can take a long time depending on the available computer power.
+Normally you would run Bacmman on a powerful workstation, ideally one with a CUDA enabled GPU.<br />
+Unfortunately we do not have access to such a workstation during the course, therefore we will demonstrate how the pipeline works using a small sample of our dataset. The rest of the dataset we analyzed before the start of the course, and we will provide you with the results.</p>
+<h2 id="note-on-data">Note on data</h2>
+<p>Our dataset consist of <em>Pseudomonas aeruginosa</em> cells growing in a Mother Machine flow-cells. The cells were exposed to a fluctuating environnement were both the type and availability of nutrients was changed. During the first 12h of the experiments the media had a high amount of a <a href="https://en.wikipedia.org/wiki/Gluconeogenesis">gluconeogenic</a> carbon source, for the next 12h the media contained no carbon source at all (starvation conditions), for the final 12h the media contained a high amount of a <a href="https://en.wikipedia.org/wiki/Glycolysis">glycolytic</a> carbon source.</p>
+<p>The cells cary two transcriptional reporters: the first (channel 1, RFP) reports on the expression of the glycolytic pathways, the second (channel 2, GFP) reports on the expression level of gluconeogenic pathways.</p>
+<p>Images were taken every 10 minutes. The nutrient switches happened after 12h (frame 72) and 24h (frame 144). We have data for 54 positions.</p>
+<p>The data was kindly provided by Hector Hernandez of the Urs Jenal lab of the Biozentrum of the University of Basel.</p>
+<hr />
+<h2 id="download-image-and-model-data">Download Image and Model Data</h2>
+<p>On your local machine, open the command line and enter the following command to make a project folder</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> I2ICourse
+mkdir Project2C
+</code></pre></div>
+<p>Then download the image data and pre-trained DL network using:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> Project2C
+curl -o RawData.zip https://drive.switch.ch/index.php/s/GPOQL4yrghaEmHS/download
+unzip RawData.zip
+</code></pre></div>
+<p>Check the folder content (use <code>ls</code>), it should contain the following items:</p>
+<ul>
+<li><code>2021-09-24_MM.nd2</code>: the imaging data in Nikon <code>.nd2</code> format</li>
+<li><code>MM_ph_config.json</code>: configuration file (only phase contrast)</li>
+<li><code>MM_UJ_config.json</code>: configuration file (including fluorescence)</li>
+<li>
+<p><code>distnet_model_MM_UJ</code> folder, containing the pre-trained DL model</p>
+</li>
+<li>
+<p>After checking, remove the zip file using <code>rm RawData.zip</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="create-experiment-in-bacmman">Create experiment in Bacmman</h2>
+<h3 id="open-bacmman">Open Bacmman</h3>
+<ul>
+<li>Open Fiji</li>
+<li>Go to Plugins -&gt; Bacmman -&gt; Bacteria in Mother Machine Analyzer</li>
+</ul>
+<h3 id="set-working-directory">Set working directory</h3>
+<p>When using Bacmman for the first time choose a working directory.</p>
+<ul>
+<li>Right-click on the panel below <code>Working Directory</code> and select <code>Choose Local Folder</code></li>
+<li>Select the <code>~/I2ICourse/Project2C/</code> folder</li>
+</ul>
+<h3 id="create-new-data-set">Create new data set</h3>
+<ul>
+<li>Click on <code>Dataset</code> menu and select <code>New Dataset from Template</code></li>
+<li>Select the template file located in <code>~/I2ICourse/Project2C/MM_ph_config.json</code></li>
+<li>When asked give the dataset the name <code>MM_test</code></li>
+<li>Note: after re-opening Bacmann you can re-open the dataset by double clicking on its name in the Dataset field</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_NewDataSet.png" /></p>
+<h3 id="add-image-data">Add image data</h3>
+<ul>
+<li>Go to <code>Home</code> tab</li>
+<li>Right click in Positions fields and select <code>Import/re-link images</code></li>
+<li>In the popup window select the <code>~/I2ICourse/Project2C/2021-09-24_MM.nd2</code> file</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_LinkImages.png" /></p>
+<p>You should now see a list of positions (only 1 in this case).<br />
+You can inspect the data by right clicking on an image and select <code>Open Input images</code>.</p>
+<p><img alt="" src="../../assets/images/project2/2C_OpenImages.png" /></p>
+<hr />
+<h2 id="adapt-configuration-file">Adapt configuration file</h2>
+<h3 id="set-time-interval">Set time-interval</h3>
+<ul>
+<li>Go to the <code>Configuration</code> tab</li>
+<li>Expand the <code>Pre-Processing Template</code></li>
+<li>Go to <code>Time Step</code> and set to 10 (right click on value to change it). This is the time-interval, in minutes, between frames.</li>
+<li>Click on <code>Dataset</code> menu and select <code>Save configuration changes</code> to save changes</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_TimeStep.png" /></p>
+<h3 id="load-model-weights-of-deep-learning-network">Load model weights of Deep-learning network</h3>
+<p>As DiSTNet is a deep-learning based method, it requires trained weights of the model.<br />
+Here we use a refined model that was trained specifically for <em>Pseudomonas</em>.</p>
+<ul>
+<li>Go to the <code>Configuration</code> tab</li>
+<li>Expand <code>Object Classes</code></li>
+<li>Expand <code>BacteriaDL</code></li>
+<li>Expand <code>Processing Pipeline: SegmentAndTrack</code></li>
+<li>Expand <code>Tracker: Distnet</code></li>
+<li>Expand <code>Model: TF2engine</code></li>
+<li>Expand <code>Tenserflow model</code></li>
+<li>Right click on <code>Model file</code> in the popup window select the <code>distnet_model_MM_UI</code> folder and click <code>Open</code></li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_SelectModel.png" /></p>
+<h3 id="aside-download-default-model-for-e-coli">Aside: download default model for E. coli</h3>
+<p><strong>Do not do this step now</strong> we use the model selected above.</p>
+<p>If you do not work with <em>Pseudomonas</em>, it is best to use the default DiSTNet model weights. You can download them directly from within Bacmman.</p>
+<ul>
+<li>Follow the steps above until you get to <code>Tenserflow model file</code></li>
+<li>Now right click on <code>Tenserflow model file</code> and select <code>Configure from library</code></li>
+<li>In the popup window, select <code>DistNet_base_tf2</code> and select <code>Configure Parameter</code></li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_DownloadModel.png" /></p>
+<hr />
+<h2 id="define-and-run-pre-processing-pipeline">Define and run Pre-processing pipeline</h2>
+<h3 id="preprocessing-steps">Preprocessing steps</h3>
+<p>Bacmman needs to do some pre-processing before the Distnet algorithm can segment cells. Specifically:</p>
+<ul>
+<li>Images should be cropped to only contain channels</li>
+<li>Images should be rotated if needed such that channels are vertically aligned</li>
+<li>Images should be flipped if needed such that channels points down</li>
+</ul>
+<p>Bacmman provides automated algorithms to do this, these can be adapted to fit your images.
+Unfortunately this does not always work, at the end of this document we give some hints on how to optimize settings.</p>
+<h3 id="test-automated-pre-processing-pipeline">Test automated pre-processing pipeline</h3>
+<ul>
+<li>Go to Configuration Test Tab</li>
+<li>In <code>Step</code> select <code>Pre-Processing</code></li>
+<li>For speed lets only test a few frames: right click on <code>Frame Range</code> and set range from 0 to 0.</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_SetFrames.png" /></p>
+<p>Let&rsquo;s try the <code>CropMicroChannelsPhase2D</code> step that crops the microchannels.</p>
+<ul>
+<li>Right click on this step and select <code>Test Transformation</code></li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_TestAutoCrop.png" /></p>
+<p>You can see there is a lot of space at the top. We can reduce this a bit, keeping a margin of ~50 pixel.</p>
+<ul>
+<li>Now try to find settings that do this. <strong>Important spend max 5min on this!</strong></li>
+<li>Hint: click the arrows to expand the <code>CropMicroChannelsPhase2D</code> step to see all settings, right click on any number or text to change it.</li>
+<li>Hint: see what effect changing <code>Upper end Y-margin</code> has</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_ChangeYMargin.png" /></p>
+<p>Ok, hopefully you found settings that worked well, for us <code>Upper end Y-margin=-300</code> and <code>Lower end Y-margin=160</code> worked well.</p>
+<ul>
+<li>Once you are happy with the settings you can save them via <code>Save Configuration Changes</code> in the <code>Dataset</code> menu</li>
+<li>You can also copy changes in the configuration to other positions by clicking on <code>Copy to all position</code> and you can add it to the template by clicking on <code>copy to template</code>. <strong>Important</strong> do not use these options after setting positions specific parameters (such as manual crop or flip transformations)!</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_JenalSettings.png" /></p>
+<h3 id="run-pre-processing-pipeline">Run pre-processing pipeline</h3>
+<p>Now we can run the pre-processing pipeline:</p>
+<ul>
+<li>Go to the <code>Home</code> tab</li>
+<li>In the <code>Positions</code> field select all positions</li>
+<li>In the <code>Tasks</code> field select <code>Pre-Processing</code></li>
+<li>In menubar go to <code>Run</code> and select <code>Run Selected Tasks</code></li>
+<li>This step can take several minutes</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_Preprocess.png" /></p>
+<p>To visualize the pre-processed images right-click on the position and choose <code>Open Pre-Processed Images</code>. Make sure that the cropping worked well for all frames.</p>
+<p><img alt="" src="../../assets/images/project2/2C_OpenPreproc.png" /></p>
+<hr />
+<h2 id="run-tracking-and-segmentation">Run tracking and segmentation</h2>
+<p>Now we can segment and track the cells:</p>
+<ul>
+<li>Go  to the <code>Home</code> tab</li>
+<li>In the <code>Positions</code> field select all positions</li>
+<li>In the <code>Tasks</code> field select <code>Segmentat and Track</code></li>
+<li>In menubar go to <code>Run</code> and select <code>Run Selected Tasks</code></li>
+<li>This step can take several minutes up to even an hour depending on your computers speed, ideally you run this step during a break, but if this is impossible, please check with the Tutors on how best to spend your time while you wait.</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_RunProcess.png" /></p>
+<hr />
+<h2 id="inspect-segmentation-and-tracking-results">Inspect segmentation and tracking results</h2>
+<p>Now we can check the results of the segmenting and tracking.</p>
+<h3 id="check-micro-channel-segmentation-and-tracking">Check micro-channel segmentation and tracking</h3>
+<p>To visualize the result of microchannel segmentation and tracking:</p>
+<ul>
+<li>Go to the <code>Data Browsing</code> tab</li>
+<li>Right-click on the position and choose <code>Open Hyperstack &gt; Microchannels</code></li>
+</ul>
+<p><img alt="" src="https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/6_open_mc_hyperstack.png" /></p>
+<p><img alt="" src="https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/6_mc_hyperstack.png" /></p>
+<p>The pre-processed images will open as a interactive hyperstack (multi-channel &amp; multi-frames image stack), on which microchannels can be selected.</p>
+<ul>
+<li>To display all segmented microchannels object use the shortcut <code>crtl + A</code></li>
+<li>To display all microchannels tracks use the shortcut <code>crtl + Q</code>. Tracks will be displayed as colored contours, each color corresponding to one track.</li>
+<li>Note that the shortcut are available from the menu <code>Help &gt; Display Shortcut table</code> and that a shortcut preset adapted for QWERTY keyboards can be chosen from the menu <code>Help &gt; Shortcut Presets</code></li>
+</ul>
+<h3 id="check-bacterial-segmentation-and-tracking">Check bacterial segmentation and tracking</h3>
+<p>To visualize the result of bacterial segmentation and tracking:</p>
+<ul>
+<li>Go to the <code>Data Browsing</code> tab</li>
+<li>Right-click on the position and choose <code>Open Hyperstack &gt; Bacteria</code></li>
+</ul>
+<p>The pre-processed images will open as a interactive hyperstack (multi-channel &amp; multi-frames image stack), on which bacteria can be selected.</p>
+<ul>
+<li>To display all segmented bacteria object use the shortcut <code>crtl + A</code></li>
+<li>To display all bacteria tracks use the shortcut <code>crtl + Q</code>. Tracks will be displayed as colored contours, each color corresponding to one track.</li>
+<li>Note that the shortcut are available from the menu <code>Help &gt; Display Shortcut table</code> and that a shortcut preset adapted for QWERTY keyboards can be chosen from the menu <code>Help &gt; Shortcut Presets</code></li>
+</ul>
+<p>Another good way to visualize tracking is to use the Kymograph view:</p>
+<ul>
+<li>In the <code>Segmentation &amp; Tracking Results</code> area, click on the arrow next to <code>Position #0</code>  to expand the list of micro channels.</li>
+<li>Right-click on a micro-channel and choose <code>Open Kymograph &gt; Bacteria</code></li>
+<li>The resulting image shows a concatenation of the same micro-channel for all time points  </li>
+<li>To display all segmented bacteria object use the shortcut <code>crtl + A</code></li>
+<li>To display all bacteria tracks use the shortcut <code>crtl + Q</code>. Tracks will be displayed as colored lines connecting neighboring time points.</li>
+</ul>
+<p><img alt="" src="https://github.com/jeanollion/bacmman/wiki/resources/tuto_distnet/8_seg_track_results.png" /></p>
+<hr />
+<h2 id="extract-cell-measurements-the-data">Extract cell measurements the data</h2>
+<p>Now that we have segmented and tracked cells, we need to extract cell measurements.</p>
+<ul>
+<li>Go to the <code>Home tab</code></li>
+<li>In the <code>Objects</code> field select <code>BacteriaDL</code></li>
+<li>in the <code>Tasks</code> field select <code>Measurements</code> &amp; <code>Extract Measurements</code></li>
+<li>In menubar go to <code>Run</code> and select <code>Run Selected Tasks</code></li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_ExtractMeasurement.png" /></p>
+<hr />
+<h2 id="post-process-with-python-personal-computer">Post-process with Python - Personal Computer</h2>
+<p>Follow these instruction if you run the python code locally (see below for instructions on how to run it on the cloud computer)</p>
+<h3 id="download-the-full-dataset">Download the full dataset</h3>
+<p>In the second notebook, we will analyze the full dataset that we prepared before the start of the code.<br />
+Here we download this dataset</p>
+<ul>
+<li>Navigate to the project folder and download the data using <code>wget</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/I2ICourse/Project2C
+wget -O cell_data_all.csv https://drive.switch.ch/index.php/s/DiXnrjTmySyXYzl/download
+ls 
+</code></pre></div>
+<p>You now should have the <code>cell_data_all.csv</code> file in your project folder.</p>
+<h3 id="launch-jupyter-labs">Launch Jupyter Labs</h3>
+<ul>
+<li>Navigate to the project folder, activate the conda environment, and launch Jupyter Labs:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/I2ICourse/
+conda activate i2i_env
+jupyter lab
+</code></pre></div>
+<ul>
+<li>In Jupyter Labs, navigate to <code>spring_school_bioinformatics_microbiology/projects/project2/Project2A/</code></li>
+<li>Then open the <code>0_postprocess_bacmman.ipynb</code> notebook</li>
+<li>Now run the notebook, see here for <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html">instructions on Jupyter Labs</a> and follow the instructions in the notebook.</li>
+</ul>
+<hr />
+<h2 id="post-process-with-python-cloud-computer">Post-process with Python - Cloud Computer</h2>
+<p>Follow these instructions if you are using the cloud computer to run Python.</p>
+<h3 id="export-data-on-local-computer">Export Data on local computer</h3>
+<p>For the next steps we will switch to the cloud computers, but before that we need to transfer the data-file we just created:</p>
+<ul>
+<li>On your local computer locate the <code>.csv</code> file created by Bacmman, you can find it in: <code>~/I2Icourse/MM_test/MM_test.csv</code></li>
+<li>Upload this file to a cloud drive</li>
+<li>Create a public share link and copy the address</li>
+</ul>
+<h3 id="download-data-on-cloud-computer">Download data on cloud computer</h3>
+<p><strong>Now login to the cloud computer. Reminder: on the cloud computer we need to store all data in the <code>~/workdir/</code> folder or sub-folders of this, to make sure that files remain available after restarting the instance.</strong></p>
+<ul>
+<li>On the cloud computer, navigate to the <code>workdir</code> folder and create a <code>Project2C</code> subfolder:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workdir/
+mkdir Project2C
+</code></pre></div>
+<p>Now we download the data file we just uploaded to the cloud:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> Project2C
+curl -o MM_test_1.csv public_link_to_your_zip_file
+</code></pre></div>
+<h3 id="download-the-full-dataset_1">Download the full dataset</h3>
+<p>In the second notebook, we will analyze the full dataset that we prepared before the start of the code.<br />
+Here we download this dataset</p>
+<ul>
+<li>On the cloud computer navigate to the project folder and download the data using <code>wget</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workdir/Project2C
+curl -o cell_data_all.csv https://drive.switch.ch/index.php/s/DiXnrjTmySyXYzl/download
+ls 
+</code></pre></div>
+<p>You now should have the <code>cell_data_all.csv</code> file in your project folder.</p>
+<h3 id="launch-jupyter-labs_1">Launch Jupyter Labs</h3>
+<ul>
+<li>On the cloud computer navigate to the <code>~/workdir/</code> folder, activate the conda environment, and launch Jupyter Labs:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~/workdir/
+conda activate project2
+jupyter lab
+</code></pre></div>
+<ul>
+<li>
+<p>In Jupyter Labs, navigate to <code>spring_school_bioinformatics_microbiology/projects/project2/Project2C/</code></p>
+</li>
+<li>
+<p>Then open the <code>0_postprocess_bacmman.ipynb</code> notebook and follow the instructions there.</p>
+</li>
+</ul>
+<hr />
+<h2 id="additional-information-adapting-pre-processing-configurations">Additional Information - Adapting pre-processing configurations</h2>
+<p><strong>Do not do read this now, this is additional information for when you want to use Bacmman with your own data later on</strong><br />
+One of the hardest parts of setting up Bacmman is to find a pre-processing configurations that works well.
+Here we give some details on how to adapt the configuration to your data.  </p>
+<h3 id="optimize-pre-processing-pipeline">Optimize pre-processing pipeline</h3>
+<ul>
+<li>Go to Configuration Test Tab</li>
+<li>In <code>Step</code> select <code>Pre-Processing</code></li>
+<li>For speed lets only test a few frames: right click on <code>Frame Range</code> and set range from 0 to 5 (you can reduce this further if needed)</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_SetFrames.png" /></p>
+<ul>
+<li>To test a step, simply right-click on it and select select <code>Test Transformation</code></li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_TestFlip.png" /></p>
+<p>This will run all transformation up-to and including the selected step and will show you the result.</p>
+<ul>
+<li>Check the result and change the transformation parameters if needed</li>
+<li>Note: you can right click on almost anything in Bacmmann to see and change settings.</li>
+<li>Note: sometimes you have to put in numbers that don&rsquo;t make sense, e.g. to make the AutoFlipY work you might have to set the micro-channel height to a value that is completely different from the actual micro-channel height</li>
+</ul>
+<p>It can be hard to find good settings, and some pre-processing might need to be done by hand. To remove an automated step, right click on it and select <code>remove</code>.</p>
+<p><img alt="" src="../../assets/images/project2/2C_RemoveFlip.png" /></p>
+<p>You can also add new modules. In the top right list are all Available Modules. To add one, right click on <code>Pre-Processing Pipeline</code>, this adds a new Transformation. Select this one, and then click on the desired module in the <code>Available Modules</code> list.</p>
+<p><img alt="" src="../../assets/images/project2/2C_AddStep.png" /></p>
+<h3 id="manual-pre-processing-steps">Manual pre-processing steps</h3>
+<p>Sometimes finding automatic settings might be too hard, in that case you can then use manual cropping and flipping as shown in this screen shot:</p>
+<p><img alt="" src="../../assets/images/project2/2C_ManualFlip.png" /></p>
+<ul>
+<li>With the simple crop option, you need to set the crop box manually for each position.</li>
+<li>Important: for channels that point up, first add a <code>Flip</code> step. This should be done before the crop (see screenshot above).</li>
+<li>Note: to set the crop-box, first test the SimpleCrop with the default settings, this opens the image without cropping. Now you can draw a bounding box around the channels. Make sure to exclude the exits of the channels where there is a strong phase artifact, at the top keep a bit of space (10-20 pixels) to accommodate stage jitter (see screenshot). Also make sure that the crop works for all frames (adapt frame range to include all frames).</li>
+<li>Write down the crop-box size and location and enter the numbers in the settings.Keep the full width of the image (do not change x-settings) and only change the y-values (see screenshot)</li>
+<li>Repeat this for all positions.</li>
+</ul>
+<p><img alt="" src="../../assets/images/project2/2C_CropBox.png" /></p>
+<p><img alt="" src="../../assets/images/project2/2C_CropSettings.png" /></p>
+<h3 id="pre-processing-outside-of-bacmman">Pre-processing outside of Bacmman</h3>
+<p>Sometime it is also just easier to do some pre-processing before importing data into Bacmman. For example, in case a certain image region (such as channel numbering) interferes with automated cropping, you can first crop the images manually to remove this area (see the Project 2A part for how to crop) and then use the automated cropping on these pre-processed images.  </p>
+<h3 id="storing-configuration">Storing configuration</h3>
+<ul>
+<li>You can copy changes in the configuration to other positions by clicking on <code>Copy to all position</code> and you can add it to the template by clicking on <code>copy to template</code>. <strong>Important</strong> do not use these options after setting positions specific parameters (such as manual crop or flip transformations)!</li>
+<li>Save the configuration via the <code>Dataset</code> menu</li>
+</ul>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Project-2B/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Project 2B" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Project 2B
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../project3/" class="md-footer__link md-footer__link--next" aria-label="Next: Description" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Description
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

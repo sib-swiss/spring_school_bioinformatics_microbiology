@@ -1,0 +1,1132 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/bacteria.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Step 1 - Bioinformatics and computational approaches in Microbiology</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#step-1-taxonomic-profiling-of-metagenomic-samples-with-motus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-header__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bioinformatics and computational approaches in Microbiology
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Step 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-nav__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    Bioinformatics and computational approaches in Microbiology
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../precourse/" class="md-nav__link">
+        Precourse preparations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course_schedule/" class="md-nav__link">
+        Course schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Project 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Project 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/timeline/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Project 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Project 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project2_Preparation/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project2_Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project-2A/" class="md-nav__link">
+        Project 2A
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project-2B/" class="md-nav__link">
+        Project 2B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/project-2C/" class="md-nav__link">
+        Project 2C
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project2_Resources" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Project 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Project 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prepare-before-start-of-the-course/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Remote-environment/" class="md-nav__link">
+        Remote Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Step 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Step 1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-example-sequencing-data" class="md-nav__link">
+    Download example sequencing data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-quality-of-the-sequencing-data" class="md-nav__link">
+    Check the quality of the sequencing data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-and-trim-reads" class="md-nav__link">
+    Filter and trim reads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomic-profiling-with-motus" class="md-nav__link">
+    Taxonomic profiling with mOTUs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomic-profiling-with-mapseq" class="md-nav__link">
+    Taxonomic profiling with MAPseq
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-human-gut-taxonomic-profiles" class="md-nav__link">
+    Explore human gut taxonomic profiles
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Step-1-sol/" class="md-nav__link">
+        Step 1 solution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Step-2/" class="md-nav__link">
+        Step 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Step-2-sol/" class="md-nav__link">
+        Step 2 solutions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Project 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Project 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4a/" class="md-nav__link">
+        Project 4A
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4b/" class="md-nav__link">
+        Project 4B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/timeline/" class="md-nav__link">
+        Project timeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-example-sequencing-data" class="md-nav__link">
+    Download example sequencing data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-quality-of-the-sequencing-data" class="md-nav__link">
+    Check the quality of the sequencing data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-and-trim-reads" class="md-nav__link">
+    Filter and trim reads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomic-profiling-with-motus" class="md-nav__link">
+    Taxonomic profiling with mOTUs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taxonomic-profiling-with-mapseq" class="md-nav__link">
+    Taxonomic profiling with MAPseq
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-human-gut-taxonomic-profiles" class="md-nav__link">
+    Explore human gut taxonomic profiles
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/edit/master/docs/project3/Step-1.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="step-1-taxonomic-profiling-of-metagenomic-samples-with-motus">Step 1: Taxonomic profiling of metagenomic samples with mOTUs</h1>
+<p>General note: this guide has been written assuming you use a Mac or Linux Command Line.</p>
+<p>The presentation can be found <a href="../../assets/presentations/project3/P3_Taxonomic_Profiling.pdf">here</a>.</p>
+<hr />
+<h2 id="download-example-sequencing-data">Download example sequencing data</h2>
+<p>During sequencing, the nucleotide bases in a DNA sample (library) are determined by the sequencer. For each fragment in the library, a sequence is generated, also called a read, which is simply a succession of nucleotides.
+Sequencing data produced by a short read sequencer like Illumina HiSeq result in two fastq files: forward and reverse. You can download three example fastq files at the following links (within a terminal):</p>
+<div class="highlight"><pre><span></span><code>wget https://zenodo.org/record/6517497/files/sampleA_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleA_2.fastq
+
+wget https://zenodo.org/record/6517497/files/sampleB_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleB_2.fastq
+
+wget https://zenodo.org/record/6517497/files/sampleC_1.fastq
+wget https://zenodo.org/record/6517497/files/sampleC_2.fastq
+</code></pre></div>
+<p>Note that if you are using macOS, you need to use <code>curl</code>:
+<div class="highlight"><pre><span></span><code>curl &lt;link&gt; -o &lt;file name&gt;
+</code></pre></div></p>
+<p>Example:
+<div class="highlight"><pre><span></span><code>curl https://zenodo.org/record/6517497/files/sampleA_1.fastq -o sampleA_1.fastq
+</code></pre></div></p>
+<hr />
+<p>When we work with metagenomic data we usually have two fastq files produced by
+the Illumina sequencer:
+- a file containing the forward reads
+- a file containing the reverse reads</p>
+<p>Usually the prefix of the file name is the same, and we have <code>_1_</code> for the file
+with forward reads and <code>_2_</code> for the file with reverse reads, example:
+<div class="highlight"><pre><span></span><code>HYG3LBGXC_261_1_19s00-sample119s004346_1_sequence.fq.gz
+HYG3LBGXC_261_1_19s00-sample119s004346_2_sequence.fq.gz
+</code></pre></div></p>
+<p>A fastq file contains 4 lines for each read, with the following information:</p>
+<ol>
+<li>A line starting with <code>@</code> and the read id</li>
+<li>The DNA sequence</li>
+<li>A line starting with <code>+</code> and sometimes the same information as in line 1</li>
+<li>A string of characters that represents the quality score (same number of characters as in line 2)</li>
+</ol>
+<p>We can have a look at the first read (4 lines) with:</p>
+<p><code>head -n 4 sampleA_1.fastq</code>
+<div class="highlight"><pre><span></span><code>@read98
+CATCGACGACCTGGACGACCTGGACTTCATCGAGCGGGTGAAGATCCAGCAGAAGAACTGGATCGGCCGCTCCACCGGTGCCGAGGTCACCTTCAAGGCC
++
+BBBFFFFFFFFFFBBFFFFIIFFFIIIIIIIIFBFIIFFFFFFFBBBFFFFBBFFFFFBBFFFBBBFBBBBFBBFBFFBBFFF0&lt;B7BBFBB&lt;BBFBBBF
+</code></pre></div></p>
+<p>Each character in the fourth line can be converted to a quality score (<a href="https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm">Phred-33</a>) from 1 to 40:
+<div class="highlight"><pre><span></span><code>     Character: !&quot;#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHI
+                |         |         |         |         |
+ Quality score: 0........10........20........30........40 
+</code></pre></div></p>
+<p>And, for each quality score there is an associated probability for correctly calling a base:</p>
+<table>
+<thead>
+<tr>
+<th>Quality Score</th>
+<th>Probability of incorrect base call</th>
+<th>Base call accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>1 in 10</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1 in 100</td>
+<td>99%</td>
+</tr>
+<tr>
+<td>30</td>
+<td>1 in 1000</td>
+<td>99.9%</td>
+</tr>
+<tr>
+<td>40</td>
+<td>1 in 10,000</td>
+<td>99.99%</td>
+</tr>
+</tbody>
+</table>
+<p>Explore the files, in particular you can check:</p>
+<ul>
+<li>How many reads there are per sample?</li>
+<li>What is the average length of the reads? Is there a difference between the read lengths in the forward and reverse files?</li>
+<li>Do you have the same read IDs in the forward and reverse file? </li>
+</ul>
+<h2 id="check-the-quality-of-the-sequencing-data">Check the quality of the sequencing data</h2>
+<p>Modern sequencing technologies can generate a massive number of sequence reads in a single experiment. However, no sequencing technology is perfect, and each instrument will generate different types and amount of errors, such as incorrect nucleotides being called. These wrongly called bases are due to the technical limitations of each sequencing platform.</p>
+<p>Therefore, it is necessary to understand, identify and exclude error-types that may impact the interpretation of downstream analysis. Sequence quality control is therefore an essential first step in your analysis. Catching errors early saves time later on.</p>
+<p>You can evaluate the quality of fastq files with fastQC. For example run:</p>
+<div class="highlight"><pre><span></span><code>fastqc sampleA_1.fastq
+</code></pre></div>
+<p>Which will produce an html file. You can find more information on the different panels here: <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">link</a></p>
+<ul>
+<li>Which part of the reads is of lower quality?</li>
+<li>Is there any difference between forward or reverse?</li>
+</ul>
+<h2 id="filter-and-trim-reads">Filter and trim reads</h2>
+<p>The quality drops in the ends of the sequences we analysed. This could cause bias in downstream analyses with these potentially incorrectly called nucleotides. Sequences must be treated to reduce bias in downstream analysis. Trimming can help to increase the number of reads the aligner or assembler are able to succesfully use, reducing the number of reads that are unmapped or unassembled. In general, quality treatments include:</p>
+<ol>
+<li>Trimming/cutting: 
+   - from low quality score regions
+   - beginning/end of sequence
+   - removing adapters</li>
+<li>Filtering of sequences
+   - with low mean quality score
+   - too short
+   - with too many ambiguous (N) bases</li>
+</ol>
+<p>To accomplish this task we will use <a href="http://www.usadellab.org/cms/?page=trimmomatic">trimmomatic</a>, a tool that enhances sequence quality by automating adapter trimming as well as quality control. Check <a href="http://www.usadellab.org/cms/?page=trimmomatic">their website</a> to get more information on how to run the tool.</p>
+<p>Note that if you installed trimmomatic with conda, you can run with <code>trimmomatic PE [...]</code> (do not need to specify <code>java -jar trimmomatic-0.39.jar PE [...]</code>).</p>
+<ul>
+<li>Try to run trimmomatic (you can use different parameters).</li>
+<li>How many files did trimmomatic generate? What do they contain?</li>
+<li>How many reads have been filtered out?</li>
+<li>Check the quality of the filtered reads, did the quality improve?</li>
+</ul>
+<h2 id="taxonomic-profiling-with-motus">Taxonomic profiling with mOTUs</h2>
+<p>The majority of microbiome studies rely on an accurate identification of the microbes and quantification their abundance in the sample under study, a process called taxonomic profiling.</p>
+<p>We would like to save the profile in a file like:
+<div class="highlight"><pre><span></span><code>Bacteroides_vulgatus    0.34
+Prevotella_copri        0.16
+Eubacterium_rectale     0.10
+...
+</code></pre></div></p>
+<p>Where the first column contain the name of the species and the second column contain the relative abundance.</p>
+<p>And, if we pull together many samples, in a table like:
+<div class="highlight"><pre><span></span><code>                        sample_1  sample_2
+Bacteroides_vulgatus        0.34      0.01
+Prevotella_copri            0.16      0.42
+Eubacterium_rectale         0.10      0.00
+...                          ...       ...
+</code></pre></div></p>
+<p>We will use <a href="https://github.com/motu-tool/mOTUs">mOTUs</a> to create taxonomic profiles of metagenomic samples.
+More information can be found also in <a href="https://currentprotocols.onlinelibrary.wiley.com/doi/full/10.1002/cpz1.218">this protocol paper</a>.</p>
+<ul>
+<li>Use <code>motus</code> (manual: <a href="https://github.com/motu-tool/mOTUs_v2#simple-examples">link</a>) to create a profile from the files created by trimmomatic.</li>
+<li>How many species are detected? How many are reference species and how many are unknown species?</li>
+<li>Can you change some parameters in <code>motus</code> to profile more or less species? (Hint, look <a href="https://github.com/motu-tool/mOTUs/wiki/Increase-precision-or-recall">here</a>)</li>
+<li>How can you merge different motus profiles into one file? Try to profile and then merge three profiles (Sample A, B and C).</li>
+</ul>
+<h2 id="taxonomic-profiling-with-mapseq">Taxonomic profiling with MAPseq</h2>
+<p>There are other taxonomic profiling tools that you can use, one that is already available in the virtual machine is <a href="https://github.com/jfmrod/MAPseq">MAPseq</a>.</p>
+<ul>
+<li>Try to profile the three samples with MAPseq. (Note that MAPseq need a single fasta file as input for each sample, instead of fastq files. You can combinee the forward and reverse fastq files after quality filtering with cat and then convert it into a fasta file.)</li>
+<li>Files can be converted from fastq format to fasta in multiple ways. For our purpose with a small number of samples it is sufficiently fast to use awk to filter out the first and second lines of each read (4 lines in total). In order to concatenate and convert your files, use the following command within your terminal:
+<div class="highlight"><pre><span></span><code>cat sampleA_filtered_P1.fastq sampleA_filtered_P2.fastq &gt; sampleA_filtered.fastq
+cat sampleA_filtered.fastq <span class="p">|</span> awk <span class="s1">&#39;{if(NR%4==1) {printf(&quot;&gt;%s\n&quot;,substr($0,2));} else if(NR%4==2) print;}&#39;</span> &gt; sampleA.fasta
+</code></pre></div></li>
+<li>By default, mapseq uses a databases which contains both the NCBI Taxonomy as well as internal, hierarchichal OTU ID&rsquo;s. Thus, your result will contain counts mapped to both of the different taxonomies, as well as different taxonbomic levels. The output should be saved into a .mseq file, which can be investigated by using the -otucounts flag. Here you can see all different taxonomy counts and taxonomic levels printed out after one another. On the leftmost column, you will first see the database used (0 for NCBI or 1 for internal OTUs), and in the second column the taxonomic resultion ( from 1 to 6).
+<div class="highlight"><pre><span></span><code>mapseq sample.fasta &gt; sample.mseq
+mapseq -otucounts sample.mseq
+</code></pre></div></li>
+<li>While running mapseq, you may encounter the following error: !! Mon May  2 14:24:17 2022 [] mapseq.cpp:3614 void load_taxa(const estr&amp;, eseqdb&amp;): loading taxonomy, 14922 sequences not found in sequence database </li>
+</ul>
+<p>This is due to some chimeras that were filtered out recently, you can ignore the message.</p>
+<ul>
+<li>Similar as with mOTUs, first create a profile for each sample (A,B, and C) and then merge them into one (Check the <a href="https://github.com/jfmrod/MAPseq">githube page</a> for the command).</li>
+<li>You have two main different parameters when creating the otutables, with which you can create the taxonomy and taxonomic resolution used in the resulting otutable: </li>
+<li>-ti indicates which taxonomony you will use, 0 is for the NCBI Taxonomy, 1 for the mapseq-OTUs.</li>
+<li>-tl tells the program which taxonomic level to use. The higher the number, the more fine scale your resolution will become. For example, to get the 97% level OTUs (Gold standard in 16S), use the parameters 
+<div class="highlight"><pre><span></span><code>-ti <span class="m">1</span> -tl <span class="m">3</span>
+</code></pre></div>
+You can try to play around with the parameters and observe the number of mapped reads, found species etc. in different taxonomies and taxonomic levels. If you use mapseq-OTUs, you can look them up in the interactive webinterface <a href="https://microbeatlas.org">microbeatlas</a>, by searching for the respective identifier in the taxa tab (e.g. 97_3).</li>
+<li>(Optional): Can you compare mOTUs and MAPseq profiles?</li>
+</ul>
+<h2 id="explore-human-gut-taxonomic-profiles">Explore human gut taxonomic profiles</h2>
+<p>Metagenomics enables the study of species abundances in complex mixtures of microorganisms and has become a standard methodology for the analysis of the human microbiome. However, species abundance data is inherently noisy and contains high levels of biological and technical variability as well as an excess of zeros due to non-detected species. This makes the statistical analysis challenging. Before moving to the next step, you will examine the properties of microbiome datasets.</p>
+<p>We will switch now to R to examine 496 human gut taxonomic profiles, from 124 patients (each measure 4 times over a period of 1 year). You can load the data within R with the command:
+<div class="highlight"><pre><span></span><code><span class="nf">load</span><span class="p">(</span><span class="nf">url</span><span class="p">(</span><span class="s">&quot;https://zenodo.org/record/6517497/files/human_microbiome_dataset.Rdata&quot;</span><span class="p">))</span>
+</code></pre></div></p>
+<p>Explore the taxonomic profiles (<code>tax_profile</code>), here are some hints of what you can check:</p>
+<ul>
+<li>How many reads there are per sample?</li>
+<li>If you want to compare different samples, is it a problem that there are different read counts? Try to divide each value within a sample by the sum of the reads in that sample to normalise the data (also called relative abundance).</li>
+<li>Which genera is the most and least prevalent?</li>
+<li>Is the relative abundance of the different genera normally distributed?</li>
+<li>How many zeros there are per sample and per genus?</li>
+<li>How much variability there is within Subject (check the <code>metadata</code> table), compare to between subjects? Or from another perspective, how stable it is the human gut microbiome?</li>
+</ul>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Step-1-sol/" class="md-footer__link md-footer__link--next" aria-label="Next: Step 1 solution" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Step 1 solution
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

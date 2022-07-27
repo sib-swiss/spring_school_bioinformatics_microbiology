@@ -1,0 +1,1181 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/bacteria.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Step 2 solutions - Bioinformatics and computational approaches in Microbiology</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#solution-step-2-comparative-metagenome-analysis-with-siamcat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-header__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bioinformatics and computational approaches in Microbiology
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Step 2 solutions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Bioinformatics and computational approaches in Microbiology" class="md-nav__button md-logo" aria-label="Bioinformatics and computational approaches in Microbiology" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16c0-.5-.05-.92-.12-1.32l1.57-.78-.9-1.8-1.37.69c-.55-.83-1.27-1.29-1.89-1.51l.66-1.96-1.9-.64-.76 2.28c-1.33-.13-2.12-.64-2.59-1.19l1.75-.87-.9-1.8-1.55.79a4.39 4.39 0 0 0-.72-2.02l1.55-2.32-1.66-1.11-1.41 2.12c-.48-.23-1.06-.41-1.76-.5V2H7v2.1c-.71.15-1.27.44-1.68.81L2.7 2.29 1.29 3.71l2.95 2.94C4 7.39 4 8 4 8H2v2h2.04c.06.63.17 1.36.36 2.15l-2.72.9.63 1.9 2.69-.9c.24.51.5 1.03.82 1.53l-2.38 1.59 1.11 1.66 2.52-1.68c.56.56 1.22 1.06 1.99 1.49l-.96 1.91 1.79.9 1-2-.16-.09c.95.32 2.03.54 3.27.61V22h2v-2.07c.76-.09 1.81-.29 2.77-.74l1.52 1.52 1.41-1.42-1.33-1.34c.38-.51.63-1.15.63-1.95M8.5 11A1.5 1.5 0 0 1 7 9.5 1.5 1.5 0 0 1 8.5 8 1.5 1.5 0 0 1 10 9.5 1.5 1.5 0 0 1 8.5 11m2.5 3a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1m4.5 3a1.5 1.5 0 0 1-1.5-1.5 1.5 1.5 0 0 1 1.5-1.5 1.5 1.5 0 0 1 1.5 1.5 1.5 1.5 0 0 1-1.5 1.5Z"/></svg>
+
+    </a>
+    Bioinformatics and computational approaches in Microbiology
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sib-swiss/spring_school_bioinformatics_microbiology
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../precourse/" class="md-nav__link">
+        Precourse preparations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course_schedule/" class="md-nav__link">
+        Course schedule
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Project 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 1" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Project 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/timeline/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project1/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Project 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 2" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Project 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project2_Preparation/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project2_Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project-2A/" class="md-nav__link">
+        Project 2A
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project-2B/" class="md-nav__link">
+        Project 2B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/project-2C/" class="md-nav__link">
+        Project 2C
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project2/Project2_Resources" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Project 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Project 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prepare-before-start-of-the-course/" class="md-nav__link">
+        Preparation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Remote-environment/" class="md-nav__link">
+        Remote Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Step-1/" class="md-nav__link">
+        Step 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Step-1-sol/" class="md-nav__link">
+        Step 1 solution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Step-2/" class="md-nav__link">
+        Step 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Step 2 solutions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Step 2 solutions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-the-taxonomic-profiles-and-metadata" class="md-nav__link">
+    Download the taxonomic profiles and metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify-which-species-show-an-association-to-colorectal-cancer-patients" class="md-nav__link">
+    Identify which species show an association to colorectal cancer patients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-machine-learning-models-to-predict-colorectal-cancer-patients-from-a-metagenomic-sample" class="md-nav__link">
+    Build machine learning models to predict colorectal cancer patients from a metagenomic sample
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-on-external-data" class="md-nav__link">
+    Prediction on External Data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Project 4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project 4" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Project 4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/" class="md-nav__link">
+        Description
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4a/" class="md-nav__link">
+        Project 4A
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/project4b/" class="md-nav__link">
+        Project 4B
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/software/" class="md-nav__link">
+        Software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project4/timeline/" class="md-nav__link">
+        Project timeline
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-the-taxonomic-profiles-and-metadata" class="md-nav__link">
+    Download the taxonomic profiles and metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identify-which-species-show-an-association-to-colorectal-cancer-patients" class="md-nav__link">
+    Identify which species show an association to colorectal cancer patients
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-machine-learning-models-to-predict-colorectal-cancer-patients-from-a-metagenomic-sample" class="md-nav__link">
+    Build machine learning models to predict colorectal cancer patients from a metagenomic sample
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-on-external-data" class="md-nav__link">
+    Prediction on External Data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/sib-swiss/spring_school_bioinformatics_microbiology/edit/master/docs/project3/Step-2-sol.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="solution-step-2-comparative-metagenome-analysis-with-siamcat">Solution Step 2: Comparative Metagenome Analysis with SIAMCAT</h1>
+<p>General note: this guide has been written assuming you use a R.</p>
+<hr />
+<h2 id="download-the-taxonomic-profiles-and-metadata">Download the taxonomic profiles and metadata</h2>
+<p>Look at the metadata, how many controls (<code>CTR</code>) and cases (<code>CRC</code> for colorectal cancer) are there?</p>
+<details>
+<summary markdown="span">Solution</summary>
+
+Load the data:
+<div class="highlight"><pre><span></span><code><span class="nf">load</span><span class="p">(</span><span class="nf">url</span><span class="p">(</span><span class="s">&quot;https://zenodo.org/record/6524317/files/motus_profiles_study1.Rdata&quot;</span><span class="p">))</span>
+</code></pre></div>
+
+We can check what there is in the metadata with:
+<div class="highlight"><pre><span></span><code><span class="nf">head</span><span class="p">(</span><span class="n">meta_study1</span><span class="p">)</span>
+</code></pre></div>
+
+There are many columns, but the one we are interesed in is "Group":
+<div class="highlight"><pre><span></span><code><span class="nf">table</span><span class="p">(</span><span class="n">meta_study1</span><span class="o">$</span><span class="n">Group</span><span class="p">)</span>
+</code></pre></div>
+Which results in:
+<div class="highlight"><pre><span></span><code>CRC CTR 
+ 46  60 
+</code></pre></div>
+
+There are 46 profiles from diseased patients (CRC) and 60 profiles from healthy individuals.
+
+We can check if there is an overall trend in the profiles looking at a PCA plot:
+<div class="highlight"><pre><span></span><code><span class="n">rel_ab</span> <span class="o">=</span> <span class="nf">prop.table</span><span class="p">(</span><span class="n">motus_study1</span><span class="p">)</span>
+<span class="n">log_rel_ab</span> <span class="o">=</span> <span class="nf">log10</span><span class="p">(</span><span class="n">rel_ab</span><span class="o">+</span> <span class="m">10</span><span class="o">^</span><span class="m">-4</span><span class="p">)</span>
+
+<span class="c1"># remove zero rows</span>
+<span class="n">log_rel_ab</span> <span class="o">=</span> <span class="n">log_rel_ab</span><span class="p">[</span><span class="nf">rowSums</span><span class="p">(</span><span class="n">rel_ab</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">,]</span>
+
+<span class="n">pc</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">log_rel_ab</span><span class="p">),</span>
+             <span class="n">center</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+             <span class="n">scale.</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span>
+  <span class="n">pc1</span> <span class="o">=</span> <span class="n">pc</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span>
+  <span class="n">pc2</span> <span class="o">=</span> <span class="n">pc</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span>
+  <span class="n">Group</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">meta_study1</span><span class="p">[</span><span class="nf">rownames</span><span class="p">(</span><span class="n">pc</span><span class="o">$</span><span class="n">x</span><span class="p">),</span><span class="s">&quot;Group&quot;</span><span class="p">])</span>
+<span class="p">)</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">pc1</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">pc2</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">Group</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">()</span>
+</code></pre></div>
+
+<img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_pca.png" width="500">
+
+
+Overall there is not a big shift visible from the PCA.
+
+</details>
+
+<h2 id="identify-which-species-show-an-association-to-colorectal-cancer-patients">Identify which species show an association to colorectal cancer patients</h2>
+<ul>
+<li>
+<p>Try to apply a t-test or a Wilcoxon test to your data.</p>
+<p><details>
+<summary markdown="span">Solution</summary></p>
+<p>Since we observed before that the data is not normally distributed, we can use a Wilcoxon test instead of a t-test. We can test all microbial species for statistically significant differences. In order to do so, we perform a Wilcoxon test on each individual bacterial species.
+<div class="highlight"><pre><span></span><code><span class="c1"># use the same log transformed data as before</span>
+<span class="n">rel_ab</span> <span class="o">=</span> <span class="nf">prop.table</span><span class="p">(</span><span class="n">motus_study1</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<span class="n">log_rel_ab</span> <span class="o">=</span> <span class="nf">log10</span><span class="p">(</span><span class="n">rel_ab</span><span class="o">+</span> <span class="m">10</span><span class="o">^</span><span class="m">-4</span><span class="p">)</span>
+
+<span class="c1"># remove zero rows</span>
+<span class="n">log_rel_ab</span> <span class="o">=</span> <span class="n">log_rel_ab</span><span class="p">[</span><span class="nf">rowSums</span><span class="p">(</span><span class="n">rel_ab</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">,]</span>
+
+<span class="c1"># we go through each measured species</span>
+<span class="n">p.vals</span> <span class="o">&lt;-</span> <span class="nf">rep_len</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">log_rel_ab</span><span class="p">))</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">p.vals</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">log_rel_ab</span><span class="p">)</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">log_rel_ab</span><span class="p">)){</span>
+  <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">log_rel_ab</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span>
+  <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">meta_study1</span><span class="p">[</span><span class="nf">colnames</span><span class="p">(</span><span class="n">log_rel_ab</span><span class="p">),]</span><span class="o">$</span><span class="n">Group</span>
+  <span class="n">t</span> <span class="o">&lt;-</span> <span class="nf">wilcox.test</span><span class="p">(</span><span class="n">x</span><span class="o">~</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">p.vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">t</span><span class="o">$</span><span class="n">p.value</span>
+<span class="p">}</span>
+<span class="nf">head</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">p.vals</span><span class="p">))</span>
+</code></pre></div></p>
+<p>Result:</p>
+<div class="highlight"><pre><span></span><code>                  <span class="n">Dialister</span> <span class="n">pneumosintes</span> <span class="p">[</span><span class="n">ref_mOTU_v3_03630</span><span class="p">]</span> 
+                                                <span class="m">1.277337e-07</span> 
+ <span class="n">Fusobacterium</span> <span class="n">nucleatum</span> <span class="n">subsp.</span> <span class="n">animalis</span> <span class="p">[</span><span class="n">ref_mOTU_v3_01001</span><span class="p">]</span> 
+                                                <span class="m">1.137605e-06</span> 
+           <span class="n">Olsenella</span> <span class="n">sp.</span> <span class="n">Marseille</span><span class="o">-</span><span class="n">P2300</span> <span class="p">[</span><span class="n">ref_mOTU_v3_10001</span><span class="p">]</span> 
+                                                <span class="m">2.184340e-05</span> 
+<span class="n">Fusobacterium</span> <span class="n">nucleatum</span> <span class="n">subsp.</span> <span class="n">vincentii</span> <span class="p">[</span><span class="n">ref_mOTU_v3_01002</span><span class="p">]</span> 
+                                                <span class="m">5.576030e-05</span> 
+          <span class="n">Anaerotignum</span> <span class="n">lactatifermentans</span> <span class="p">[</span><span class="n">ref_mOTU_v3_02190</span><span class="p">]</span> 
+                                                <span class="m">8.752588e-05</span> 
+<span class="n">Fusobacterium</span> <span class="n">nucleatum</span> <span class="n">subsp.</span> <span class="n">nucleatum</span> <span class="p">[</span><span class="n">ref_mOTU_v3_01003</span><span class="p">]</span> 
+                                                <span class="m">1.667614e-04</span> 
+</code></pre></div>
+<p>The species with the most significant effect seems to be <em>Dialister pneumosintes</em>, so let us take a look at the distribution of this species:</p>
+<div class="highlight"><pre><span></span><code><span class="n">species</span> <span class="o">&lt;-</span> <span class="s">&#39;Dialister pneumosintes [ref_mOTU_v3_03630]&#39;</span>
+<span class="n">df.plot</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span>
+  <span class="n">log_rel_ab</span> <span class="o">=</span> <span class="n">log_rel_ab</span><span class="p">[</span><span class="n">species</span><span class="p">,],</span>
+  <span class="n">group</span> <span class="o">=</span> <span class="n">meta_study1</span><span class="p">[</span><span class="nf">colnames</span><span class="p">(</span><span class="n">log_rel_ab</span><span class="p">),]</span><span class="o">$</span><span class="n">Group</span>
+<span class="p">)</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">df.plot</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">log_rel_ab</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_boxplot</span><span class="p">(</span><span class="n">outlier.shape</span> <span class="o">=</span> <span class="kc">NA</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_jitter</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">0.08</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;D. pneumosintes rel. ab. (log 10)&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step2_wilc_test_1.png" width="500"></p>
+<p></details> </p>
+</li>
+<li>
+<p>Try to run SIAMCAT to do association testing.
+    <details>
+    <summary markdown="span">Solution</summary></p>
+<p>We can also use the SIAMCAT R package to test for differential abundance and produce standard visualizations.
+<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="s">&quot;SIAMCAT&quot;</span><span class="p">)</span>
+</code></pre></div>
+Within SIAMCAT, the data are stored in the SIAMCAT object which contains the feature matrix, the metadata, and information about the groups you want to compare.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rel_ab</span> <span class="o">=</span> <span class="nf">prop.table</span><span class="p">(</span><span class="n">motus_study1</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">siamcat</span><span class="p">(</span><span class="n">feat</span><span class="o">=</span><span class="n">rel_ab</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta_study1</span><span class="p">,</span> 
+                  <span class="n">label</span><span class="o">=</span><span class="s">&#39;Group&#39;</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s">&#39;CRC&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>We can use SIAMCAT for feature filtering as well. Currently, the matrix of taxonomic profiles contains 33,571 different bacterial species. Of those, not all will be relevant for our question, since some are present only in a handful of samples (low prevalence) or at extremely low abundance. Therefore, it can make sense to filter your taxonomic profiles before you begin the analysis. Here, we could for example use the maximum species abundance as a filtering criterion. All species that have a relative abundance of at least 1e-03 in at least one of the samples will be kept, the rest is filtered out.
+<div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">filter.features</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">,</span> <span class="n">filter.method</span> <span class="o">=</span> <span class="s">&#39;abundance&#39;</span><span class="p">,</span> <span class="n">cutoff</span> <span class="o">=</span> <span class="m">1e-03</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Additionally we can filter based on the prevalence:
+<div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">filter.features</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">,</span> <span class="n">filter.method</span> <span class="o">=</span> <span class="s">&#39;prevalence&#39;</span><span class="p">,</span> 
+                          <span class="n">cutoff</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span> <span class="n">feature.type</span> <span class="o">=</span> <span class="s">&#39;filtered&#39;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>And we can have a look at the object:
+<div class="highlight"><pre><span></span><code><span class="n">sc.obj</span>
+</code></pre></div>
+Result:
+<div class="highlight"><pre><span></span><code><span class="n">siamcat</span><span class="o">-</span><span class="n">class</span> <span class="n">object</span>
+<span class="nf">label</span><span class="p">()</span>                <span class="n">Label</span> <span class="n">object</span><span class="o">:</span>         <span class="m">60</span> <span class="n">CTR</span> <span class="n">and</span> <span class="m">46</span> <span class="n">CRC</span> <span class="n">samples</span>
+<span class="nf">filt_feat</span><span class="p">()</span>            <span class="n">Filtered</span> <span class="n">features</span><span class="o">:</span>    <span class="m">1167</span> <span class="n">features</span> <span class="n">after</span> <span class="n">abundance</span><span class="p">,</span> <span class="n">prevalence</span> <span class="n">filtering</span>
+
+<span class="n">contains</span> <span class="n">phyloseq</span><span class="o">-</span><span class="n">class</span> <span class="n">experiment</span><span class="o">-</span><span class="n">level</span> <span class="n">object</span> <span class="o">@</span><span class="n">phyloseq</span><span class="o">:</span>
+<span class="n">phyloseq</span><span class="o">@</span><span class="nf">otu_table</span><span class="p">()</span>   <span class="n">OTU</span> <span class="n">Table</span><span class="o">:</span>            <span class="p">[</span> <span class="m">33571</span> <span class="n">taxa</span> <span class="n">and</span> <span class="m">106</span> <span class="n">samples</span> <span class="p">]</span>
+<span class="n">phyloseq</span><span class="o">@</span><span class="nf">sam_data</span><span class="p">()</span>    <span class="n">Sample</span> <span class="n">Data</span><span class="o">:</span>          <span class="p">[</span> <span class="m">106</span> <span class="n">samples</span> <span class="n">by</span> <span class="m">12</span> <span class="n">sample</span> <span class="n">variables</span> <span class="p">]</span>
+</code></pre></div></p>
+<p>We go from 33,571 taxa to 1,167 after abundance and prevalence filtering.</p>
+<p>Now, we can test the filtered feature for differential abundance with SIAMCAT:
+<div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">check.associations</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">,</span> <span class="n">detect.lim</span> <span class="o">=</span> <span class="m">1e-05</span><span class="p">)</span>
+</code></pre></div></p>
+<p><img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_association_testing_1.png"></p>
+<p></details> </p>
+</li>
+</ul>
+<h2 id="build-machine-learning-models-to-predict-colorectal-cancer-patients-from-a-metagenomic-sample">Build machine learning models to predict colorectal cancer patients from a metagenomic sample</h2>
+<ul>
+<li>
+<p>Explore the SIAMCAT basic vignette to understand how you can train machine learning models to predict colerectal cancer from metagenomic samples.</p>
+<p>The SIAMCAT machine learning workflow consists of several steps:</p>
+<p><details>
+<summary markdown="span">Normalization</summary>
+SIAMCAT offers a few normalization approaches that can be useful for subsequent statistical modeling in the sense that they transform features in a way that can increase the accuracy of the resulting models. Importantly, these normalization techniques do not make use of any label information (patient status), and can thus be applied up front to the whole data set (and outside of the following cross validation).</p>
+<div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">normalize.features</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">,</span> <span class="n">norm.method</span> <span class="o">=</span> <span class="s">&#39;log.std&#39;</span><span class="p">,</span>
+                             <span class="n">norm.param</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">log.n0</span><span class="o">=</span><span class="m">1e-05</span><span class="p">,</span> <span class="n">sd.min.q</span><span class="o">=</span><span class="m">0</span><span class="p">))</span>
+<span class="c1"># Features normalized successfully.</span>
+<span class="n">sc.obj</span>
+<span class="c1"># siamcat-class object</span>
+<span class="c1"># label()                Label object:         60 CTR and 46 CRC samples</span>
+<span class="c1"># filt_feat()            Filtered features:    1167 features after abundance, prevalence filtering</span>
+<span class="c1"># associations()         Associations:         Results from association testing</span>
+<span class="c1">#                                              with 12 significant features at alpha 0.05</span>
+<span class="c1"># norm_feat()            Normalized features:  1167 features normalized using log.std</span>
+<span class="c1"># </span>
+<span class="c1"># contains phyloseq-class experiment-level object @phyloseq:</span>
+<span class="c1"># phyloseq@otu_table()   OTU Table:            [ 33571 taxa and 106 samples ]</span>
+<span class="c1"># phyloseq@sam_data()    Sample Data:          [ 106 samples by 12 sample variables ]</span>
+</code></pre></div>
+<p></details> </p>
+<p><details>
+<summary markdown="span">Cross Validation Split</summary>
+Cross validation is a technique to assess how well an ML model would generalize 
+to external data by partionining the dataset into training and test sets.
+Here, we split the dataset into 10 parts and then train a model on 9 of these
+parts and use the left-out part to test the model. The whole process is 
+repeated 10 times.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">create.data.split</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">,</span> <span class="n">num.folds</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">num.resample</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+<span class="c1"># Features splitted for cross-validation successfully.</span>
+</code></pre></div>
+</details> </p>
+<p></details> </p>
+<p><details>
+<summary markdown="span">Model Training</summary></p>
+<p>Now, we can train a <a href="https://www.jstor.org/stable/2346178">LASSO logistic regression classifier</a> in order to distinguish CRC cases and controls.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">train.model</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;lasso&#39;</span><span class="p">)</span>
+<span class="c1"># Trained lasso models successfully.</span>
+</code></pre></div>
+</details>  </p>
+<p></details> </p>
+<p><details>
+<summary markdown="span">Predictions</summary>
+This function will automatically apply the models trained in cross validation to their respective test sets and aggregate the predictions across the whole data set.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">make.predictions</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">)</span>
+<span class="c1"># Made predictions successfully.</span>
+</code></pre></div>
+</details> </p>
+<p></details> </p>
+<p><details>
+<summary markdown="span">Model Evaluation</summary>
+Calling the <code>evaluate.predictions</code> function will result in an assessment of precision and recall as well as in ROC analysis, both of which can be plotted:</p>
+<div class="highlight"><pre><span></span><code><span class="n">sc.obj</span> <span class="o">&lt;-</span> <span class="nf">evaluate.predictions</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">)</span>
+<span class="c1"># Evaluated predictions successfully.</span>
+<span class="nf">model.evaluation.plot</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">)</span>
+</code></pre></div>
+<p>ROC:</p>
+<p><img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_auc.png" width="500"></p>
+<p>Precision-recall:</p>
+<p><img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_prec_rec.png" width="500"></p>
+<p></details> </p>
+<p><details>
+<summary markdown="span">Model Interpretation</summary></p>
+<p>Finally, the <code>model.interpretation.plot</code> function will plot characteristics of the models (i.e. model coefficients or feature importance) alongside the input data aiding in understanding how / why the model works (or not).</p>
+<div class="highlight"><pre><span></span><code><span class="nf">model.interpretation.plot</span><span class="p">(</span><span class="n">sc.obj</span><span class="p">,</span> <span class="n">consens.thres</span> <span class="o">=</span> <span class="m">0.7</span><span class="p">)</span>
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_ML_interpretation.png"></p>
+<p></details> </p>
+</li>
+</ul>
+<h2 id="prediction-on-external-data">Prediction on External Data</h2>
+<ul>
+<li>
+<p>Apply the trained model (from <code>study1_species.motus</code>) on this new dataset and check the model performance  on the external dataset. (<strong>Tip</strong>: Check out the help for the <code>make.prediction</code> function in <code>SIAMCAT</code>)</p>
+<p>There are few steps:                 </p>
+<p><details>
+<summary markdown="span">Load the data</summary></p>
+<p>We load the data</p>
+<div class="highlight"><pre><span></span><code><span class="nf">load</span><span class="p">(</span><span class="nf">url</span><span class="p">(</span><span class="s">&quot;https://zenodo.org/record/6524317/files/motus_profiles_study2.Rdata&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>And we create relative abundances:</p>
+<div class="highlight"><pre><span></span><code><span class="n">rel_ab2</span> <span class="o">=</span> <span class="nf">prop.table</span><span class="p">(</span><span class="n">motus_study2</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p><details>
+<summary markdown="span">Make predictions</summary></p>
+<p>We can now load the second dataset into a SIAMCAT object:
+<div class="highlight"><pre><span></span><code><span class="n">test.obj</span> <span class="o">=</span> <span class="nf">siamcat</span><span class="p">(</span><span class="n">feat</span><span class="o">=</span><span class="n">rel_ab2</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta_study2</span><span class="p">,</span>
+                   <span class="n">label</span><span class="o">=</span><span class="s">&#39;Group&#39;</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="s">&#39;CRC&#39;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Now we can use the model that we built before (in <code>sc.obj</code>) and we can apply it to the <code>test.obj</code> holdout dataset. First, we will make the predictions on the based on the old dataset:</p>
+<div class="highlight"><pre><span></span><code><span class="n">test.obj</span> <span class="o">&lt;-</span> <span class="nf">make.predictions</span><span class="p">(</span>
+<span class="n">siamcat</span> <span class="o">=</span> <span class="n">sc.obj</span><span class="p">,</span>
+<span class="n">siamcat.holdout</span> <span class="o">=</span> <span class="n">test.obj</span><span class="p">)</span>
+<span class="c1"># note that the features are normalized with the same parameters for the old dataset</span>
+
+<span class="c1"># evaluate the prediction</span>
+<span class="n">test.obj</span> <span class="o">&lt;-</span> <span class="nf">evaluate.predictions</span><span class="p">(</span><span class="n">test.obj</span><span class="p">)</span>
+</code></pre></div>
+<p>Now, we can compare the performance of the classifier on the original and the holdout dataset by using the model.evaluation.plot function. Here, we can supply several SIAMCAT objects for which the model evaluation will be plotted in the same plot. Note that we can supply the objects as named objects in order to print the names in the legend.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">model.evaluation.plot</span><span class="p">(</span><span class="s">&#39;Original&#39;</span> <span class="o">=</span> <span class="n">sc.obj</span><span class="p">,</span>
+                      <span class="s">&#39;Test&#39;</span> <span class="o">=</span> <span class="n">test.obj</span> <span class="p">,</span>
+                       <span class="n">colours</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;dimgrey&#39;</span><span class="p">,</span> <span class="s">&#39;orange&#39;</span><span class="p">))</span>
+</code></pre></div>
+<p><img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_ROC_project2.png" width="500"></p>
+<p><img src="https://raw.githubusercontent.com/sib-swiss/spring_school_bioinformatics_microbiology/master/docs/assets/images/Project3/step_2_prec_recall_project2.png" width="500"></p>
+<p></details> </p>
+</li>
+</ul>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Step-2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Step 2" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Step 2
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../project4/" class="md-footer__link md-footer__link--next" aria-label="Next: Description" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Description
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
